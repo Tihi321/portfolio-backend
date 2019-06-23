@@ -1,11 +1,11 @@
 $projects-colors: (
   text-color: $base-white-color,
+  default-btn-bg: $base-light-blue-color,
 );
 
 .projects {
   &__item {
     padding: 0 10px 20px;
-    overflow: hidden;
     border: 1px solid;
     border-radius: 10px;
   }
@@ -18,6 +18,7 @@ $projects-colors: (
     color: map-get($projects-colors, 'text-color');
     padding: 10px;
     margin: 0 -10px 20px;
+    border-radius: 10px 10px 0 0;
   }
 
   &__footer {
@@ -40,6 +41,7 @@ $projects-colors: (
     cursor: pointer;
     border: none;
     color: map-get($projects-colors, 'text-color');
+    background-color: map-get($projects-colors, 'default-btn-bg');
     text-align: center;
     font-weight: bold;
     padding: 4px 8px;

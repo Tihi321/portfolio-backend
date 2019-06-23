@@ -132,7 +132,7 @@ const ProjectInput = (props) => {
           className="projects__color-btn"
           onClick={handleToggleColorPicker}
         >
-          {color}
+          {(!color) ? __('Pick a color', 'portfolio-backend') : color}
         </button>
         {(showPicker.action && showPicker.id === id) && <SketchPicker
           color={color}

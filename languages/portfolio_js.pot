@@ -39,6 +39,10 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
+#: skin/assets/apps/dashboard/sections/ProjectsInput.js:135
+msgid "Pick a color"
+msgstr ""
+
 #: skin/assets/apps/dashboard/sections/ProjectsInput.js:202
 msgid "Remove"
 msgstr ""
