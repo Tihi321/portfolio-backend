@@ -1,0 +1,206 @@
+%block-element-default {
+  font-family: $base-font-family;
+}
+
+%font-icon {
+  // use !important to prevent issues with browser extensions that change fonts
+  font-family: $base-icons-font-family !important; /* stylelint-disable-line declaration-no-important */
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  @include font-smoothing();
+}
+
+%button-reset {
+  padding: 0;
+  border: 0;
+  appearance: none;
+  font-family: inherit;
+  border-radius: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+%heading-reset {
+  margin: 0;
+  padding: 10px 0;
+
+  &::before {
+    display: none;
+  }
+}
+
+%paragraph-reset {
+  padding: 10px 0;
+  margin: 0;
+}
+
+%text-heading-1 {
+  @include text-size(big);
+  font-family: $base-font-family-header;
+  font-weight: bold;
+  line-height: 1.03;
+  letter-spacing: -1.5px;
+
+  @include media(tablet up) {
+    line-height: 1;
+  }
+}
+
+%text-heading-2 {
+  @include text-size(larger);
+  font-family: $base-font-family-header;
+  font-weight: bold;
+  line-height: 1.03;
+  letter-spacing: -2px;
+}
+
+%text-heading-3 {
+  @include text-size(large);
+  font-family: $base-font-family-header;
+  font-weight: bold;
+  line-height: 1.13;
+  letter-spacing: -1.5px;
+}
+
+%text-heading-4 {
+  @include text-size(large);
+  font-family: $base-font-family-header;
+  font-weight: bold;
+  line-height: 1.19;
+  letter-spacing: -1px;
+
+  @include media(tablet up) {
+    line-height: 1.25;
+    letter-spacing: -0.8px;
+  }
+}
+
+
+%text-body {
+  @include text-size(large);
+  font-family: $base-font-family;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+
+%block-element-flex {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  @include media(tablet up) {
+    flex-direction: row;
+  }
+}
+
+%input-element-style {
+  margin: $input-element-margin;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}
+
+%input-body-hover {
+  .mce-content-body {
+    border: 1px solid $base-light-grey-color;
+    transition: box-shadow 0.3s ease;
+  }
+
+  &.active .mce-content-body {
+    box-shadow: $input-box-shadow;
+  }
+
+  &.inactive .mce-content-body {
+    box-shadow: $input-box-shadow-hover;
+  }
+}
+
+%input-body-default {
+  .mce-content-body {
+    padding: $input-base-padding;
+  }
+}
+
+%centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%question-top-title {
+  @include text-size(small);
+  text-align: center;
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+}
+
+%explanation-header {
+  margin: 30px 0 10px;
+  overflow: hidden;
+  border-top: 1px dashed;
+}
+
+%blur-bg {
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  left: -10px;
+  bottom: -10px;
+  opacity: 0.9;
+  filter: blur(8px);
+}
+
+%title-helper-message {
+  @include text-size(tiny);
+  display: block;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.2;
+  text-transform: lowercase;
+}
+
+%trait-message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: $zindex-trait-messagge;
+  display: flex;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: ease 300ms transform 200ms;
+
+  &.is-shown {
+    transform: translateY(0);
+  }
+
+  &.is-error {
+    background-color: $base-punch-color;
+  }
+
+  &.is-success {
+    background-color: $base-primary-blue;
+  }
+
+  .trait-text {
+    display: block;
+    margin: 16px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: $base-white-color;
+  }
+}

@@ -1,0 +1,32 @@
+/**
+ * #.# Plugin SCSS
+ *
+ * Loads in all admin area, not just editor
+*/
+/* stylelint-disable */
+// Vendors - node modules
+@import 'media-blender';
+
+// Utils
+@import 'utils/colors';
+@import 'utils/shared-variables';
+@import 'utils/z-indexes';
+@import 'utils/functions';
+@import 'utils/mixins';
+@import 'utils/placeholders';
+
+// Config
+@import 'admin-core';
+@import 'editor-core';
+
+// Componenets
+@import '../components/buttons/toggle-switch/style';
+@import '../components/buttons/dashboard-button/style';
+@import '../components/ui/input-row/style';
+@import '../components/ui/row-container/style';
+
+// Pages
+@import './admin/pages/dashboard/dashboard';
+@import './admin/pages/dashboard/menu';
+@import './admin/pages/dashboard/options';
+@import './admin/pages/dashboard/projects';

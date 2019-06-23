@@ -1,0 +1,78 @@
+# Copyright (C) 2019 PortfolioBackend
+# This file is distributed under the same license as the PortfolioBackend package.
+msgid ""
+msgstr ""
+"Project-Id-Version: PortfolioBackend\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/class-main.php:100
+msgid "manifest.json is missing. Bundle the theme before using it."
+msgstr ""
+
+#: ../src/admin/class-menu-page.php:59, ../src/admin/class-menu-page.php:60
+msgid "Quizess"
+msgstr ""
+
+#: ../src/admin/class-menu-page.php:81, ../src/admin/class-menu-page.php:82
+msgid "Dashboard"
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:34
+msgid "The request body is empty."
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:39
+msgid "The request header is empty."
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:44
+msgid "Scores not submitted."
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:49
+msgid "User is not authenticated."
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:54
+msgid "User is not registered player."
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:59
+msgid "Uer submit limit reached."
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:64
+msgid "Custom styles not enabled"
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:69
+msgid "Menu is not selected"
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:74
+msgid "Menu has no items"
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:79
+msgid "No quiz found"
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:84
+msgid "No blocks found"
+msgstr ""
+
+#: ../src/helpers/trait-error-logger.php:89
+msgid "Not all quiz values present"
+msgstr ""
+
+#: ../src/rest/rest-callbacks/class-patch-general-options.php:81
+msgid "Options posted with success"
+msgstr ""

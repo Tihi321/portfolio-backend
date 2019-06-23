@@ -1,0 +1,47 @@
+$dashboard-colors: (
+  title-color: $base-primary-blue,
+  options-bg: $base-white-color,
+);
+
+.dashboard {
+  &__options {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    background-color: map-get($dashboard-colors, 'options-bg');
+
+    &-inner {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+  }
+
+  &__page {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(map-get($dashboard-colors, 'title-color'), 0.1);
+  }
+
+  &__message {
+    @extend %trait-message;
+  }
+
+  &__app {
+    margin-left: -20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0 0 20px;
+    color: map-get($dashboard-colors, 'title-color');
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+}

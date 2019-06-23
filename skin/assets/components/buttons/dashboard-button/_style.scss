@@ -1,0 +1,44 @@
+$dashboard-button: (
+  text-color: $base-white-color,
+  primary-bg: $base-primary-blue,
+  hover-primary-bg: lighten($base-primary-blue, 10%),
+  warning-bg: $base-punch-color,
+  hover-warning-bg: lighten($base-punch-color, 10%),
+);
+
+.dashboard {
+  &__button {
+    @include text-size(default);
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    color: map-get($dashboard-button, 'text-color');
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+
+    &--small {
+      padding: 4px 8px;
+    }
+
+    &--big {
+      padding: 10px;
+    }
+
+    &--primary {
+      background: map-get($dashboard-button, 'primary-bg');
+
+      &:hover {
+        background: map-get($dashboard-button, 'hover-primary-bg');
+      }
+    }
+
+    &--warning {
+      background: map-get($dashboard-button, 'warning-bg');
+
+      &:hover {
+        background: map-get($dashboard-button, 'hover-warning-bg');
+      }
+    }
+  }
+}

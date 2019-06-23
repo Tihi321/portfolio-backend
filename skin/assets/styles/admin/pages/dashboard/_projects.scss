@@ -1,0 +1,48 @@
+$projects-colors: (
+  text-color: $base-white-color,
+);
+
+.projects {
+  &__item {
+    padding: 0 10px 20px;
+    overflow: hidden;
+    border: 1px solid;
+    border-radius: 10px;
+  }
+
+  &__title {
+    @include text-size(default);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: map-get($projects-colors, 'text-color');
+    padding: 10px;
+    margin: 0 -10px 20px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+
+    &-btn {
+      margin: 0 10px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__color-btn {
+    @include text-size(default);
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    color: map-get($projects-colors, 'text-color');
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 8px;
+  }
+
+}

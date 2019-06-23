@@ -1,0 +1,39 @@
+//Base
+$base-font-family: 'Graphik', Arial, sans-serif;
+$base-font-family-header: $base-font-family;
+$base-icons-font-family: 'quizess';
+$input-element-margin: 0;
+$input-base-padding: 8px;
+
+$block-box-shadow-hover: inset 0 0 10px -5px $base-black-color;
+$input-box-shadow: 0 6px 9px -8px $base-black-color;
+$input-box-shadow-hover: 0 4px 8px -8px $base-black-color;
+
+$cubic-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+//Typography
+$typography-map: (
+  mobile: (
+    big:            32px,
+    larger:         24px,
+    large:          16px,
+    default:        16px,
+    medium:         14px,
+    small:          14px,
+    tiny:           11px
+  ),
+  tablet: (
+    big:            48px,
+    larger:         26px,
+    large:          22px,
+    default:        18px,
+    medium:         16px,
+    small:          14px,
+    tiny:           11px
+  )
+);
+
+//WP admin bar
+$wpAdminBar-sm: 782px;
+$wp-admin-bar-mobile: 46px;
+$wp-admin-bar-desktop: 32px;
