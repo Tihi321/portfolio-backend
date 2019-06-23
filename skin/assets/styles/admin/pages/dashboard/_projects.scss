@@ -1,6 +1,6 @@
 $projects-colors: (
   text-color: $base-white-color,
-  default-btn-bg: $base-light-blue-color,
+  default-bg: $base-light-blue-color,
 );
 
 .projects {
@@ -16,6 +16,7 @@ $projects-colors: (
     text-align: center;
     font-weight: bold;
     color: map-get($projects-colors, 'text-color');
+    background-color: map-get($projects-colors, 'default-bg');
     padding: 10px;
     margin: 0 -10px 20px;
     border-radius: 10px 10px 0 0;
@@ -41,7 +42,7 @@ $projects-colors: (
     cursor: pointer;
     border: none;
     color: map-get($projects-colors, 'text-color');
-    background-color: map-get($projects-colors, 'default-btn-bg');
+    background-color: map-get($projects-colors, 'default-bg');
     text-align: center;
     font-weight: bold;
     padding: 4px 8px;
