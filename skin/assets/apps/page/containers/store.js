@@ -1,10 +1,12 @@
 /* global portfolioDashboard */
 import React, {PureComponent} from 'react';
 import generalHelpers from '../../../helpers/general-helper';
+import socialStore from '../stores/social-store';
+import menuItemsStore from '../stores/menu-items-store';
 
 import Topbar from '../sections';
 
-class PageStore extends PureComponent {
+class Store extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -20,6 +22,15 @@ class PageStore extends PureComponent {
         title: '',
       },
       pageActive: 'options',
+      showMenuItemPicker: {
+        action: false,
+        id: -1,
+      },
+      menuItems: [{
+        title: '',
+        color: '',
+        link: '',
+      }],
       github: '',
       linkedin: '',
       youtube: '',
@@ -40,8 +51,16 @@ class PageStore extends PureComponent {
         youtube,
         googlePlay,
         contactMail,
+        menuItems,
       },
     } = data;
+
+    const menuItemssArr = (menuItems) ? JSON.parse(menuItems) : [{
+      title: '',
+      path: '',
+      color: '',
+      link: '',
+    }];
 
     return {
       generalOptions: {
@@ -50,6 +69,7 @@ class PageStore extends PureComponent {
         youtube,
         googlePlay,
         contactMail,
+        menuItems: menuItemssArr,
         logo: JSON.parse(logo),
       },
     };
@@ -77,6 +97,7 @@ class PageStore extends PureComponent {
             youtube,
             googlePlay,
             contactMail,
+            menuItems,
             logo,
           },
         } = data;
@@ -89,6 +110,7 @@ class PageStore extends PureComponent {
             youtube,
             googlePlay,
             contactMail,
+            menuItems,
             logo,
           };
         });
@@ -110,6 +132,7 @@ class PageStore extends PureComponent {
         googlePlay,
         contactMail,
         logo,
+        menuItems,
       } = this.state;
 
       const bodyData = JSON.stringify({
@@ -119,6 +142,7 @@ class PageStore extends PureComponent {
         googlePlay,
         contactMail,
         logo,
+        menuItems,
       });
 
 
@@ -160,6 +184,28 @@ class PageStore extends PureComponent {
 
   // data Store
   dataStore = {
+    handleOnSelectPageLogo: (image) => {
+      this.setState(() => {
+        return {
+          logo: {
+            id: image.id,
+            url: image.url,
+            title: image.title,
+          },
+        };
+      });
+    },
+    handleOnRemovePageLogo: () => {
+      this.setState(() => {
+        return {
+          logo: {
+            id: -1,
+            url: '',
+            title: '',
+          },
+        };
+      });
+    },
     handleActivePage: (event) => {
       const {
         page,
@@ -172,28 +218,6 @@ class PageStore extends PureComponent {
     },
     handleOnSave: () => {
       this.saveOptions();
-    },
-    handleOnSelectMedia: (image) => {
-      this.setState(() => {
-        return {
-          logo: {
-            id: image.id,
-            url: image.url,
-            title: image.title,
-          },
-        };
-      });
-    },
-    handleOnRemoveMedia: () => {
-      this.setState(() => {
-        return {
-          logo: {
-            id: -1,
-            url: '',
-            title: '',
-          },
-        };
-      });
     },
     handleGithubChange: (text) => {
       this.setState(() => {
@@ -230,7 +254,89 @@ class PageStore extends PureComponent {
         };
       });
     },
+    handleMenuItemsOnChange: (pid, newValue, type) => {
+      const newMenuItems = this.state.menuItems.map((value, id) => {
+        if (pid !== id) {
+          return value;
+        }
 
+        switch (type) {
+          case 'color':
+            return {
+              ...value,
+              color: newValue,
+            };
+          case 'link':
+            return {
+              ...value,
+              link: newValue,
+            };
+          default:
+            return {
+              ...value,
+              title: newValue,
+            };
+        }
+      });
+
+      this.setState(() => {
+        return {
+          menuItems: newMenuItems,
+        };
+      });
+    },
+    handleRemoveMenuItem: (pid) => {
+      this.setState(() => {
+        return {
+          menuItems: this.state.menuItems.filter((value, id) => pid !== id),
+        };
+      });
+    },
+    handleMenuItemUp: (pid) => {
+      const newMenuItemsArr = generalHelpers.swapObjects(this.state.menuItems, pid, pid - 1);
+
+      this.setState(() => {
+        return {
+          menuItems: newMenuItemsArr,
+        };
+      });
+    },
+    handleMenuItemDown: (pid) => {
+      const newMenuItemssArr = generalHelpers.swapObjects(this.state.menuItems, pid, pid + 1);
+
+      this.setState(() => {
+        return {
+          menuItems: newMenuItemssArr,
+        };
+      });
+    },
+    handleAddMenuItem: () => {
+      const newMenuItemssArr = [...this.state.menuItems];
+
+      this.setState(() => {
+        return {
+          menuItems: newMenuItemssArr.concat([{
+            title: '',
+            color: '',
+            link: '',
+          }]),
+        };
+      });
+    },
+    handleToggleMenuItemPicker: (e) => {
+      const {
+        id,
+      } = e.currentTarget.dataset;
+
+      this.setState(() => {
+        return {
+          showMenuItemPicker: {
+            action: !this.state.showMenuItemPicker.action,
+            id: parseInt(id, 10),
+          },
+        };
+      });
+    },
   };
 
   componentDidMount() {
@@ -248,4 +354,4 @@ class PageStore extends PureComponent {
 
 }
 
-export default PageStore;
+export default Store;

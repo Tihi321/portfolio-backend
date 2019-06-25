@@ -25,8 +25,8 @@ const GeneralOptions = (props) => {
       contactMail,
     },
     dataStore: {
-      handleOnSelectMedia,
-      handleOnRemoveMedia,
+      handleOnSelectPageLogo,
+      handleOnRemovePageLogo,
       handleGithubChange,
       handleLinkedinChange,
       handleYoutubeChange,
@@ -53,8 +53,8 @@ const GeneralOptions = (props) => {
           tagName="div"
           mediaId={id}
           mediaUrl={url}
-          onSelectMedia={handleOnSelectMedia}
-          onRemoveMedia={handleOnRemoveMedia}
+          onSelectMedia={handleOnSelectPageLogo}
+          onRemoveMedia={handleOnRemovePageLogo}
         />
       </div>
     </InputRow>

@@ -35,6 +35,7 @@ class Get_Portfolio_Page extends Config implements Rest_Callback {
 
     // get all general options.
     $logo          = get_option( self::PAGE_LOGO );
+    $menu_items    = get_option( self::ADDITIONAL_MENU_ITEMS );
     $github        = get_option( self::GITHUB_LINK );
     $linkedin      = get_option( self::LINKEDIN_LINK );
     $youtube       = get_option( self::YOUTUBE_LINK );
@@ -45,6 +46,7 @@ class Get_Portfolio_Page extends Config implements Rest_Callback {
     [
         'generalOptions' => [
             'logo'           => $logo,
+            'menuItems'      => $menu_items,
             'github'         => $github,
             'linkedin'       => $linkedin,
             'youtube'        => $youtube,

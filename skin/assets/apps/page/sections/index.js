@@ -3,6 +3,7 @@ import {__} from '@wordpress/i18n';
 import {Spinner} from '@wordpress/components';
 import Menu from './Menu';
 import GeneralOptions from './general-options';
+import ProjectsOptions from './projects-options';
 import {ButtonRowElement} from '../components';
 
 const Topbar = (props) => {
@@ -22,10 +23,16 @@ const Topbar = (props) => {
     switch (pageActive) {
       case 'options':
         return (
-          <GeneralOptions
-            attributes={attributes}
-            dataStore={dataStore}
-          />
+          <Fragment>
+            <GeneralOptions
+              attributes={attributes}
+              dataStore={dataStore}
+            />
+            <ProjectsOptions
+              attributes={attributes}
+              dataStore={dataStore}
+            />
+          </Fragment>
         );
 
       default:

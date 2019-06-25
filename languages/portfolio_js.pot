@@ -45,8 +45,6 @@ msgid "Contact mail"
 msgstr ""
 
 #: skin/assets/apps/page/sections/general-options.js:43
-#: skin/assets/apps/page/sections/general-options.js:35
-#: skin/assets/apps/page/sections/general-options.js:53
 #: skin/assets/apps/topbar/sections/general-options.js:53
 msgid "Logo"
 msgstr ""
@@ -63,88 +61,75 @@ msgstr ""
 msgid "Youtube"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:39
+#: skin/assets/apps/page/sections/index.js:46
 msgid "Potfolio Page"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:52
-#: skin/assets/apps/page/sections/index.js:53
-#: skin/assets/apps/page/sections/index.js:60
+#: skin/assets/apps/page/sections/index.js:59
 #: skin/assets/apps/topbar/sections/index.js:60
 msgid "Save"
 msgstr ""
 
-#: skin/assets/apps/page/sections/project-input.js:123
-#: skin/assets/apps/topbar/sections/project-input.js:123
-msgid "Color"
-msgstr ""
-
-#: skin/assets/apps/page/sections/project-input.js:135
+#: skin/assets/apps/page/sections/project-input.js:107
 #: skin/assets/apps/topbar/sections/project-input.js:135
 msgid "Pick a color"
 msgstr ""
 
-#: skin/assets/apps/page/sections/project-input.js:202
+#: skin/assets/apps/page/sections/project-input.js:173
 #: skin/assets/apps/topbar/sections/project-input.js:202
 msgid "Remove"
 msgstr ""
 
-#: skin/assets/apps/page/sections/project-input.js:40
+#: skin/assets/apps/page/sections/project-input.js:39
 #: skin/assets/apps/topbar/sections/project-input.js:40
 msgid "Title"
 msgstr ""
 
-#: skin/assets/apps/page/sections/project-input.js:67
-#: skin/assets/apps/topbar/sections/project-input.js:67
-msgid "Path"
-msgstr ""
-
-#: skin/assets/apps/page/sections/project-input.js:94
+#: skin/assets/apps/page/sections/project-input.js:66
 #: skin/assets/apps/topbar/sections/project-input.js:94
 msgid "Link"
 msgstr ""
 
-#: skin/assets/apps/page/sections/projects-options.js:44
+#: skin/assets/apps/page/sections/project-input.js:95
+#: skin/assets/apps/topbar/sections/project-input.js:123
+msgid "Color"
+msgstr ""
+
+#: skin/assets/apps/page/sections/projects-options.js:43
 #: skin/assets/apps/topbar/sections/projects-options.js:44
 msgid "Add new project"
 msgstr ""
 
-#: skin/assets/apps/page/sections/Menu.js:28
 #: skin/assets/apps/topbar/sections/Menu.js:28
 msgid "Projects"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:40
 #: skin/assets/apps/topbar/sections/general-options.js:40
 msgid "Show message"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:43
 #: skin/assets/apps/topbar/sections/general-options.js:43
 msgid "Show message on the topbar"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:44
-#: skin/assets/apps/page/sections/general-options.js:36
-#: skin/assets/apps/page/sections/general-options.js:54
 #: skin/assets/apps/topbar/sections/general-options.js:54
 msgid "Logo shown on top right of the topbar"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:61
-#: skin/assets/apps/page/sections/general-options.js:79
 #: skin/assets/apps/topbar/sections/general-options.js:79
 msgid "Message"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:62
-#: skin/assets/apps/page/sections/general-options.js:80
 #: skin/assets/apps/topbar/sections/general-options.js:80
 msgid "Message shown on the topbar"
 msgstr ""
 
 #: skin/assets/apps/topbar/sections/index.js:47
 msgid "Topbar"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/project-input.js:67
+msgid "Path"
 msgstr ""
 
 #: skin/assets/components/buttons/toggle-switch/index.js:7

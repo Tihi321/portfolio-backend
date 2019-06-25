@@ -1,5 +1,5 @@
 import {render} from 'react-dom';
-import PageStore from './containers/page-store';
+import Store from './containers/store';
 
 export default class Page {
   constructor(
@@ -15,7 +15,7 @@ export default class Page {
 
   init() {
     render(
-      <PageStore
+      <Store
         messageElementSelector={this.messageElementSelector}
         messageTextSelector={this.messageTextSelector}
       />,
