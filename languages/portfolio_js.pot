@@ -3,72 +3,72 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: skin/assets/apps/dashboard/sections/GeneralOptions.js:40
-msgid "Show message"
-msgstr ""
-
-#: skin/assets/apps/dashboard/sections/GeneralOptions.js:43
-msgid "Show message on the topbar"
-msgstr ""
-
-#: skin/assets/apps/dashboard/sections/GeneralOptions.js:53
-msgid "Logo"
-msgstr ""
-
-#: skin/assets/apps/dashboard/sections/GeneralOptions.js:54
-msgid "Logo shown on top right of the topbar"
-msgstr ""
-
-#: skin/assets/apps/dashboard/sections/GeneralOptions.js:79
-msgid "Message"
-msgstr ""
-
-#: skin/assets/apps/dashboard/sections/GeneralOptions.js:80
-msgid "Message shown on the topbar"
-msgstr ""
-
-#: skin/assets/apps/dashboard/sections/Menu.js:20
+#: skin/assets/apps/topbar/sections/Menu.js:20
 msgid "Options"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/Menu.js:28
+#: skin/assets/apps/topbar/sections/Menu.js:28
 msgid "Projects"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/ProjectsInput.js:123
-msgid "Color"
+#: skin/assets/apps/topbar/sections/general-options.js:40
+msgid "Show message"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/ProjectsInput.js:135
-msgid "Pick a color"
+#: skin/assets/apps/topbar/sections/general-options.js:43
+msgid "Show message on the topbar"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/ProjectsInput.js:202
-msgid "Remove"
+#: skin/assets/apps/topbar/sections/general-options.js:53
+msgid "Logo"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/ProjectsInput.js:40
-msgid "Title"
+#: skin/assets/apps/topbar/sections/general-options.js:54
+msgid "Logo shown on top right of the topbar"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/ProjectsInput.js:67
-msgid "Path"
+#: skin/assets/apps/topbar/sections/general-options.js:79
+msgid "Message"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/ProjectsInput.js:94
-msgid "Link"
+#: skin/assets/apps/topbar/sections/general-options.js:80
+msgid "Message shown on the topbar"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/ProjectsOptions.js:44
-msgid "Add new project"
-msgstr ""
-
-#: skin/assets/apps/dashboard/sections/index.js:47
+#: skin/assets/apps/topbar/sections/index.js:47
 msgid "Topbar"
 msgstr ""
 
-#: skin/assets/apps/dashboard/sections/index.js:60
+#: skin/assets/apps/topbar/sections/index.js:60
 msgid "Save"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/project-input.js:123
+msgid "Color"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/project-input.js:135
+msgid "Pick a color"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/project-input.js:202
+msgid "Remove"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/project-input.js:40
+msgid "Title"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/project-input.js:67
+msgid "Path"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/project-input.js:94
+msgid "Link"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/projects-options.js:44
+msgid "Add new project"
 msgstr ""
 
 #: skin/assets/components/buttons/toggle-switch/index.js:7

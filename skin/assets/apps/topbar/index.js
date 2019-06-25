@@ -1,13 +1,13 @@
 import {render} from 'react-dom';
-import DashbordStore from './containers/DashbordStore';
+import TopbarStore from './containers/topbar-store';
 
-export default class Dashboard {
+export default class Topbar {
   constructor(
-    appElement = '.js-topbar-dashboard',
-    messageElementSelector = '.js-topbar-dashboard-message',
-    messageTextSelector = '.js-topbar-dashboard-message-text',
+    appElement,
+    messageElementSelector = '.js-portfolio-topbar-message',
+    messageTextSelector = '.js-portfolio-topbar-message-text',
   ) {
-    this.appElement = document.querySelector(appElement);
+    this.appElement = appElement || document.querySelector('.js-portfolio-topbar');
     this.messageElementSelector = messageElementSelector;
     this.messageTextSelector = messageTextSelector;
 
@@ -15,7 +15,7 @@ export default class Dashboard {
 
   init() {
     render(
-      <DashbordStore
+      <TopbarStore
         messageElementSelector={this.messageElementSelector}
         messageTextSelector={this.messageTextSelector}
       />,

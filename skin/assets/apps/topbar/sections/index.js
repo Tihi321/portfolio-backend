@@ -2,11 +2,11 @@ import {Fragment} from 'react';
 import {__} from '@wordpress/i18n';
 import {Spinner} from '@wordpress/components';
 import Menu from './Menu';
-import GeneralOptions from './GeneralOptions';
-import ProjectsOptions from './ProjectsOptions';
+import GeneralOptions from './general-options';
+import ProjectsOptions from './projects-options';
 import {ButtonRowElement} from '../components';
 
-const Dashboard = (props) => {
+const Topbar = (props) => {
   const {
     attributes: {
       pageActive,
@@ -63,4 +63,4 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+export default Topbar;

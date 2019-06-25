@@ -2,9 +2,9 @@
 import React, {PureComponent} from 'react';
 import generalHelpers from '../../../helpers/general-helper';
 
-import Dashboard from '../sections';
+import Topbar from '../sections';
 
-class DashbordStore extends PureComponent {
+class TopbarStore extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -318,7 +318,7 @@ class DashbordStore extends PureComponent {
 
   render() {
     return (
-      <Dashboard
+      <Topbar
         attributes={this.state}
         dataStore={this.dataStore}
       />
@@ -327,4 +327,4 @@ class DashbordStore extends PureComponent {
 
 }
 
-export default DashbordStore;
+export default TopbarStore;

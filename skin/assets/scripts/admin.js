@@ -1,10 +1,10 @@
 /* global pluginOptions, wp */
 import generalHelper from '../helpers/general-helper';
-import Dashboard from '../apps/dashboard';
+import Topbar from '../apps/topbar';
 
 generalHelper.domReady(function() {
-  const dashboard = new Dashboard();
-  const topbarElement = document.querySelector('.js-topbar-dashboard');
+  const topbarElement = document.querySelector('.js-portfolio-topbar');
+  const topbar = new Topbar(topbarElement);
 
   /**
    * Text Domain: portfolio-backend
@@ -15,6 +15,6 @@ generalHelper.domReady(function() {
   // -------------------------------------------------------------
   // dahsboard
   if (topbarElement) {
-    dashboard.init();
+    topbar.init();
   }
 });

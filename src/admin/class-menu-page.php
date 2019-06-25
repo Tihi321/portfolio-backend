@@ -127,7 +127,7 @@ class Menu_Page extends Config implements Service {
    */
   public function topbar_callback() {
 
-    $dashboard_template = General_Helper::get_base_path() . 'views/dashboard.php';
+    $dashboard_template = General_Helper::get_base_path() . 'views/topbar.php';
     if ( ! empty( $dashboard_template ) ) {
       include $dashboard_template;
     }

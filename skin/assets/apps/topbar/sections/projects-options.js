@@ -1,5 +1,5 @@
 import {__} from '@wordpress/i18n';
-import ProjectsInput from './ProjectsInput';
+import ProjectsInput from './project-input';
 import {ButtonRowElement} from '../../../components';
 
 const ProjectsOptions = (props) => {
