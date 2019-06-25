@@ -1,6 +1,6 @@
 <?php
 /**
- * The class file that contains method for saving general plugin options
+ * The class file that contains method for saving dashboard data
  *
  * @since   1.0.0
  * @package PortfolioBackend\Rest\Rest_Callbacks
@@ -13,9 +13,9 @@ use PortfolioBackend\Helpers\Object_Helper;
 use PortfolioBackend\Helpers\General_Helper;
 
 /**
- * Class Patch_Portfolio_Options
+ * Class Patch_Portfolio_Topbar
  */
-class Patch_Portfolio_Options extends Config implements Rest_Callback {
+class Patch_Portfolio_Topbar extends Config implements Rest_Callback {
 
   /**
    * Use trait inside class.
@@ -26,7 +26,7 @@ class Patch_Portfolio_Options extends Config implements Rest_Callback {
    * Update portfolio general options data, updated through admin dashboard.
    *
    * This callback is triggered when a admin dashboard
-   * goes to the @link https://API-URL/wp-json/portfolio-backend/v1/save-portfolio-options
+   * goes to the @link https://API-URL/wp-json/portfolio-backend/v1/save-portfolio-topbar
    * endpoint.
    *
    * @api

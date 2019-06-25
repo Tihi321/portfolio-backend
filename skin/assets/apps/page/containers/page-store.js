@@ -4,7 +4,7 @@ import generalHelpers from '../../../helpers/general-helper';
 
 import Topbar from '../sections';
 
-class TopbarStore extends PureComponent {
+class PageStore extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -14,24 +14,17 @@ class TopbarStore extends PureComponent {
 
     this.state = {
       dataLoaded: false,
-      showPicker: {
-        action: false,
-        id: -1,
-      },
       logo: {
         id: -1,
         url: '',
         title: '',
       },
-      showMessage: false,
-      message: '',
       pageActive: 'options',
-      projects: [{
-        title: '',
-        path: '',
-        color: '',
-        link: '',
-      }],
+      github: '',
+      linkedin: '',
+      youtube: '',
+      googlePlay: '',
+      contactMail: '',
     };
 
   }
@@ -42,31 +35,22 @@ class TopbarStore extends PureComponent {
     const {
       generalOptions: {
         logo,
-        message,
-        showMessage,
-      },
-      projectsOptions: {
-        projects,
+        github,
+        linkedin,
+        youtube,
+        googlePlay,
+        contactMail,
       },
     } = data;
 
-    const showMessageValue = (showMessage === '1') || false;
-
-    const projectsArr = (projects) ? JSON.parse(projects) : [{
-      title: '',
-      path: '',
-      color: '',
-      link: '',
-    }];
-
     return {
       generalOptions: {
-        showMessage: showMessageValue,
-        message,
+        github,
+        linkedin,
+        youtube,
+        googlePlay,
+        contactMail,
         logo: JSON.parse(logo),
-      },
-      projectsOptions: {
-        projects: projectsArr,
       },
     };
   }
@@ -76,10 +60,10 @@ class TopbarStore extends PureComponent {
 
     const {
       root,
-      getTopbarOptionsApi,
+      getPageOptionsApi,
     } = portfolioDashboard;
 
-    fetch(root + getTopbarOptionsApi)
+    fetch(root + getPageOptionsApi)
       .then((response) => {
         return response.json();
       })
@@ -88,22 +72,24 @@ class TopbarStore extends PureComponent {
 
         const {
           generalOptions: {
-            showMessage,
-            message,
+            github,
+            linkedin,
+            youtube,
+            googlePlay,
+            contactMail,
             logo,
-          },
-          projectsOptions: {
-            projects,
           },
         } = data;
 
         this.setState(() => {
           return {
             dataLoaded: true,
-            showMessage,
-            message,
+            github,
+            linkedin,
+            youtube,
+            googlePlay,
+            contactMail,
             logo,
-            projects,
           };
         });
       });
@@ -112,27 +98,31 @@ class TopbarStore extends PureComponent {
     saveOptions = () => {
       const {
         root,
-        saveTopbarOptionsApi,
+        savePageOptionsApi,
         portfolioNonce,
         nonce,
       } = portfolioDashboard;
 
       const {
-        showMessage,
-        message,
+        github,
+        linkedin,
+        youtube,
+        googlePlay,
+        contactMail,
         logo,
-        projects,
       } = this.state;
 
       const bodyData = JSON.stringify({
-        showMessage,
-        message,
+        github,
+        linkedin,
+        youtube,
+        googlePlay,
+        contactMail,
         logo,
-        projects,
       });
 
 
-      fetch(`${root}${saveTopbarOptionsApi}`, {
+      fetch(`${root}${savePageOptionsApi}`, {
         method: 'PATCH',
         mode: 'same-origin',
         credentials: 'same-origin',
@@ -180,13 +170,6 @@ class TopbarStore extends PureComponent {
         };
       });
     },
-    handleShowMessage: (value) => {
-      this.setState(() => {
-        return {
-          showMessage: value,
-        };
-      });
-    },
     handleOnSave: () => {
       this.saveOptions();
     },
@@ -212,100 +195,38 @@ class TopbarStore extends PureComponent {
         };
       });
     },
-    handleMessgae: (text) => {
+    handleGithubChange: (text) => {
       this.setState(() => {
         return {
-          message: text,
+          github: text,
         };
       });
     },
-
-    handleProjectsOnChange: (pid, newValue, type) => {
-      const newProject = this.state.projects.map((value, id) => {
-        if (pid !== id) {
-          return value;
-        }
-
-        switch (type) {
-          case 'path':
-            return {
-              ...value,
-              path: newValue,
-            };
-          case 'color':
-            return {
-              ...value,
-              color: newValue,
-            };
-          case 'link':
-            return {
-              ...value,
-              link: newValue,
-            };
-          default:
-            return {
-              ...value,
-              title: newValue,
-            };
-        }
-      });
-
+    handleLinkedinChange: (text) => {
       this.setState(() => {
         return {
-          projects: newProject,
+          linkedin: text,
         };
       });
     },
-    handleRemoveProject: (pid) => {
+    handleYoutubeChange: (text) => {
       this.setState(() => {
         return {
-          projects: this.state.projects.filter((value, id) => pid !== id),
+          youtube: text,
         };
       });
     },
-    handleProjectUp: (pid) => {
-      const newProjectsArr = generalHelpers.swapObjects(this.state.projects, pid, pid - 1);
-
+    handleGooglePlayChange: (text) => {
       this.setState(() => {
         return {
-          projects: newProjectsArr,
+          googlePlay: text,
         };
       });
     },
-    handleProjectDown: (pid) => {
-      const newProjectsArr = generalHelpers.swapObjects(this.state.projects, pid, pid + 1);
-
+    handleContactMailChange: (text) => {
       this.setState(() => {
         return {
-          projects: newProjectsArr,
-        };
-      });
-    },
-    handleAddProject: () => {
-      const newProjectsArr = [...this.state.projects];
-
-      this.setState(() => {
-        return {
-          projects: newProjectsArr.concat([{
-            title: '',
-            path: '',
-            color: '',
-            link: '',
-          }]),
-        };
-      });
-    },
-    handleToggleColorPicker: (e) => {
-      const {
-        id,
-      } = e.currentTarget.dataset;
-
-      this.setState(() => {
-        return {
-          showPicker: {
-            action: !this.state.showPicker.action,
-            id: parseInt(id, 10),
-          },
+          contactMail: text,
         };
       });
     },
@@ -327,4 +248,4 @@ class TopbarStore extends PureComponent {
 
 }
 
-export default TopbarStore;
+export default PageStore;

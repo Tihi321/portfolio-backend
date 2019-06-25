@@ -1,6 +1,6 @@
 <?php
 /**
- * Dashboard template
+ * Topbar template
  *
  * @package PortfolioBackend\Views\Admin
  */

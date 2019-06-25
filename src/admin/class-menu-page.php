@@ -78,8 +78,6 @@ class Menu_Page extends Config implements Service {
    */
   public function register_submenu_pages() {
 
-    $parent_callback = [ $this, 'topbar_callback' ];
-
     $submenu_pages = array(
 
         // Topbar.
@@ -89,7 +87,7 @@ class Menu_Page extends Config implements Service {
             'menu_title'  => esc_html__( 'Topbar', 'portfolio-backend' ),
             'capability'  => self::USER_CAPABILITY,
             'menu_slug'   => self::PARENT_MENU_SLUG,
-            'function'    => $parent_callback,
+            'function'    => [ $this, 'topbar_callback' ],
         ),
 
         // Page.
@@ -99,7 +97,7 @@ class Menu_Page extends Config implements Service {
             'menu_title'  => esc_html__( 'Page', 'portfolio-backend' ),
             'capability'  => self::USER_CAPABILITY,
             'menu_slug'   => self::PORTFOLIO_PAGE_SLUG,
-            'function'    => $parent_callback,
+            'function'    => [ $this, 'page_callback' ],
         ),
 
     );
@@ -121,13 +119,27 @@ class Menu_Page extends Config implements Service {
   }
 
   /**
-   * Menu page callback.
+   * Topbar page callback.
    *
    * @since 1.4.0
    */
   public function topbar_callback() {
 
     $dashboard_template = General_Helper::get_base_path() . 'views/topbar.php';
+    if ( ! empty( $dashboard_template ) ) {
+      include $dashboard_template;
+    }
+
+  }
+
+  /**
+   * Page callback.
+   *
+   * @since 1.4.0
+   */
+  public function page_callback() {
+
+    $dashboard_template = General_Helper::get_base_path() . 'views/page.php';
     if ( ! empty( $dashboard_template ) ) {
       include $dashboard_template;
     }
