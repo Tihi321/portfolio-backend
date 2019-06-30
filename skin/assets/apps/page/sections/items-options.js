@@ -1,30 +1,29 @@
+import React, {useContext} from 'react';
 import {__} from '@wordpress/i18n';
-import ProjectsInput from './project-input';
+import ItemInputs from './item-inputs';
 import {ButtonRowElement} from '../../../components';
+import {StoreContext} from '../context/store';
 
-const ProjectsOptions = (props) => {
+const MenuItemsOptions = (props) => {
+
   const {
     attributes: {
       menuItems,
-      showMenuItemPicker,
     },
-    dataStore: {
+    reducers: {
       handleAddMenuItem,
     },
-    dataStore,
-  } = props;
+  } = useContext(StoreContext);
 
   const menuItemsNum = menuItems.length;
 
-  const menuItemsElements = menuItems.map((menuItem, id) => {
+  const itemElements = menuItems.map((menuItem, id) => {
     return (
-      <ProjectsInput
-        showMenuItemPicker={showMenuItemPicker}
+      <ItemInputs
         key={id}
         id={id}
         menuItem={menuItem}
         length={menuItemsNum}
-        dataStore={dataStore}
       />
     );
   });
@@ -36,14 +35,14 @@ const ProjectsOptions = (props) => {
       <ul
         className="projects__items"
       >
-        {menuItemsElements}
+        {itemElements}
       </ul>
       <ButtonRowElement
         onClick={handleAddMenuItem}
-        title={__('Add new project', 'portfolio-backend')}
+        title={__('Add new Menu item', 'portfolio-backend')}
       />
     </div>
   );
 };
 
-export default ProjectsOptions;
+export default MenuItemsOptions;

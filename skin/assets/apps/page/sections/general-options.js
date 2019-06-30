@@ -1,7 +1,9 @@
 import {__} from '@wordpress/i18n';
-import {Fragment} from 'react';
+import {Fragment, useContext} from 'react';
+import {StoreContext} from '../context/store';
 
 import {
+  ToggleSwitch,
   InputRow,
   InputLabel,
 } from '../components';
@@ -11,6 +13,7 @@ import {
 } from '../../../elements';
 
 const GeneralOptions = (props) => {
+
   const {
     attributes: {
       logo: {
@@ -24,16 +27,16 @@ const GeneralOptions = (props) => {
       googlePlay,
       contactMail,
     },
-    dataStore: {
-      handleOnSelectPageLogo,
-      handleOnRemovePageLogo,
-      handleGithubChange,
-      handleLinkedinChange,
-      handleYoutubeChange,
-      handleGooglePlayChange,
-      handleContactMailChange,
+    reducers: {
+      handleLogoUpdate,
+      handleRemoveLogo,
+      setGithub,
+      setLinkedin,
+      setYoutube,
+      setGooglePlay,
+      setContactMail,
     },
-  } = props;
+  } = useContext(StoreContext);
 
   const logoElement = (
     <InputRow
@@ -53,8 +56,8 @@ const GeneralOptions = (props) => {
           tagName="div"
           mediaId={id}
           mediaUrl={url}
-          onSelectMedia={handleOnSelectPageLogo}
-          onRemoveMedia={handleOnRemovePageLogo}
+          onSelectMedia={handleLogoUpdate}
+          onRemoveMedia={handleRemoveLogo}
         />
       </div>
     </InputRow>
@@ -75,7 +78,7 @@ const GeneralOptions = (props) => {
               outputType='text'
               className="pb-input-mce-class"
               value={github}
-              onChange={handleGithubChange}
+              onChange={setGithub}
               maxChars={50}
               maxRows={1}
               warning={false}
@@ -102,7 +105,7 @@ const GeneralOptions = (props) => {
               outputType='text'
               className="pb-input-mce-class"
               value={youtube}
-              onChange={handleYoutubeChange}
+              onChange={setYoutube}
               maxChars={50}
               maxRows={1}
               warning={false}
@@ -129,7 +132,7 @@ const GeneralOptions = (props) => {
               outputType='text'
               className="pb-input-mce-class"
               value={linkedin}
-              onChange={handleLinkedinChange}
+              onChange={setLinkedin}
               maxChars={50}
               maxRows={1}
               warning={false}
@@ -156,7 +159,7 @@ const GeneralOptions = (props) => {
               outputType='text'
               className="pb-input-mce-class"
               value={googlePlay}
-              onChange={handleGooglePlayChange}
+              onChange={setGooglePlay}
               maxChars={50}
               maxRows={1}
               warning={false}
@@ -183,7 +186,7 @@ const GeneralOptions = (props) => {
               outputType='text'
               className="pb-input-mce-class"
               value={contactMail}
-              onChange={handleContactMailChange}
+              onChange={setContactMail}
               maxChars={50}
               maxRows={1}
               warning={false}

@@ -1,5 +1,5 @@
 import {render} from 'react-dom';
-import Store from './containers/store';
+import App from './containers';
 
 export default class Page {
   constructor(
@@ -8,16 +8,16 @@ export default class Page {
     messageTextSelector = '.js-portfolio-page-message-text',
   ) {
     this.appElement = appElement || document.querySelector('.js-portfolio-page');
-    this.messageElementSelector = messageElementSelector;
-    this.messageTextSelector = messageTextSelector;
+    this.messageElement = document.querySelector(messageElementSelector);
+    this.messageTextElement = document.querySelector(messageTextSelector);
 
   }
 
   init() {
     render(
-      <Store
-        messageElementSelector={this.messageElementSelector}
-        messageTextSelector={this.messageTextSelector}
+      <App
+        messageElement={this.messageElement}
+        messageTextElement={this.messageTextElement}
       />,
       this.appElement
     );

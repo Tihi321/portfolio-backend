@@ -1,4 +1,5 @@
 import {
+  ToggleSwitch,
   DashboardButton,
   InputRow,
   RowContainer,
@@ -6,6 +7,7 @@ import {
   ButtonRowElement,
 } from '../../../components';
 
+export {ToggleSwitch};
 export {DashboardButton};
 export {InputRow};
 export {InputLabel};

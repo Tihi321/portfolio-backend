@@ -1,37 +1,31 @@
-import {Fragment} from 'react';
+import {Fragment, useContext} from 'react';
 import {__} from '@wordpress/i18n';
 import {Spinner} from '@wordpress/components';
 import Menu from './Menu';
 import GeneralOptions from './general-options';
-import ProjectsOptions from './projects-options';
+import MenuItemsOptions from './items-options';
 import {ButtonRowElement} from '../components';
+import {StoreContext} from '../context/store';
 
 const Topbar = (props) => {
+
   const {
     attributes: {
-      pageActive,
       dataLoaded,
+      pageActive,
     },
-    dataStore: {
-      handleOnSave,
+    reducers: {
+      saveOptions,
     },
-    attributes,
-    dataStore,
-  } = props;
+  } = useContext(StoreContext);
 
   const getElement = () => {
     switch (pageActive) {
       case 'options':
         return (
           <Fragment>
-            <GeneralOptions
-              attributes={attributes}
-              dataStore={dataStore}
-            />
-            <ProjectsOptions
-              attributes={attributes}
-              dataStore={dataStore}
-            />
+            <GeneralOptions />
+            <MenuItemsOptions />
           </Fragment>
         );
 
@@ -45,17 +39,14 @@ const Topbar = (props) => {
       <h1 className="dashboard__title">
         {__('Potfolio Page', 'portfolio-backend')}
       </h1>
-      <Menu
-        attributes={attributes}
-        dataStore={dataStore}
-      />
+      <Menu />
       <div className="dashboard__options">
         <div className="dashboard__options-inner">
           {(!dataLoaded) ? <Spinner /> : getElement()}
         </div>
       </div>
       <ButtonRowElement
-        onClick={handleOnSave}
+        onClick={saveOptions}
         title={__('Save', 'portfolio-backend')}
       />
     </Fragment>

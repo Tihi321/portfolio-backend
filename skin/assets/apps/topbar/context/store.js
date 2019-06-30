@@ -1,6 +1,7 @@
 /* global portfolioDashboard */
 import React, {useState, useReducer, useEffect} from 'react';
-import {getDashboardOptions, saveOptionsData} from '../helpers/fetch-api';
+import {getDashboardOptions} from '../helpers/fetch-api';
+import {saveData} from '../../../helpers/fetch';
 
 import {logoReducer, UPDATE_LOGO, REMOVE_LOGO} from '../reducers/media';
 import {projectsReducer, SET_PROJECTS, UPDATE_PROJECT, REMOVE_PROJECT, ADD_NEW_PROJECT, MOVE_PROJECT_UP, MOVE_PROJECT_DOWN} from '../reducers/projects';
@@ -122,7 +123,11 @@ const StoreProvider = (props) => {
       messageTextElement,
     } = props;
 
-    saveOptionsData(bodyData, messageElement, messageTextElement);
+    const {
+      saveTopbarOptionsApi,
+    } = portfolioDashboard;
+
+    saveData(bodyData, saveTopbarOptionsApi, messageElement, messageTextElement);
   };
 
   return (

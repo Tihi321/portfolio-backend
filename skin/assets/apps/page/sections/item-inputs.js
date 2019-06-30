@@ -1,6 +1,7 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useContext, useState} from 'react';
 import {SketchPicker} from 'react-color';
 import {__} from '@wordpress/i18n';
+import {StoreContext} from '../context/store';
 
 import {
   InputRow,
@@ -11,24 +12,28 @@ import {
   TextElement,
 } from '../../../elements';
 
-const ProjectInput = (props) => {
+const ItemInputs = (props) => {
+
+  const [colorPicker, setColorPicker] = useState(false);
+
   const {
     id,
     length,
-    showMenuItemPicker,
     menuItem: {
       title,
       color,
       link,
     },
-    dataStore: {
-      handleMenuItemsOnChange,
+  } = props;
+
+  const {
+    reducers: {
+      handleMenuItemOnChange,
       handleRemoveMenuItem,
       handleMenuItemUp,
       handleMenuItemDown,
-      handleToggleMenuItemPicker,
     },
-  } = props;
+  } = useContext(StoreContext);
 
   /* eslint-disable */
   const titleElement = (
@@ -45,7 +50,7 @@ const ProjectInput = (props) => {
             outputType='text'
             className="pb-input-mce-class"
             value={title}
-            onChange={(newTitle) => handleMenuItemsOnChange(id, newTitle, 'title')}
+            onChange={(newTitle) => handleMenuItemOnChange(id, newTitle, 'title')}
             maxChars={50}
             maxRows={1}
             warning={false}
@@ -72,7 +77,7 @@ const ProjectInput = (props) => {
             outputType='text'
             className="pb-input-mce-class"
             value={link}
-            onChange={(newLink) => handleMenuItemsOnChange(id, newLink, 'link')}
+            onChange={(newLink) => handleMenuItemOnChange(id, newLink, 'link')}
             maxChars={50}
             maxRows={1}
             warning={false}
@@ -100,17 +105,18 @@ const ProjectInput = (props) => {
           style={{
             backgroundColor: color,
           }}
-          data-id={id}
           className="projects__color-btn"
-          onClick={handleToggleMenuItemPicker}
+          onClick={() => {
+            setColorPicker(!colorPicker);
+          }}
         >
           {(!color) ? __('Pick a color', 'portfolio-backend') : color}
         </button>
-        {(showMenuItemPicker.action && showMenuItemPicker.id === id) && <SketchPicker
+        {(colorPicker) && <SketchPicker
           color={color}
           disableAlpha={true}
           onChangeComplete={(newColor) => {
-            handleMenuItemsOnChange(id, newColor.hex, 'color');
+            handleMenuItemOnChange(id, newColor.hex, 'color');
           }}
         />}
       </div>
@@ -178,4 +184,4 @@ const ProjectInput = (props) => {
   );
 
 };
-export default ProjectInput;
+export default ItemInputs;
