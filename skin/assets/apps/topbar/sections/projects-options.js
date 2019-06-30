@@ -1,31 +1,29 @@
+import React, {useContext} from 'react';
 import {__} from '@wordpress/i18n';
 import ProjectsInput from './project-input';
 import {ButtonRowElement} from '../../../components';
+import {StoreContext} from '../context/store';
 
 const ProjectsOptions = (props) => {
+
   const {
     attributes: {
       projects,
-      showPicker,
     },
-    dataStore: {
+    reducers: {
       handleAddProject,
     },
-    dataStore,
-  } = props;
+  } = useContext(StoreContext);
 
   const projectsNum = projects.length;
-
 
   const projectElements = projects.map((project, id) => {
     return (
       <ProjectsInput
-        showPicker={showPicker}
         key={id}
         id={id}
         project={project}
         length={projectsNum}
-        dataStore={dataStore}
       />
     );
   });

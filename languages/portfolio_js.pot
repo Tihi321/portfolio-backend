@@ -4,7 +4,7 @@ msgstr ""
 "X-Generator: babel-plugin-makepot\n"
 
 #: skin/assets/apps/page/sections/Menu.js:20
-#: skin/assets/apps/topbar/sections/Menu.js:20
+#: skin/assets/apps/topbar/sections/Menu.js:21
 msgid "Options"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgid "Contact mail"
 msgstr ""
 
 #: skin/assets/apps/page/sections/general-options.js:43
-#: skin/assets/apps/topbar/sections/general-options.js:53
+#: skin/assets/apps/topbar/sections/general-options.js:55
 msgid "Logo"
 msgstr ""
 
@@ -66,37 +66,37 @@ msgid "Potfolio Page"
 msgstr ""
 
 #: skin/assets/apps/page/sections/index.js:59
-#: skin/assets/apps/topbar/sections/index.js:60
+#: skin/assets/apps/topbar/sections/index.js:51
 msgid "Save"
 msgstr ""
 
 #: skin/assets/apps/page/sections/project-input.js:107
-#: skin/assets/apps/topbar/sections/project-input.js:135
+#: skin/assets/apps/topbar/sections/project-input.js:141
 msgid "Pick a color"
 msgstr ""
 
 #: skin/assets/apps/page/sections/project-input.js:173
-#: skin/assets/apps/topbar/sections/project-input.js:202
+#: skin/assets/apps/topbar/sections/project-input.js:208
 msgid "Remove"
 msgstr ""
 
 #: skin/assets/apps/page/sections/project-input.js:39
-#: skin/assets/apps/topbar/sections/project-input.js:40
+#: skin/assets/apps/topbar/sections/project-input.js:45
 msgid "Title"
 msgstr ""
 
 #: skin/assets/apps/page/sections/project-input.js:66
-#: skin/assets/apps/topbar/sections/project-input.js:94
+#: skin/assets/apps/topbar/sections/project-input.js:99
 msgid "Link"
 msgstr ""
 
 #: skin/assets/apps/page/sections/project-input.js:95
-#: skin/assets/apps/topbar/sections/project-input.js:123
+#: skin/assets/apps/topbar/sections/project-input.js:128
 msgid "Color"
 msgstr ""
 
 #: skin/assets/apps/page/sections/projects-options.js:43
-#: skin/assets/apps/topbar/sections/projects-options.js:44
+#: skin/assets/apps/topbar/sections/projects-options.js:42
 msgid "Add new project"
 msgstr ""
 
@@ -104,31 +104,31 @@ msgstr ""
 msgid "Projects"
 msgstr ""
 
-#: skin/assets/apps/topbar/sections/general-options.js:40
+#: skin/assets/apps/topbar/sections/general-options.js:42
 msgid "Show message"
 msgstr ""
 
-#: skin/assets/apps/topbar/sections/general-options.js:43
+#: skin/assets/apps/topbar/sections/general-options.js:45
 msgid "Show message on the topbar"
 msgstr ""
 
-#: skin/assets/apps/topbar/sections/general-options.js:54
+#: skin/assets/apps/topbar/sections/general-options.js:56
 msgid "Logo shown on top right of the topbar"
 msgstr ""
 
-#: skin/assets/apps/topbar/sections/general-options.js:79
+#: skin/assets/apps/topbar/sections/general-options.js:81
 msgid "Message"
 msgstr ""
 
-#: skin/assets/apps/topbar/sections/general-options.js:80
+#: skin/assets/apps/topbar/sections/general-options.js:82
 msgid "Message shown on the topbar"
 msgstr ""
 
-#: skin/assets/apps/topbar/sections/index.js:47
+#: skin/assets/apps/topbar/sections/index.js:41
 msgid "Topbar"
 msgstr ""
 
-#: skin/assets/apps/topbar/sections/project-input.js:67
+#: skin/assets/apps/topbar/sections/project-input.js:72
 msgid "Path"
 msgstr ""
 

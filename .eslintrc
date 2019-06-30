@@ -28,7 +28,7 @@
 		"document": true,
 		"$": true
 	},
-	"plugins": ["react", "jsx-a11y", "jest"],
+	"plugins": ["react", "react-hooks", "jsx-a11y", "jest"],
 	"settings": {
     "import/core-modules": [
       "@wordpress/components",
@@ -90,7 +90,9 @@
             "some": [ "nesting", "id"  ]
           }
         }],
-				"jsx-quotes": 1,
+        "jsx-quotes": 1,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
 				"react/display-name": 0,
 				"react/jsx-curly-spacing": [
 					2,

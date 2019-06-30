@@ -1,8 +1,6 @@
 /* global portfolioDashboard */
 import React, {PureComponent} from 'react';
 import generalHelpers from '../../../helpers/general-helper';
-import socialStore from '../stores/social-store';
-import menuItemsStore from '../stores/menu-items-store';
 
 import Topbar from '../sections';
 

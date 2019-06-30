@@ -1,6 +1,5 @@
 const MenuItem = (props) => {
   const {
-    data = '',
     title = '',
     active = false,
     onClick,
@@ -11,7 +10,6 @@ const MenuItem = (props) => {
   return (
     <button
       className={menuItemClasses}
-      data-page={data}
       onClick={onClick}
     >
       {title}
