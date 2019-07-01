@@ -1,9 +1,9 @@
 import {__} from '@wordpress/i18n';
 import {Fragment, useContext} from 'react';
 import {StoreContext} from '../context/store';
+import MenuItemsOptions from './menu/items-options';
 
 import {
-  ToggleSwitch,
   InputRow,
   InputLabel,
 } from '../components';
@@ -217,6 +217,7 @@ const GeneralOptions = (props) => {
       className="options"
     >
       {optionsElements}
+      <MenuItemsOptions />
     </div>
   );
 };

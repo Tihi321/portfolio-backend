@@ -1,16 +1,16 @@
 import React, {Fragment, useContext, useState} from 'react';
 import {SketchPicker} from 'react-color';
 import {__} from '@wordpress/i18n';
-import {StoreContext} from '../context/store';
+import {StoreContext} from '../../context/store';
 
 import {
   InputRow,
   InputLabel,
   DashboardButton,
-} from '../components';
+} from '../../components';
 import {
   TextElement,
-} from '../../../elements';
+} from '../../../../elements';
 
 const ItemInputs = (props) => {
 

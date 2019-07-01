@@ -2,57 +2,89 @@ import {__} from '@wordpress/i18n';
 import {Fragment} from '@wordpress/element';
 import {IconButton, Toolbar} from '@wordpress/components';
 import {BlockControls, MediaPlaceholder, MediaUpload} from '@wordpress/editor';
+import icons from './icons';
 
 const FileElement = (props) => {
   const {
-    className = '',
-    fileUrl = '',
+    placeholderTitle = __('File area', 'portfolio-backend'),
+    showToolbar = true,
+    toolbarOnTop = true,
+    removeBtnStyle = true,
+    fileTitle,
+    fileUrl,
     fileId,
-    fileTitle = __('Download', 'portfolio-backend'),
+    className,
     onSelectFile,
+    onRemoveFile,
     types = {
       media: ['application', 'image', 'document', 'video', 'audio'],
       upload: 'image/*,video/*,audio/*,document/*',
     },
-    render,
   } = props;
 
+  const mediaUpload = (
+    <MediaUpload
+      onSelect={onSelectFile}
+      allowedTypes={types.media}
+      value={fileId}
+      render={({open}) => (
+        <IconButton
+          className="components-toolbar__control"
+          label={__('Edit File', 'portfolio-backend')}
+          icon="edit"
+          onClick={open}
+        />
+      )}
+    />
+  );
+
+  const removeStyles = {
+    display: (removeBtnStyle) ? 'flex' : false,
+    padding: (removeBtnStyle) ? '12px 8px' : false,
+  };
+
+  const removeElement = (
+    <button
+      className="remove__media-btn"
+      style={removeStyles}
+      onClick={onRemoveFile}
+    >
+      {icons.minus}
+    </button>
+  );
 
   const renderToolbarEditButton = () => {
+    if (toolbarOnTop) {
+      return (
+        <Fragment>
+          <BlockControls>
+            <Toolbar>
+              {mediaUpload}
+            </Toolbar>
+          </BlockControls>
+          {(onRemoveFile) && removeElement}
+        </Fragment>
+      );
+    }
     return (
-      <BlockControls>
-        <Toolbar>
-          <MediaUpload
-            onSelect={onSelectFile}
-            allowedTypes={types.media}
-            value={fileId}
-            render={({open}) => (
-              <IconButton
-                className="components-toolbar__control"
-                label={__('Edit Media', 'portfolio-backend')}
-                icon="edit"
-                onClick={open}
-              />
-            )}
-          />
-        </Toolbar>
-      </BlockControls>
+      <Fragment>
+        {(onRemoveFile) && removeElement}
+        {mediaUpload}
+      </Fragment>
     );
   };
 
-  const renderFileElement = (
-    <div className={className}>
-      <a href={fileUrl}>{fileTitle}</a>
-    </div>
-  );
 
-  const renderFileElements = () => {
+  const renderFile = () => {
     return (
       <Fragment>
-        {renderToolbarEditButton()}
-        {(!render) ? renderFileElement : render}
+        {(showToolbar) && renderToolbarEditButton()}
+        <div className={className}>
+          {fileTitle}
+        </div>
       </Fragment>
     );
+
   };
 
   const renderPlaceholder = () => {
@@ -60,7 +92,7 @@ const FileElement = (props) => {
       <MediaPlaceholder
         icon="format-image"
         labels={{
-          title: __('Media area', 'portfolio-backend'),
+          title: placeholderTitle,
         }}
         onSelect={onSelectFile}
         accept={types.upload}
@@ -69,8 +101,8 @@ const FileElement = (props) => {
     );
   };
 
-  if (fileId) {
-    return renderFileElements();
+  if (fileUrl) {
+    return renderFile();
   }
 
   return renderPlaceholder();

@@ -4,7 +4,6 @@ msgstr ""
 "X-Generator: babel-plugin-makepot\n"
 
 #: skin/assets/apps/page/sections/Menu.js:21
-#: skin/assets/apps/page/sections/Menu.js:20
 #: skin/assets/apps/topbar/sections/Menu.js:21
 msgid "Options"
 msgstr ""
@@ -46,8 +45,7 @@ msgid "Contact mail"
 msgstr ""
 
 #: skin/assets/apps/page/sections/general-options.js:46
-#: skin/assets/apps/page/sections/general-options.js:55
-#: skin/assets/apps/page/sections/general-options.js:43
+#: skin/assets/apps/page/sections/general-options.js:45
 #: skin/assets/apps/topbar/sections/general-options.js:55
 msgid "Logo"
 msgstr ""
@@ -64,129 +62,115 @@ msgstr ""
 msgid "Youtube"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:40
+#: skin/assets/apps/page/sections/index.js:41
 msgid "Potfolio Page"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:50
 #: skin/assets/apps/page/sections/index.js:51
-#: skin/assets/apps/page/sections/index.js:59
+#: skin/assets/apps/page/sections/index.js:55
+#: skin/assets/apps/page/sections/index.js:50
 #: skin/assets/apps/topbar/sections/index.js:51
 msgid "Save"
 msgstr ""
 
 #: skin/assets/apps/page/sections/item-inputs.js:100
-#: skin/assets/apps/page/sections/project-input.js:100
-#: skin/assets/apps/page/sections/project-input.js:128
-#: skin/assets/apps/page/sections/project-input.js:95
+#: skin/assets/apps/page/sections/menu/item-inputs.js:100
 #: skin/assets/apps/topbar/sections/project-input.js:128
 msgid "Color"
 msgstr ""
 
 #: skin/assets/apps/page/sections/item-inputs.js:113
-#: skin/assets/apps/page/sections/project-input.js:113
-#: skin/assets/apps/page/sections/project-input.js:141
-#: skin/assets/apps/page/sections/project-input.js:107
+#: skin/assets/apps/page/sections/menu/item-inputs.js:113
+#: skin/assets/apps/page/sections/shared-items.js:90
+#: skin/assets/apps/page/sections/shared-items.js:88
+#: skin/assets/apps/page/sections/shared-items.js:89
+#: skin/assets/apps/page/sections/shared-items.js:85
+#: skin/assets/apps/page/sections/shared-items.js:63
 #: skin/assets/apps/topbar/sections/project-input.js:141
 msgid "Pick a color"
 msgstr ""
 
 #: skin/assets/apps/page/sections/item-inputs.js:179
-#: skin/assets/apps/page/sections/project-input.js:179
-#: skin/assets/apps/page/sections/project-input.js:208
-#: skin/assets/apps/page/sections/project-input.js:173
+#: skin/assets/apps/page/sections/menu/item-inputs.js:179
 #: skin/assets/apps/topbar/sections/project-input.js:208
 msgid "Remove"
 msgstr ""
 
 #: skin/assets/apps/page/sections/item-inputs.js:44
-#: skin/assets/apps/page/sections/project-input.js:44
-#: skin/assets/apps/page/sections/project-input.js:45
-#: skin/assets/apps/page/sections/project-input.js:39
+#: skin/assets/apps/page/sections/menu/item-inputs.js:44
 #: skin/assets/apps/topbar/sections/project-input.js:45
 msgid "Title"
 msgstr ""
 
 #: skin/assets/apps/page/sections/item-inputs.js:71
-#: skin/assets/apps/page/sections/project-input.js:71
-#: skin/assets/apps/page/sections/project-input.js:99
-#: skin/assets/apps/page/sections/project-input.js:66
+#: skin/assets/apps/page/sections/menu/item-inputs.js:71
 #: skin/assets/apps/topbar/sections/project-input.js:99
 msgid "Link"
 msgstr ""
 
 #: skin/assets/apps/page/sections/items-options.js:42
+#: skin/assets/apps/page/sections/menu/items-options.js:42
 msgid "Add new Menu item"
 msgstr ""
 
-#: skin/assets/apps/page/sections/items-options.js:42
-#: skin/assets/apps/page/sections/projects-options.js:42
-#: skin/assets/apps/page/sections/projects-options.js:43
-#: skin/assets/apps/topbar/sections/projects-options.js:42
-msgid "Add new project"
+#: skin/assets/apps/page/sections/shared-items.js:36
+msgid "Animatiomn file"
 msgstr ""
 
-#: skin/assets/apps/page/sections/Menu.js:28
+#: skin/assets/apps/page/sections/shared-items.js:57
+msgid "Description"
+msgstr ""
+
+#: skin/assets/apps/page/sections/shared-items.js:77
+msgid "Accent color"
+msgstr ""
+
 #: skin/assets/apps/topbar/sections/Menu.js:28
 msgid "Projects"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:42
 #: skin/assets/apps/topbar/sections/general-options.js:42
 msgid "Show message"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:45
 #: skin/assets/apps/topbar/sections/general-options.js:45
 msgid "Show message on the topbar"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:56
 #: skin/assets/apps/topbar/sections/general-options.js:56
 msgid "Logo shown on top right of the topbar"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:81
 #: skin/assets/apps/topbar/sections/general-options.js:81
 msgid "Message"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:82
 #: skin/assets/apps/topbar/sections/general-options.js:82
 msgid "Message shown on the topbar"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:40
-#: skin/assets/apps/page/sections/index.js:41
 #: skin/assets/apps/topbar/sections/index.js:41
 msgid "Topbar"
 msgstr ""
 
-#: skin/assets/apps/page/sections/project-input.js:72
 #: skin/assets/apps/topbar/sections/project-input.js:72
 msgid "Path"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/projects-options.js:42
+msgid "Add new project"
 msgstr ""
 
 #: skin/assets/components/buttons/toggle-switch/index.js:7
 msgid "Use toggle"
 msgstr ""
 
-#: skin/assets/elements/FileElement/index.js:11
-msgid "Download"
+#: skin/assets/elements/FileElement/index.js:33
+msgid "Edit File"
 msgstr ""
 
-#: skin/assets/elements/FileElement/index.js:32
-#: skin/assets/elements/LottieElement/index.js:32
-#: skin/assets/elements/MediaElement/index.js:33
-#: skin/assets/elements/VideoElement/index.js:27
-#: skin/assets/elements/YoutubeElement/index.js:31
-msgid "Edit Media"
-msgstr ""
-
-#: skin/assets/elements/FileElement/index.js:63
-#: skin/assets/elements/MediaElement/index.js:9
-#: skin/assets/elements/VideoElement/index.js:57
-msgid "Media area"
+#: skin/assets/elements/FileElement/index.js:9
+msgid "File area"
 msgstr ""
 
 #: skin/assets/elements/Helper/Helper.js:20
@@ -205,8 +189,26 @@ msgstr ""
 msgid "rows"
 msgstr ""
 
+#: skin/assets/elements/FileElement/index.js:34
+#: skin/assets/elements/FileElement/index.js:35
+#: skin/assets/elements/FileElement/index.js:33
+#: skin/assets/elements/FileElement/index.js:32
+#: skin/assets/elements/LottieElement/index.js:32
+#: skin/assets/elements/MediaElement/index.js:33
+#: skin/assets/elements/VideoElement/index.js:27
+#: skin/assets/elements/YoutubeElement/index.js:31
+msgid "Edit Media"
+msgstr ""
+
 #: skin/assets/elements/LottieElement/index.js:9
 msgid "Lottie area"
+msgstr ""
+
+#: skin/assets/elements/FileElement/index.js:9
+#: skin/assets/elements/FileElement/index.js:63
+#: skin/assets/elements/MediaElement/index.js:9
+#: skin/assets/elements/VideoElement/index.js:57
+msgid "Media area"
 msgstr ""
 
 #: skin/assets/elements/PlaceholderElement/index.js:9

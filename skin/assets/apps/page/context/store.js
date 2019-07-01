@@ -3,39 +3,108 @@ import React, {useState, useReducer, useEffect} from 'react';
 import {getDashboardOptions} from '../helpers/fetch-api';
 import {saveData} from '../../../helpers/fetch';
 
-import {logoReducer, UPDATE_LOGO, REMOVE_LOGO} from '../reducers/media';
+import {mediaReducer, initialState, UPDATE_MEDIA, REMOVE_MEDIA} from '../reducers/media';
 import {itemsReducer, SET_ITEMS, UPDATE_ITEM, REMOVE_ITEM, ADD_NEW_ITEM, MOVE_ITEM_UP, MOVE_ITEM_DOWN} from '../reducers/items';
 
 const StoreContext = React.createContext([{}, () => {}]);
 
 const StoreProvider = (props) => {
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [logo, dispatchLogo] = useReducer(logoReducer, {
-    logo: {
-      id: -1,
-      url: '',
-      title: '',
-    },
-  });
+  const [pageActive, setPageActive] = useState('options');
+
+  // general options
+  const [logo, dispatchLogo] = useReducer(mediaReducer, initialState);
   const [github, setGithub] = useState('');
   const [linkedin, setLinkedin] = useState('');
   const [youtube, setYoutube] = useState('');
   const [googlePlay, setGooglePlay] = useState('');
   const [contactMail, setContactMail] = useState('');
 
-  const [pageActive, setPageActive] = useState('options');
+  // aditional menu items
   const [menuItems, dispatchMenuItems] = useReducer(itemsReducer, []);
 
-  const handleLogoUpdate = (image) => {
+  // about
+  const [aboutAnimationFile, setAboutAnimationFile] = useReducer(mediaReducer, initialState);
+  const [aboutAccentColor, setAboutAccentColor] = useState('');
+  const [aboutDescription, setAboutDescription] = useState('');
+
+  // web
+  const [webAnimationFile, setWebAnimationFile] = useReducer(mediaReducer, initialState);
+  const [webAccentColor, setWebAccentColor] = useState('');
+  const [webDescription, setWebDescription] = useState('');
+
+  // video
+  const [videoAnimationFile, setVideoAnimationFile] = useReducer(mediaReducer, initialState);
+  const [videoAccentColor, setVideoAccentColor] = useState('');
+  const [videoDescription, setVideoDescription] = useState('');
+
+  // android
+  const [androidAnimationFile, setAndroidAnimationFile] = useReducer(mediaReducer, initialState);
+  const [androidAccentColor, setAndroidAccentColor] = useState('');
+  const [androidDescription, setAndroidDescription] = useState('');
+
+  const handleLogoUpdate = (media) => {
     dispatchLogo({
-      type: UPDATE_LOGO,
-      image,
+      type: UPDATE_MEDIA,
+      media,
     });
   };
 
   const handleRemoveLogo = () => {
     dispatchLogo({
-      type: REMOVE_LOGO,
+      type: REMOVE_MEDIA,
+    });
+  };
+
+  const handleAboutAnimationUpdate = (media) => {
+    setAboutAnimationFile({
+      type: UPDATE_MEDIA,
+      media,
+    });
+  };
+
+  const handleRemoveAboutAnimation = () => {
+    setAboutAnimationFile({
+      type: REMOVE_MEDIA,
+    });
+  };
+
+  const handleWebAnimation = (media) => {
+    setWebAnimationFile({
+      type: UPDATE_MEDIA,
+      media,
+    });
+  };
+
+  const handleRemoveWebAnimation = () => {
+    setWebAnimationFile({
+      type: REMOVE_MEDIA,
+    });
+  };
+
+  const handleVideoAnimationUpdate = (media) => {
+    setVideoAnimationFile({
+      type: UPDATE_MEDIA,
+      media,
+    });
+  };
+
+  const handleRemoveVideoAnimation = () => {
+    setVideoAnimationFile({
+      type: REMOVE_MEDIA,
+    });
+  };
+
+  const handleAndroidAnimationUpdate = (media) => {
+    setAndroidAnimationFile({
+      type: UPDATE_MEDIA,
+      media,
+    });
+  };
+
+  const handleRemoveAndroidAnimation = () => {
+    setAndroidAnimationFile({
+      type: REMOVE_MEDIA,
     });
   };
 
@@ -156,6 +225,18 @@ const StoreProvider = (props) => {
         contactMail,
         pageActive,
         menuItems,
+        aboutAnimationFile,
+        aboutAccentColor,
+        aboutDescription,
+        webAnimationFile,
+        webAccentColor,
+        webDescription,
+        videoAnimationFile,
+        videoAccentColor,
+        videoDescription,
+        androidAnimationFile,
+        androidAccentColor,
+        androidDescription,
       },
       reducers: {
         setDataLoaded,
@@ -173,6 +254,22 @@ const StoreProvider = (props) => {
         handleRemoveMenuItem,
         handleMenuItemUp,
         handleMenuItemDown,
+        handleAboutAnimationUpdate,
+        handleRemoveAboutAnimation,
+        setAboutAccentColor,
+        setAboutDescription,
+        handleWebAnimation,
+        handleRemoveWebAnimation,
+        setWebAccentColor,
+        setWebDescription,
+        handleVideoAnimationUpdate,
+        handleRemoveVideoAnimation,
+        setVideoAccentColor,
+        setVideoDescription,
+        handleAndroidAnimationUpdate,
+        handleRemoveAndroidAnimation,
+        setAndroidAccentColor,
+        setAndroidDescription,
       },
     }}>
       {props.children}

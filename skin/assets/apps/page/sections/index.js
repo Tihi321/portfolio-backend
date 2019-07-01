@@ -3,7 +3,7 @@ import {__} from '@wordpress/i18n';
 import {Spinner} from '@wordpress/components';
 import Menu from './Menu';
 import GeneralOptions from './general-options';
-import MenuItemsOptions from './items-options';
+import About from './about';
 import {ButtonRowElement} from '../components';
 import {StoreContext} from '../context/store';
 
@@ -23,10 +23,11 @@ const Topbar = (props) => {
     switch (pageActive) {
       case 'options':
         return (
-          <Fragment>
-            <GeneralOptions />
-            <MenuItemsOptions />
-          </Fragment>
+          <GeneralOptions />
+        );
+      case 'about':
+        return (
+          <About />
         );
 
       default:

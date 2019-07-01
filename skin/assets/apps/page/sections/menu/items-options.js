@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {__} from '@wordpress/i18n';
 import ItemInputs from './item-inputs';
-import {ButtonRowElement} from '../../../components';
-import {StoreContext} from '../context/store';
+import {ButtonRowElement} from '../../../../components';
+import {StoreContext} from '../../context/store';
 
 const MenuItemsOptions = (props) => {
 
