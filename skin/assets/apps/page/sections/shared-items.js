@@ -36,8 +36,10 @@ const SharedItems = (props) => {
         message={__('Animatiomn file', 'portfolio-backend')}
         helper="Short descrption paragraph below title"
       />
-      <div className="options__input-wrap">
+      <div className="options__file-wrap">
         <FileElement
+          className="options__file-element"
+          iconButton={false}
           toolbarOnTop={false}
           fileTitle={title}
           fileId={id}

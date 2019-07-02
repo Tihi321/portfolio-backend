@@ -6,10 +6,11 @@ import icons from './icons';
 
 const FileElement = (props) => {
   const {
-    placeholderTitle = __('File area', 'portfolio-backend'),
+    placeholderTitle = __('File upload', 'portfolio-backend'),
+    placeholderInstruction = __('Choose a video file from library', 'portfolio-backend'),
     showToolbar = true,
     toolbarOnTop = true,
-    removeBtnStyle = true,
+    iconButton = true,
     fileTitle,
     fileUrl,
     fileId,
@@ -27,29 +28,41 @@ const FileElement = (props) => {
       onSelect={onSelectFile}
       allowedTypes={types.media}
       value={fileId}
-      render={({open}) => (
-        <IconButton
-          className="components-toolbar__control"
-          label={__('Edit File', 'portfolio-backend')}
-          icon="edit"
-          onClick={open}
-        />
-      )}
+      render={({open}) => {
+        if (iconButton) {
+          return (
+            <IconButton
+              className="components-toolbar__control"
+              label={__('Edit File', 'portfolio-backend')}
+              icon="edit"
+              onClick={open}
+            />
+          );
+        }
+        return (
+          <button
+            className="components-button edit__media-btn"
+            onClick={open}
+          >
+            {__('Edit', 'portfolio-backend')}
+          </button>
+        );
+      }}
     />
   );
 
   const removeStyles = {
-    display: (removeBtnStyle) ? 'flex' : false,
-    padding: (removeBtnStyle) ? '12px 8px' : false,
+    display: (iconButton) ? 'flex' : false,
+    padding: (iconButton) ? '12px 8px' : false,
   };
 
   const removeElement = (
     <button
-      className="remove__media-btn"
+      className="components-button remove__media-btn"
       style={removeStyles}
       onClick={onRemoveFile}
     >
-      {icons.minus}
+      {(iconButton) ? icons.minus : __('Remove', 'portfolio-backend')}
     </button>
   );
 
@@ -68,8 +81,8 @@ const FileElement = (props) => {
     }
     return (
       <Fragment>
-        {(onRemoveFile) && removeElement}
         {mediaUpload}
+        {(onRemoveFile) && removeElement}
       </Fragment>
     );
   };
@@ -78,10 +91,25 @@ const FileElement = (props) => {
   const renderFile = () => {
     return (
       <Fragment>
-        {(showToolbar) && renderToolbarEditButton()}
         <div className={className}>
-          {fileTitle}
+          <div className="file__row">
+            <span
+              className="file__title"
+            >
+              {__('Title', 'portfolio-backend')}:
+            </span>
+            {fileTitle}
+          </div>
+          <div className="file__row">
+            <span
+              className="file__title"
+            >
+              {__('Url', 'portfolio-backend')}:
+            </span>
+            {fileUrl}
+          </div>
         </div>
+        {(showToolbar) && renderToolbarEditButton()}
       </Fragment>
     );
 
@@ -90,9 +118,9 @@ const FileElement = (props) => {
   const renderPlaceholder = () => {
     return (
       <MediaPlaceholder
-        icon="format-image"
         labels={{
           title: placeholderTitle,
+          instructions: placeholderInstruction,
         }}
         onSelect={onSelectFile}
         accept={types.upload}
