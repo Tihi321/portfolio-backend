@@ -9,7 +9,7 @@ export const saveData = (body, optionsApi, messageElement, messageTextElement) =
   } = portfolioDashboard;
 
   fetch(`${root}${optionsApi}`, {
-    method: 'PATCH',
+    method: 'PUT',
     mode: 'same-origin',
     credentials: 'same-origin',
     headers: {

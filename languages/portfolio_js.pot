@@ -66,10 +66,6 @@ msgid "Potfolio Page"
 msgstr ""
 
 #: skin/assets/apps/page/sections/index.js:74
-#: skin/assets/apps/page/sections/index.js:70
-#: skin/assets/apps/page/sections/index.js:65
-#: skin/assets/apps/page/sections/index.js:60
-#: skin/assets/apps/page/sections/index.js:56
 #: skin/assets/apps/topbar/sections/index.js:51
 msgid "Save"
 msgstr ""
@@ -88,7 +84,6 @@ msgstr ""
 #: skin/assets/apps/page/sections/menu/item-inputs.js:179
 #: skin/assets/apps/page/sections/projects/projects-item.js:156
 #: skin/assets/apps/page/sections/video-projects/projects-item.js:170
-#: skin/assets/apps/page/sections/video-projects/projects-item.js:172
 #: skin/assets/apps/topbar/sections/project-input.js:208
 #: skin/assets/elements/FileElement/index.js:65
 msgid "Remove"
@@ -97,7 +92,6 @@ msgstr ""
 #: skin/assets/apps/page/sections/menu/item-inputs.js:44
 #: skin/assets/apps/page/sections/projects/projects-item.js:35
 #: skin/assets/apps/page/sections/video-projects/projects-item.js:69
-#: skin/assets/apps/page/sections/video-projects/projects-item.js:71
 #: skin/assets/apps/topbar/sections/project-input.js:45
 #: skin/assets/elements/FileElement/index.js:99
 msgid "Title"
@@ -106,7 +100,6 @@ msgstr ""
 #: skin/assets/apps/page/sections/menu/item-inputs.js:71
 #: skin/assets/apps/page/sections/projects/projects-item.js:62
 #: skin/assets/apps/page/sections/video-projects/projects-item.js:96
-#: skin/assets/apps/page/sections/video-projects/projects-item.js:98
 #: skin/assets/apps/topbar/sections/project-input.js:99
 msgid "Link"
 msgstr ""
@@ -122,7 +115,6 @@ msgstr ""
 
 #: skin/assets/apps/page/sections/projects/projects.js:45
 #: skin/assets/apps/page/sections/video-projects/projects.js:42
-#: skin/assets/apps/page/sections/video-projects/projects.js:44
 #: skin/assets/apps/topbar/sections/projects-options.js:42
 msgid "Add new project"
 msgstr ""

@@ -13,9 +13,9 @@ use PortfolioBackend\Helpers\Object_Helper;
 use PortfolioBackend\Helpers\General_Helper;
 
 /**
- * Class Patch_Portfolio_Page
+ * Class Put_Portfolio_Page_Options
  */
-class Patch_Portfolio_Page extends Config implements Rest_Callback {
+class Put_Portfolio_Page_Options extends Config implements Rest_Callback {
 
   /**
    * Use trait inside class.
@@ -97,7 +97,7 @@ class Patch_Portfolio_Page extends Config implements Rest_Callback {
     $this->save_options( $google_play, self::GOOGLE_PLAY_LINK );
     $this->save_options( $conntact_mail, self::CONTACT_MAIL_LINK );
 
-    return \rest_ensure_response( __( 'Options saved with success', 'portfolio-backend' ) );
+    return \rest_ensure_response( __( 'Options page saved', 'portfolio-backend' ) );
   }
 
 }

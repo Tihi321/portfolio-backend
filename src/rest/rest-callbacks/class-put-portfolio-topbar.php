@@ -13,9 +13,9 @@ use PortfolioBackend\Helpers\Object_Helper;
 use PortfolioBackend\Helpers\General_Helper;
 
 /**
- * Class Patch_Portfolio_Topbar
+ * Class Put_Portfolio_Topbar
  */
-class Patch_Portfolio_Topbar extends Config implements Rest_Callback {
+class Put_Portfolio_Topbar extends Config implements Rest_Callback {
 
   /**
    * Use trait inside class.

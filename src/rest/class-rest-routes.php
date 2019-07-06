@@ -59,7 +59,35 @@ abstract class Rest_Routes {
    *
    * @since 1.0.0
    */
-  const PORTFOLIO_SAVE_PAGE = '/save-portfolio-page';
+  const PORTFOLIO_SAVE_OPTIONS_PAGE = '/save-portfolio-options-page';
+
+  /**
+   * Rest route for saving page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_ABOUT_PAGE = '/save-portfolio-about-page';
+
+  /**
+   * Rest route for saving page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_WEB_PAGE = '/save-portfolio-web-page';
+
+  /**
+   * Rest route for saving page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_VIDEO_PAGE = '/save-portfolio-video-page';
+
+  /**
+   * Rest route for saving page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_ANDROID_PAGE = '/save-portfolio-android-page';
 
   /**
    * Rest route for getting page options
@@ -87,7 +115,35 @@ abstract class Rest_Routes {
    *
    * @since 1.0.0
    */
-  const PORTFOLIO_SAVE_PAGE_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_PAGE;
+  const PORTFOLIO_SAVE_PAGE_OPTIONS_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_OPTIONS_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_ABOUT_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_ABOUT_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_WEB_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_WEB_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_VIDEO_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_VIDEO_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_ANDROID_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_ANDROID_PAGE;
 
   /**
    * Get page options slug

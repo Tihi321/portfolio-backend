@@ -150,4 +150,158 @@ abstract class Config {
    */
   const ADDITIONAL_MENU_ITEMS = self::PLUGIN_PREFIX . 'portfolio_menu_items';
 
+  // -------------------------------------------------------
+  // PAGE ABOUT
+  // -------------------------------------------------------
+
+
+  /**
+   * Page logo
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ABOUT_ANIMATION_FILE = self::PLUGIN_PREFIX . 'portfolio_about_animation';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ABOUT_ACCENT_COLOR = self::PLUGIN_PREFIX . 'portfolio_about_color';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ABOUT_DESCRIPTION = self::PLUGIN_PREFIX . 'portfolio_about_description';
+
+
+  // -------------------------------------------------------
+  // PAGE WEB
+  // -------------------------------------------------------
+
+
+  /**
+   * Page logo
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const WEB_ANIMATION_FILE = self::PLUGIN_PREFIX . 'portfolio_web_animation';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const WEB_ACCENT_COLOR = self::PLUGIN_PREFIX . 'portfolio_web_color';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const WEB_DESCRIPTION = self::PLUGIN_PREFIX . 'portfolio_web_description';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const WEB_PROJECTS = self::PLUGIN_PREFIX . 'portfolio_web_projects';
+
+  // -------------------------------------------------------
+  // PAGE VIDEO
+  // -------------------------------------------------------
+
+  /**
+   * Page logo
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const VIDEO_ANIMATION_FILE = self::PLUGIN_PREFIX . 'portfolio_video_animation';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const VIDEO_ACCENT_COLOR = self::PLUGIN_PREFIX . 'portfolio_video_color';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const VIDEO_DESCRIPTION = self::PLUGIN_PREFIX . 'portfolio_video_description';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const VIDEO_PROJECTS = self::PLUGIN_PREFIX . 'portfolio_video_projects';
+
+  // -------------------------------------------------------
+  // PAGE ANDROID
+  // -------------------------------------------------------
+
+  /**
+   * Page logo
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ANDROID_ANIMATION_FILE = self::PLUGIN_PREFIX . 'portfolio_android_animation';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ANDROID_ACCENT_COLOR = self::PLUGIN_PREFIX . 'portfolio_android_color';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ANDROID_DESCRIPTION = self::PLUGIN_PREFIX . 'portfolio_android_description';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ANDROID_PROJECTS = self::PLUGIN_PREFIX . 'portfolio_android_projects';
+
 }
