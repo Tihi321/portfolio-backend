@@ -1,7 +1,6 @@
-import React, {Fragment, useContext, useState} from 'react';
-import {SketchPicker} from 'react-color';
+import React, {Fragment, useContext} from 'react';
 import {__} from '@wordpress/i18n';
-import {GeneralStore} from '../../store/general-store';
+import {VideoStore} from '../../store/video-store';
 
 import {
   InputRow,
@@ -10,30 +9,56 @@ import {
 } from '../../components';
 import {
   TextElement,
+  FileElement,
 } from '../../../../elements';
 
-const ItemInputs = (props) => {
-
-  const [colorPicker, setColorPicker] = useState(false);
+const VideoProjectsItem = (props) => {
 
   const {
     id,
     length,
-    menuItem: {
+    project: {
       title,
-      color,
       link,
+      image: {
+        id: imageId,
+        url: imageUrl,
+        title: imageTitle,
+      },
     },
   } = props;
 
   const {
     reducers: {
-      handleMenuItemOnChange,
-      handleRemoveMenuItem,
-      handleMenuItemUp,
-      handleMenuItemDown,
+      handleVideoProjectOnChange,
+      handleRemoveVideoProject,
+      handleVideoProjectUp,
+      handleVideoProjectDown,
     },
-  } = useContext(GeneralStore);
+  } = useContext(VideoStore);
+
+  const imageFileElement = (
+    <InputRow
+      className="options__row"
+    >
+      <InputLabel
+        message={__('Animatiomn file', 'portfolio-backend')}
+        helper="Short descrption paragraph below title"
+      />
+      <div className="options__file-wrap">
+        <FileElement
+          className="options__file-element"
+          iconButton={false}
+          toolbarOnTop={false}
+          fileTitle={imageTitle}
+          fileId={imageId}
+          fileUrl={imageUrl}
+          onSelectFile={(newMedia) => handleVideoProjectOnChange(id, newMedia, 'image')}
+          onRemoveFile={() => handleVideoProjectOnChange(id, '', 'removeImage')}
+        />
+      </div>
+    </InputRow>
+  );
 
   /* eslint-disable */
   const titleElement = (
@@ -50,7 +75,7 @@ const ItemInputs = (props) => {
             outputType='text'
             className="pb-input-mce-class"
             value={title}
-            onChange={(newTitle) => handleMenuItemOnChange(id, newTitle, 'title')}
+            onChange={(newTitle) => handleVideoProjectOnChange(id, newTitle, 'title')}
             maxChars={50}
             maxRows={1}
             warning={false}
@@ -77,7 +102,7 @@ const ItemInputs = (props) => {
             outputType='text'
             className="pb-input-mce-class"
             value={link}
-            onChange={(newLink) => handleMenuItemOnChange(id, newLink, 'link')}
+            onChange={(newLink) => handleVideoProjectOnChange(id, newLink, 'link')}
             maxChars={50}
             maxRows={1}
             warning={false}
@@ -92,41 +117,10 @@ const ItemInputs = (props) => {
   );
   /* eslint-enable */
 
-  const colorPickerElement = (
-    <InputRow
-      className="options__row"
-    >
-      <InputLabel
-        message={__('Color', 'portfolio-backend')}
-        helper=""
-      />
-      <div className="options__input-wrap options__color-wrap">
-        <button
-          style={{
-            backgroundColor: color,
-          }}
-          className="projects__color-btn"
-          onClick={() => {
-            setColorPicker(!colorPicker);
-          }}
-        >
-          {(!color) ? __('Pick a color', 'portfolio-backend') : color}
-        </button>
-        {(colorPicker) && <SketchPicker
-          color={color}
-          disableAlpha={true}
-          onChangeComplete={(newColor) => {
-            handleMenuItemOnChange(id, newColor.hex, 'color');
-          }}
-        />}
-      </div>
-    </InputRow>
-  );
-
   const optionsElements = (
     <Fragment>
+      {imageFileElement}
       {titleElement}
-      {colorPickerElement}
       {linkElement}
     </Fragment>
   );
@@ -136,9 +130,6 @@ const ItemInputs = (props) => {
       className="projects__item"
     >
       <h2
-        style={{
-          backgroundColor: color,
-        }}
         className="projects__title"
       >
         {title}
@@ -156,13 +147,13 @@ const ItemInputs = (props) => {
         >
           {(id !== 0) && <DashboardButton
             className="dashicons-before dashicons-arrow-up projects__footer-btn"
-            onClick={() => handleMenuItemUp(id)}
+            onClick={() => handleVideoProjectUp(id)}
             size="small"
           >
           </DashboardButton>}
           {((length - 1) !== id) && <DashboardButton
             className="dashicons-before dashicons-arrow-down projects__footer-btn"
-            onClick={() => handleMenuItemDown(id)}
+            onClick={() => handleVideoProjectDown(id)}
             size="small"
           >
           </DashboardButton>}
@@ -173,7 +164,7 @@ const ItemInputs = (props) => {
           <DashboardButton
             className="projects__footer-btn"
             warning={true}
-            onClick={() => handleRemoveMenuItem(id)}
+            onClick={() => handleRemoveVideoProject(id)}
             size="small"
           >
             {__('Remove', 'portfolio-backend')}
@@ -184,4 +175,4 @@ const ItemInputs = (props) => {
   );
 
 };
-export default ItemInputs;
+export default VideoProjectsItem;

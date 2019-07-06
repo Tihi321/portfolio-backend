@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {__} from '@wordpress/i18n';
 import {MenuItem} from '../../../components';
-import {StoreContext} from '../context/store';
+import {GeneralStore} from '../store/general-store';
 
 const Menu = (props) => {
 
@@ -12,7 +12,7 @@ const Menu = (props) => {
     reducers: {
       setPageActive,
     },
-  } = useContext(StoreContext);
+  } = useContext(GeneralStore);
 
   return (
     <ul className="topbar__menu">
@@ -47,8 +47,8 @@ const Menu = (props) => {
       <li className="topbar__menu-item">
         <MenuItem
           title={__('Android', 'portfolio-backend')}
-          onClick={setPageActive.bind(this, 'android')}
-          active={(pageActive === 'android')}
+          onClick={setPageActive.bind(this, 'androidDevelopment')}
+          active={(pageActive === 'androidDevelopment')}
         />
       </li>
     </ul>

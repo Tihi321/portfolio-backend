@@ -1,7 +1,5 @@
-import React, {Fragment, useContext, useState} from 'react';
-import {SketchPicker} from 'react-color';
+import React, {Fragment} from 'react';
 import {__} from '@wordpress/i18n';
-import {GeneralStore} from '../../store/general-store';
 
 import {
   InputRow,
@@ -12,28 +10,21 @@ import {
   TextElement,
 } from '../../../../elements';
 
-const ItemInputs = (props) => {
-
-  const [colorPicker, setColorPicker] = useState(false);
+const ProjectsItem = (props) => {
 
   const {
     id,
     length,
-    menuItem: {
+    project: {
       title,
-      color,
+      description,
       link,
     },
+    handleProjectOnChange,
+    handleRemoveProject,
+    handleProjectUp,
+    handleProjectDown,
   } = props;
-
-  const {
-    reducers: {
-      handleMenuItemOnChange,
-      handleRemoveMenuItem,
-      handleMenuItemUp,
-      handleMenuItemDown,
-    },
-  } = useContext(GeneralStore);
 
   /* eslint-disable */
   const titleElement = (
@@ -50,7 +41,7 @@ const ItemInputs = (props) => {
             outputType='text'
             className="pb-input-mce-class"
             value={title}
-            onChange={(newTitle) => handleMenuItemOnChange(id, newTitle, 'title')}
+            onChange={(newTitle) => handleProjectOnChange(id, newTitle, 'title')}
             maxChars={50}
             maxRows={1}
             warning={false}
@@ -77,7 +68,7 @@ const ItemInputs = (props) => {
             outputType='text'
             className="pb-input-mce-class"
             value={link}
-            onChange={(newLink) => handleMenuItemOnChange(id, newLink, 'link')}
+            onChange={(newLink) => handleProjectOnChange(id, newLink, 'link')}
             maxChars={50}
             maxRows={1}
             warning={false}
@@ -92,33 +83,22 @@ const ItemInputs = (props) => {
   );
   /* eslint-enable */
 
-  const colorPickerElement = (
+  const descriptionElement = (
     <InputRow
       className="options__row"
     >
       <InputLabel
-        message={__('Color', 'portfolio-backend')}
-        helper=""
+        message={__('Description', 'portfolio-backend')}
+        helper="Short descrption paragraph below title"
       />
-      <div className="options__input-wrap options__color-wrap">
-        <button
-          style={{
-            backgroundColor: color,
-          }}
-          className="projects__color-btn"
-          onClick={() => {
-            setColorPicker(!colorPicker);
-          }}
-        >
-          {(!color) ? __('Pick a color', 'portfolio-backend') : color}
-        </button>
-        {(colorPicker) && <SketchPicker
-          color={color}
-          disableAlpha={true}
-          onChangeComplete={(newColor) => {
-            handleMenuItemOnChange(id, newColor.hex, 'color');
-          }}
-        />}
+      <div className="options__input-wrap">
+        <TextElement
+          styleReset={true}
+          outputType="text"
+          className="pb-input-mce-class pb-input-mce-description"
+          value={description}
+          onChange={(newDescription) => handleProjectOnChange(id, newDescription, 'description')}
+        />
       </div>
     </InputRow>
   );
@@ -126,8 +106,8 @@ const ItemInputs = (props) => {
   const optionsElements = (
     <Fragment>
       {titleElement}
-      {colorPickerElement}
       {linkElement}
+      {descriptionElement}
     </Fragment>
   );
 
@@ -136,9 +116,6 @@ const ItemInputs = (props) => {
       className="projects__item"
     >
       <h2
-        style={{
-          backgroundColor: color,
-        }}
         className="projects__title"
       >
         {title}
@@ -156,13 +133,13 @@ const ItemInputs = (props) => {
         >
           {(id !== 0) && <DashboardButton
             className="dashicons-before dashicons-arrow-up projects__footer-btn"
-            onClick={() => handleMenuItemUp(id)}
+            onClick={() => handleProjectUp(id)}
             size="small"
           >
           </DashboardButton>}
           {((length - 1) !== id) && <DashboardButton
             className="dashicons-before dashicons-arrow-down projects__footer-btn"
-            onClick={() => handleMenuItemDown(id)}
+            onClick={() => handleProjectDown(id)}
             size="small"
           >
           </DashboardButton>}
@@ -173,7 +150,7 @@ const ItemInputs = (props) => {
           <DashboardButton
             className="projects__footer-btn"
             warning={true}
-            onClick={() => handleRemoveMenuItem(id)}
+            onClick={() => handleRemoveProject(id)}
             size="small"
           >
             {__('Remove', 'portfolio-backend')}
@@ -184,4 +161,4 @@ const ItemInputs = (props) => {
   );
 
 };
-export default ItemInputs;
+export default ProjectsItem;

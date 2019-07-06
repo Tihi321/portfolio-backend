@@ -1,7 +1,7 @@
-export const UPDATE_MEDIA = 'UPDATE_LOGO';
-export const REMOVE_MEDIA = 'REMOVE_LOGO';
+export const UPDATE_MEDIA = 'UPDATE_MEDIA';
+export const REMOVE_MEDIA = 'REMOVE_MEDIA';
 
-const handleLogoUpdate = (media) => {
+const handleMediaUpdate = (media) => {
   return {
     id: media.id,
     url: media.url,
@@ -9,7 +9,7 @@ const handleLogoUpdate = (media) => {
   };
 };
 
-const handleRemoveLogo = () => {
+const handleRemoveMedia = () => {
   return {
     id: -1,
     url: '',
@@ -26,9 +26,9 @@ export const initialState = {
 export const mediaReducer = (state, action) => {
   switch (action.type) {
     case UPDATE_MEDIA:
-      return handleLogoUpdate(action.media);
+      return handleMediaUpdate(action.media);
     case REMOVE_MEDIA:
-      return handleRemoveLogo();
+      return handleRemoveMedia();
     default:
       return state;
   }

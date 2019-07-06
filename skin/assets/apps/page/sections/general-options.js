@@ -1,6 +1,6 @@
 import {__} from '@wordpress/i18n';
 import {Fragment, useContext} from 'react';
-import {StoreContext} from '../context/store';
+import {GeneralStore} from '../store/general-store';
 import MenuItemsOptions from './menu/items-options';
 
 import {
@@ -36,7 +36,7 @@ const GeneralOptions = (props) => {
       setGooglePlay,
       setContactMail,
     },
-  } = useContext(StoreContext);
+  } = useContext(GeneralStore);
 
   const logoElement = (
     <InputRow

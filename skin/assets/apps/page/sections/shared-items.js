@@ -63,7 +63,7 @@ const SharedItems = (props) => {
         <TextElement
           styleReset={true}
           outputType="text"
-          className="pb-input-mce-class"
+          className="pb-input-mce-class pb-input-mce-description"
           value={description}
           onChange={setDescription}
         />

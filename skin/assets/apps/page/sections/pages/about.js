@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import {StoreContext} from '../context/store';
-import SharedItems from './shared-items';
+import {AboutStore} from '../../store/about-store';
+import SharedItems from '../shared-items';
 
 const About = (props) => {
   const {
@@ -15,7 +15,7 @@ const About = (props) => {
       setAboutAccentColor,
       setAboutDescription,
     },
-  } = useContext(StoreContext);
+  } = useContext(AboutStore);
 
   return (
     <SharedItems

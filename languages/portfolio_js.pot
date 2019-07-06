@@ -61,11 +61,15 @@ msgstr ""
 msgid "Youtube"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:41
+#: skin/assets/apps/page/sections/index.js:64
 msgid "Potfolio Page"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:51
+#: skin/assets/apps/page/sections/index.js:74
+#: skin/assets/apps/page/sections/index.js:70
+#: skin/assets/apps/page/sections/index.js:65
+#: skin/assets/apps/page/sections/index.js:60
+#: skin/assets/apps/page/sections/index.js:56
 #: skin/assets/apps/topbar/sections/index.js:51
 msgid "Save"
 msgstr ""
@@ -77,25 +81,32 @@ msgstr ""
 
 #: skin/assets/apps/page/sections/menu/item-inputs.js:113
 #: skin/assets/apps/page/sections/shared-items.js:92
-#: skin/assets/apps/page/sections/shared-items.js:91
-#: skin/assets/apps/page/sections/shared-items.js:90
 #: skin/assets/apps/topbar/sections/project-input.js:141
 msgid "Pick a color"
 msgstr ""
 
 #: skin/assets/apps/page/sections/menu/item-inputs.js:179
+#: skin/assets/apps/page/sections/projects/projects-item.js:156
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:170
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:172
 #: skin/assets/apps/topbar/sections/project-input.js:208
 #: skin/assets/elements/FileElement/index.js:65
 msgid "Remove"
 msgstr ""
 
 #: skin/assets/apps/page/sections/menu/item-inputs.js:44
+#: skin/assets/apps/page/sections/projects/projects-item.js:35
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:69
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:71
 #: skin/assets/apps/topbar/sections/project-input.js:45
 #: skin/assets/elements/FileElement/index.js:99
 msgid "Title"
 msgstr ""
 
 #: skin/assets/apps/page/sections/menu/item-inputs.js:71
+#: skin/assets/apps/page/sections/projects/projects-item.js:62
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:96
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:98
 #: skin/assets/apps/topbar/sections/project-input.js:99
 msgid "Link"
 msgstr ""
@@ -104,12 +115,21 @@ msgstr ""
 msgid "Add new Menu item"
 msgstr ""
 
-#: skin/assets/apps/page/sections/shared-items.js:36
-msgid "Animatiomn file"
-msgstr ""
-
+#: skin/assets/apps/page/sections/projects/projects-item.js:91
 #: skin/assets/apps/page/sections/shared-items.js:59
 msgid "Description"
+msgstr ""
+
+#: skin/assets/apps/page/sections/projects/projects.js:45
+#: skin/assets/apps/page/sections/video-projects/projects.js:42
+#: skin/assets/apps/page/sections/video-projects/projects.js:44
+#: skin/assets/apps/topbar/sections/projects-options.js:42
+msgid "Add new project"
+msgstr ""
+
+#: skin/assets/apps/page/sections/shared-items.js:36
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:45
+msgid "Animatiomn file"
 msgstr ""
 
 #: skin/assets/apps/page/sections/shared-items.js:79
@@ -146,10 +166,6 @@ msgstr ""
 
 #: skin/assets/apps/topbar/sections/project-input.js:72
 msgid "Path"
-msgstr ""
-
-#: skin/assets/apps/topbar/sections/projects-options.js:42
-msgid "Add new project"
 msgstr ""
 
 #: skin/assets/components/buttons/toggle-switch/index.js:7

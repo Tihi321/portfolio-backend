@@ -3,21 +3,32 @@ import {__} from '@wordpress/i18n';
 import {Spinner} from '@wordpress/components';
 import Menu from './Menu';
 import GeneralOptions from './general-options';
-import About from './about';
+import About from './pages/about';
+import Web from './pages/web';
+import Video from './pages/video';
+import Android from './pages/android';
 import {ButtonRowElement} from '../components';
-import {StoreContext} from '../context/store';
+import {GeneralStore} from '../store/general-store';
+import {SaveData} from '../store/save-data';
+import {FetchData} from '../store/fetch-data';
 
 const Topbar = (props) => {
 
   const {
     attributes: {
-      dataLoaded,
       pageActive,
     },
+  } = useContext(GeneralStore);
+
+  const {
     reducers: {
       saveOptions,
     },
-  } = useContext(StoreContext);
+  } = useContext(SaveData);
+
+  const {
+    dataLoaded,
+  } = useContext(FetchData);
 
   const getElement = () => {
     switch (pageActive) {
@@ -28,6 +39,18 @@ const Topbar = (props) => {
       case 'about':
         return (
           <About />
+        );
+      case 'webDevelopment':
+        return (
+          <Web />
+        );
+      case 'videoProduction':
+        return (
+          <Video />
+        );
+      case 'androidDevelopment':
+        return (
+          <Android />
         );
 
       default:

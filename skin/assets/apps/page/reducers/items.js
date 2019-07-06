@@ -52,7 +52,6 @@ const addNewItem = (state) => {
 
   return newItemsArr.concat([{
     title: '',
-    path: '',
     color: '',
     link: '',
   }]);
