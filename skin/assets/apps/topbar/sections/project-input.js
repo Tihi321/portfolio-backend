@@ -1,6 +1,7 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useContext, useState} from 'react';
 import {SketchPicker} from 'react-color';
 import {__} from '@wordpress/i18n';
+import {StoreContext} from '../context/store';
 
 import {
   InputRow,
@@ -12,24 +13,28 @@ import {
 } from '../../../elements';
 
 const ProjectInput = (props) => {
+
+  const [colorPicker, setColorPicker] = useState(false);
+
   const {
     id,
     length,
-    showPicker,
     project: {
       title,
       path,
       color,
       link,
     },
-    dataStore: {
+  } = props;
+
+  const {
+    actions: {
       handleProjectsOnChange,
-      handleToggleColorPicker,
       handleRemoveProject,
       handleProjectUp,
       handleProjectDown,
     },
-  } = props;
+  } = useContext(StoreContext);
 
   /* eslint-disable */
   const titleElement = (
@@ -128,13 +133,14 @@ const ProjectInput = (props) => {
           style={{
             backgroundColor: color,
           }}
-          data-id={id}
           className="projects__color-btn"
-          onClick={handleToggleColorPicker}
+          onClick={() => {
+            setColorPicker(!colorPicker);
+          }}
         >
           {(!color) ? __('Pick a color', 'portfolio-backend') : color}
         </button>
-        {(showPicker.action && showPicker.id === id) && <SketchPicker
+        {(colorPicker) && <SketchPicker
           color={color}
           disableAlpha={true}
           onChangeComplete={(newColor) => {

@@ -58,6 +58,12 @@
   }
 }
 
+.pb-input-mce-description {
+  .mce-content-body {
+    min-height: 200px;
+  }
+}
+
 .pb-help-mce-class {
   font-style: italic;
   margin: 10px 0;

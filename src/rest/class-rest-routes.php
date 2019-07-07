@@ -41,31 +41,115 @@ abstract class Rest_Routes {
   const USER_BASIC_AUTHENTIFICATION = 'user_basic_authentication_check';
 
   /**
-   * Rest route for saving options
+   * Rest route for saving topbar options
    *
    * @since 1.0.0
    */
-  const PORTFOLIO_SAVE_OPTIONS = '/save-portfolio-options';
+  const PORTFOLIO_SAVE_TOPBAR = '/save-portfolio-topbar';
 
   /**
-   * Rest route for getting options
+   * Rest route for getting topbar options
    *
    * @since 1.0.0
    */
-  const PORTFOLIO_GET_OPTIONS = '/portfolio-options';
+  const PORTFOLIO_GET_TOPBAR = '/portfolio-topbar';
 
   /**
-   * Save options rest slug
+   * Rest route for saving page options
    *
    * @since 1.0.0
    */
-  const PORTFOLIO_SAVE_OPTIONS_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_OPTIONS;
+  const PORTFOLIO_SAVE_OPTIONS_PAGE = '/save-portfolio-options-page';
 
   /**
-   * Get options slug
+   * Rest route for saving page options
    *
    * @since 1.0.0
    */
-  const PORTFOLIO_GET_OPTIONS_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_GET_OPTIONS;
+  const PORTFOLIO_SAVE_ABOUT_PAGE = '/save-portfolio-about-page';
+
+  /**
+   * Rest route for saving page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_WEB_PAGE = '/save-portfolio-web-page';
+
+  /**
+   * Rest route for saving page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_VIDEO_PAGE = '/save-portfolio-video-page';
+
+  /**
+   * Rest route for saving page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_ANDROID_PAGE = '/save-portfolio-android-page';
+
+  /**
+   * Rest route for getting page options
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_GET_PAGE = '/portfolio-page';
+
+  /**
+   * Save topbar rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_TOPBAR_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_TOPBAR;
+
+  /**
+   * Get topbar slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_GET_TOPBAR_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_GET_TOPBAR;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_OPTIONS_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_OPTIONS_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_ABOUT_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_ABOUT_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_WEB_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_WEB_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_VIDEO_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_VIDEO_PAGE;
+
+  /**
+   * Save page options rest slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_SAVE_PAGE_ANDROID_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_SAVE_ANDROID_PAGE;
+
+  /**
+   * Get page options slug
+   *
+   * @since 1.0.0
+   */
+  const PORTFOLIO_GET_PAGE_SLUG = self::REST_API_BASE . self::REST_API_VERSION . self::PORTFOLIO_GET_PAGE;
 
 }

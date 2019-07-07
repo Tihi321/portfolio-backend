@@ -11,15 +11,15 @@ namespace PortfolioBackend\Rest\Rest_Callbacks;
 use PortfolioBackend\Core\Config;
 
 /**
- * Class Get_Dashboard
+ * Class Get_Portfolio_Topbar
  */
-class Get_Portfolio_Options extends Config implements Rest_Callback {
+class Get_Portfolio_Topbar extends Config implements Rest_Callback {
 
   /**
    * Get all dashboard options.
    *
    * This callback is triggered when a front end app
-   * goes to the @link https://API-URL/wp-json/portfolio-backend/v1/portfolio-options
+   * goes to the @link https://API-URL/wp-json/portfolio-backend/v1/portfolio-topbar
    * endpoint.
    *
    * @api
@@ -51,8 +51,6 @@ class Get_Portfolio_Options extends Config implements Rest_Callback {
             'projects'       => $projects,
         ],
     ];
-
-    \wp_reset_postdata();
 
     return \rest_ensure_response( $output );
   }

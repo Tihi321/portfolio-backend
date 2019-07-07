@@ -1,5 +1,5 @@
 import {render} from 'react-dom';
-import TopbarStore from './containers/topbar-store';
+import App from './containers';
 
 export default class Topbar {
   constructor(
@@ -8,16 +8,16 @@ export default class Topbar {
     messageTextSelector = '.js-portfolio-topbar-message-text',
   ) {
     this.appElement = appElement || document.querySelector('.js-portfolio-topbar');
-    this.messageElementSelector = messageElementSelector;
-    this.messageTextSelector = messageTextSelector;
+    this.messageElement = document.querySelector(messageElementSelector);
+    this.messageTextElement = document.querySelector(messageTextSelector);
 
   }
 
   init() {
     render(
-      <TopbarStore
-        messageElementSelector={this.messageElementSelector}
-        messageTextSelector={this.messageTextSelector}
+      <App
+        messageElement={this.messageElement}
+        messageTextElement={this.messageTextElement}
       />,
       this.appElement
     );

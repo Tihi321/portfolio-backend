@@ -1,5 +1,6 @@
 import {__} from '@wordpress/i18n';
-import {Fragment} from 'react';
+import {Fragment, useContext} from 'react';
+import {StoreContext} from '../context/store';
 
 import {
   ToggleSwitch,
@@ -12,6 +13,7 @@ import {
 } from '../../../elements';
 
 const GeneralOptions = (props) => {
+
   const {
     attributes: {
       logo: {
@@ -22,13 +24,13 @@ const GeneralOptions = (props) => {
       message,
       showMessage,
     },
-    dataStore: {
-      handleOnSelectMedia,
-      handleOnRemoveMedia,
-      handleMessgae,
-      handleShowMessage,
+    actions: {
+      setMessage,
+      setShowMessage,
+      handleLogoUpdate,
+      handleRemoveLogo,
     },
-  } = props;
+  } = useContext(StoreContext);
 
   const showMessageElement = (
     <InputRow
@@ -39,7 +41,7 @@ const GeneralOptions = (props) => {
         idName="remove-admin-bar"
         label={__('Show message', 'portfolio-backend')}
         checked={showMessage}
-        onChange={handleShowMessage}
+        onChange={setShowMessage}
         helperMessage={__('Show message on the topbar', 'portfolio-backend')}
       />
     </InputRow>
@@ -63,8 +65,8 @@ const GeneralOptions = (props) => {
           tagName="div"
           mediaId={id}
           mediaUrl={url}
-          onSelectMedia={handleOnSelectMedia}
-          onRemoveMedia={handleOnRemoveMedia}
+          onSelectMedia={handleLogoUpdate}
+          onRemoveMedia={handleRemoveLogo}
         />
       </div>
     </InputRow>
@@ -85,7 +87,7 @@ const GeneralOptions = (props) => {
               outputType='text'
               className="pb-input-mce-class"
               value={message}
-              onChange={(text) => handleMessgae(text)}
+              onChange={setMessage}
               maxChars={50}
               maxRows={1}
               warning={false}

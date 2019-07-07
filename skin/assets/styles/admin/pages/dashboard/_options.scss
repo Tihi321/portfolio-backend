@@ -1,5 +1,8 @@
 $options-colors: (
   border-color: $base-primary-blue,
+  text-color: $base-white-color,
+  default-bg: $base-primary-blue,
+  warning-bg: $base-punch-color,
 );
 
 .options {
@@ -30,8 +33,65 @@ $options-colors: (
     }
   }
 
-  &__input-wrap {
+  &__input-wrap,
+  &__file-wrap,
+  &__file-element {
     width: 100%;
+  }
+
+  &__file-element {
+    padding-bottom: 10px;
+  }
+
+  &__file-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    justify-content: space-between;
+
+    .components-placeholder {
+      width: 100%;
+
+      &__fieldset {
+        padding-top: 10px;
+      }
+    }
+
+    .components-button {
+      @include text-size(default);
+      width: 45%;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      color: map-get($options-colors, 'text-color');
+      background-color: map-get($options-colors, 'default-bg');
+      text-align: center;
+      font-weight: bold;
+      padding: 4px 8px;
+    }
+
+    .editor-media-placeholder__button {
+      width: 100%;
+    }
+
+    .components-placeholder__label {
+      font-weight: bold;
+    }
+
+    .components-placeholder__instructions {
+      font-style: italic;
+    }
+
+    .remove__media-btn {
+      background-color: map-get($options-colors, 'warning-bg');
+    }
+
+    .file__title {
+      font-weight: bold;
+      padding-right: 10px;
+    }
   }
 
   &__logo {
