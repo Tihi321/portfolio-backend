@@ -32,7 +32,7 @@ const ProjectsItem = (props) => {
       className="options__row"
       >
       <InputLabel
-        message={__('Title', 'portfolio-backend')}
+        message={__('Name', 'portfolio-backend')}
         helper=""
       />
       <div className="options__input-wrap">
@@ -60,7 +60,7 @@ const ProjectsItem = (props) => {
       >
       <InputLabel
         message={__('Link', 'portfolio-backend')}
-        helper=""
+        helper="link to the project"
       />
       <div className="options__input-wrap">
         <TextElement
@@ -89,7 +89,7 @@ const ProjectsItem = (props) => {
     >
       <InputLabel
         message={__('Description', 'portfolio-backend')}
-        helper="Short descrption paragraph below title"
+        helper="short descrption of project, with links to source code and project"
       />
       <div className="options__input-wrap">
         <TextElement

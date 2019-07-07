@@ -58,8 +58,8 @@ const Topbar = (props) => {
 
   return (
     <Fragment>
-      <h1 className="dashboard__title">
-        {__('Potfolio Page', 'portfolio-backend')}
+      <h1 className="dashboard__title dashboard__title--portfolio">
+        {__('Portfolio', 'portfolio-backend')}
       </h1>
       <Menu />
       <div className="dashboard__options">

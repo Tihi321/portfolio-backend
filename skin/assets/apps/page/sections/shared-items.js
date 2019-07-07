@@ -33,8 +33,8 @@ const SharedItems = (props) => {
       className="options__row"
     >
       <InputLabel
-        message={__('Animatiomn file', 'portfolio-backend')}
-        helper="Short descrption paragraph below title"
+        message={__('Animation file', 'portfolio-backend')}
+        helper="animation hown in header"
       />
       <div className="options__file-wrap">
         <FileElement

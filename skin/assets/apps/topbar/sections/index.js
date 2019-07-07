@@ -37,7 +37,7 @@ const Topbar = (props) => {
 
   return (
     <Fragment>
-      <h1 className="dashboard__title">
+      <h1 className="dashboard__title dashboard__title--topbar">
         {__('Topbar', 'portfolio-backend')}
       </h1>
       <Menu />

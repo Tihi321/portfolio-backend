@@ -1,9 +1,18 @@
 $dashboard-colors: (
-  title-color: $base-primary-blue,
+  portfolio-bg: $base-persian-color,
+  topbar-bg: $base-froly-color,
+  title-color: $base-white-color,
   options-bg: $base-white-color,
+  app-shadow: rgba(0, 0, 0, 0.1),
 );
 
 .dashboard {
+  &__outer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
   &__options {
     display: flex;
     flex: 1;
@@ -30,18 +39,25 @@ $dashboard-colors: (
   }
 
   &__app {
-    margin-left: -20px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     min-height: 80vh;
+    box-shadow: 0 0 10px 1px map-get($dashboard-colors, 'app-shadow');
   }
 
   &__title {
-    text-align: center;
-    margin: 0 0 20px;
     color: map-get($dashboard-colors, 'title-color');
     text-transform: uppercase;
-    font-weight: 800;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+
+    &--topbar {
+      background-color: map-get($dashboard-colors, 'topbar-bg');
+    }
+
+    &--portfolio {
+      background-color: map-get($dashboard-colors, 'portfolio-bg');
+    }
   }
 }

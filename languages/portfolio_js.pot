@@ -62,11 +62,10 @@ msgid "Youtube"
 msgstr ""
 
 #: skin/assets/apps/page/sections/index.js:62
-msgid "Potfolio Page"
+msgid "Portfolio"
 msgstr ""
 
 #: skin/assets/apps/page/sections/index.js:72
-#: skin/assets/apps/page/sections/index.js:70
 #: skin/assets/apps/topbar/sections/index.js:51
 msgid "Save"
 msgstr ""
@@ -109,6 +108,11 @@ msgstr ""
 msgid "Add new Menu item"
 msgstr ""
 
+#: skin/assets/apps/page/sections/projects/projects-item.js:35
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:69
+msgid "Name"
+msgstr ""
+
 #: skin/assets/apps/page/sections/projects/projects-item.js:91
 #: skin/assets/apps/page/sections/shared-items.js:59
 msgid "Description"
@@ -121,12 +125,15 @@ msgid "Add new project"
 msgstr ""
 
 #: skin/assets/apps/page/sections/shared-items.js:36
-#: skin/assets/apps/page/sections/video-projects/projects-item.js:45
-msgid "Animatiomn file"
+msgid "Animation file"
 msgstr ""
 
 #: skin/assets/apps/page/sections/shared-items.js:79
 msgid "Accent color"
+msgstr ""
+
+#: skin/assets/apps/page/sections/video-projects/projects-item.js:45
+msgid "Featured image"
 msgstr ""
 
 #: skin/assets/apps/topbar/sections/Menu.js:28

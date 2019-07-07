@@ -30,7 +30,7 @@ const VideoProjects = (props) => {
 
   return (
     <div
-      className="options"
+      className="projects__video"
     >
       <ul
         className="projects__items"

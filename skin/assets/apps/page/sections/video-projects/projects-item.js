@@ -42,8 +42,8 @@ const VideoProjectsItem = (props) => {
       className="options__row"
     >
       <InputLabel
-        message={__('Animatiomn file', 'portfolio-backend')}
-        helper="Short descrption paragraph below title"
+        message={__('Featured image', 'portfolio-backend')}
+        helper="clickable featured image for project"
       />
       <div className="options__file-wrap">
         <FileElement
@@ -66,7 +66,7 @@ const VideoProjectsItem = (props) => {
       className="options__row"
       >
       <InputLabel
-        message={__('Title', 'portfolio-backend')}
+        message={__('Name', 'portfolio-backend')}
         helper=""
       />
       <div className="options__input-wrap">
@@ -94,7 +94,7 @@ const VideoProjectsItem = (props) => {
       >
       <InputLabel
         message={__('Link', 'portfolio-backend')}
-        helper=""
+        helper="link to youtube video"
       />
       <div className="options__input-wrap">
         <TextElement
@@ -119,9 +119,9 @@ const VideoProjectsItem = (props) => {
 
   const optionsElements = (
     <Fragment>
-      {imageFileElement}
       {titleElement}
       {linkElement}
+      {imageFileElement}
     </Fragment>
   );
 

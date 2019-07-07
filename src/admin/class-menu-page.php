@@ -93,8 +93,8 @@ class Menu_Page extends Config implements Service {
         // Page.
         array(
             'parent_slug' => self::PARENT_MENU_SLUG,
-            'page_title'  => esc_html__( 'Page', 'portfolio-backend' ),
-            'menu_title'  => esc_html__( 'Page', 'portfolio-backend' ),
+            'page_title'  => esc_html__( 'Portfolio', 'portfolio-backend' ),
+            'menu_title'  => esc_html__( 'Portfolio', 'portfolio-backend' ),
             'capability'  => self::USER_CAPABILITY,
             'menu_slug'   => self::PORTFOLIO_PAGE_SLUG,
             'function'    => [ $this, 'page_callback' ],
