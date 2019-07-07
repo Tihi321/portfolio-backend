@@ -27,7 +27,7 @@ const ItemInputs = (props) => {
   } = props;
 
   const {
-    reducers: {
+    actions: {
       handleMenuItemOnChange,
       handleRemoveMenuItem,
       handleMenuItemUp,

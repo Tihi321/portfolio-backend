@@ -14,7 +14,7 @@ const Topbar = (props) => {
       dataLoaded,
       pageActive,
     },
-    reducers: {
+    actions: {
       saveOptions,
     },
   } = useContext(StoreContext);

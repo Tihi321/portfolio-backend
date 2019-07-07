@@ -61,11 +61,12 @@ msgstr ""
 msgid "Youtube"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:64
+#: skin/assets/apps/page/sections/index.js:62
 msgid "Potfolio Page"
 msgstr ""
 
-#: skin/assets/apps/page/sections/index.js:74
+#: skin/assets/apps/page/sections/index.js:72
+#: skin/assets/apps/page/sections/index.js:70
 #: skin/assets/apps/topbar/sections/index.js:51
 msgid "Save"
 msgstr ""

@@ -10,7 +10,7 @@ const Video = (props) => {
       videoAccentColor,
       videoDescription,
     },
-    reducers: {
+    actions: {
       handleVideoAnimationUpdate,
       handleRemoveVideoAnimation,
       setVideoAccentColor,

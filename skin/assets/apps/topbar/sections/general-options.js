@@ -24,7 +24,7 @@ const GeneralOptions = (props) => {
       message,
       showMessage,
     },
-    reducers: {
+    actions: {
       setMessage,
       setShowMessage,
       handleLogoUpdate,

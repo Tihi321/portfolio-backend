@@ -1,6 +1,4 @@
-/* global portfolioDashboard */
-import React, {useState, useReducer, useEffect, useContext} from 'react';
-import {FetchData} from './fetch-data';
+import React, {useState, useReducer} from 'react';
 
 import {mediaReducer, initialState, UPDATE_MEDIA, REMOVE_MEDIA} from '../reducers/media';
 
@@ -9,10 +7,6 @@ import {videoProjectsReducer, SET_VIDEO_PROJECTS, UPDATE_VIDEO_PROJECT, REMOVE_V
 const VideoStore = React.createContext([{}, () => {}]);
 
 const VideoStoreProvider = (props) => {
-  const {
-    dataLoaded,
-    data,
-  } = useContext(FetchData);
 
   // video
   const [videoAnimationFile, setVideoAnimationFile] = useReducer(mediaReducer, initialState);
@@ -70,11 +64,25 @@ const VideoStoreProvider = (props) => {
       type: REMOVE_MEDIA,
     });
   };
-  useEffect(() => {
 
-    console.log('Video loaded');
+  const initialUpdate = (data) => {
+    const {
+      videoAccentColor: apiVideoAccentColor,
+      videoAnimationFile: apiVideoAnimationFile,
+      videoDescription: apiVideoDescription,
+      videoProjects: apiVideoProjects,
+    } = data;
 
-  }, [dataLoaded, data]);
+    setVideoAccentColor(apiVideoAccentColor);
+    handleVideoAnimationUpdate(apiVideoAnimationFile);
+    setVideoDescription(apiVideoDescription);
+
+    dispatchVideoProjects({
+      type: SET_VIDEO_PROJECTS,
+      projects: apiVideoProjects,
+    });
+  };
+
 
   return (
     <VideoStore.Provider value={{
@@ -84,7 +92,8 @@ const VideoStoreProvider = (props) => {
         videoDescription,
         videoProjects,
       },
-      reducers: {
+      actions: {
+        initialUpdate,
         handleVideoAnimationUpdate,
         handleRemoveVideoAnimation,
         setVideoAccentColor,

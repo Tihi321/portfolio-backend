@@ -27,7 +27,7 @@ const GeneralOptions = (props) => {
       googlePlay,
       contactMail,
     },
-    reducers: {
+    actions: {
       handleLogoUpdate,
       handleRemoveLogo,
       setGithub,

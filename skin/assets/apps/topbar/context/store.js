@@ -140,7 +140,7 @@ const StoreProvider = (props) => {
         pageActive,
         projects,
       },
-      reducers: {
+      actions: {
         setDataLoaded,
         handleLogoUpdate,
         handleRemoveLogo,

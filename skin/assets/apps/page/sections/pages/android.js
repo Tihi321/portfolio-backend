@@ -11,7 +11,7 @@ const Android = (props) => {
       androidDescription,
       androidProjects,
     },
-    reducers: {
+    actions: {
       handleAndroidAnimationUpdate,
       handleRemoveAndroidAnimation,
       setAndroidAccentColor,

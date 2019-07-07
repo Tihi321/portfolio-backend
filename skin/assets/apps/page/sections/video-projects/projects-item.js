@@ -29,7 +29,7 @@ const VideoProjectsItem = (props) => {
   } = props;
 
   const {
-    reducers: {
+    actions: {
       handleVideoProjectOnChange,
       handleRemoveVideoProject,
       handleVideoProjectUp,

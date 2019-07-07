@@ -10,7 +10,7 @@ const MenuItemsOptions = (props) => {
     attributes: {
       menuItems,
     },
-    reducers: {
+    actions: {
       handleAddMenuItem,
     },
   } = useContext(GeneralStore);

@@ -9,7 +9,7 @@ const About = (props) => {
       aboutAccentColor,
       aboutDescription,
     },
-    reducers: {
+    actions: {
       handleAboutAnimationUpdate,
       handleRemoveAboutAnimation,
       setAboutAccentColor,

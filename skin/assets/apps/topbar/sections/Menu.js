@@ -9,7 +9,7 @@ const Menu = (props) => {
     attributes: {
       pageActive,
     },
-    reducers: {
+    actions: {
       setPageActive,
     },
   } = useContext(StoreContext);

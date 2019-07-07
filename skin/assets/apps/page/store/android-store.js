@@ -1,6 +1,4 @@
-/* global portfolioDashboard */
-import React, {useState, useReducer, useEffect, useContext} from 'react';
-import {FetchData} from './fetch-data';
+import React, {useState, useReducer} from 'react';
 
 import {mediaReducer, initialState, UPDATE_MEDIA, REMOVE_MEDIA} from '../reducers/media';
 
@@ -9,10 +7,6 @@ import {projectsReducer, SET_PROJECTS, UPDATE_PROJECT, REMOVE_PROJECT, ADD_NEW_P
 const AndroidStore = React.createContext([{}, () => {}]);
 
 const AndroidStoreProvider = (props) => {
-  const {
-    dataLoaded,
-    data,
-  } = useContext(FetchData);
 
   // android
   const [androidAnimationFile, setAndroidAnimationFile] = useReducer(mediaReducer, initialState);
@@ -71,11 +65,23 @@ const AndroidStoreProvider = (props) => {
     });
   };
 
-  useEffect(() => {
+  const initialUpdate = (data) => {
+    const {
+      androidAccentColor: apiAndroidAccentColor,
+      androidAnimationFile: apiAndroidAnimationFile,
+      androidDescription: apiAndroidDescription,
+      androidProjects: apiAndroidProjects,
+    } = data;
 
-    console.log('android loaded');
+    setAndroidAccentColor(apiAndroidAccentColor);
+    handleAndroidAnimationUpdate(apiAndroidAnimationFile);
+    setAndroidDescription(apiAndroidDescription);
 
-  }, [dataLoaded, data]);
+    dispatchAndroidProjects({
+      type: SET_PROJECTS,
+      projects: apiAndroidProjects,
+    });
+  };
 
   return (
     <AndroidStore.Provider value={{
@@ -85,7 +91,8 @@ const AndroidStoreProvider = (props) => {
         androidDescription,
         androidProjects,
       },
-      reducers: {
+      actions: {
+        initialUpdate,
         handleAndroidAnimationUpdate,
         handleRemoveAndroidAnimation,
         setAndroidAccentColor,

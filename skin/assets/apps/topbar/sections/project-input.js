@@ -28,7 +28,7 @@ const ProjectInput = (props) => {
   } = props;
 
   const {
-    reducers: {
+    actions: {
       handleProjectsOnChange,
       handleRemoveProject,
       handleProjectUp,

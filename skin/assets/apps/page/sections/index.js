@@ -9,8 +9,7 @@ import Video from './pages/video';
 import Android from './pages/android';
 import {ButtonRowElement} from '../components';
 import {GeneralStore} from '../store/general-store';
-import {SaveData} from '../store/save-data';
-import {FetchData} from '../store/fetch-data';
+import {FetchContext} from '../store/fetch-context';
 
 const Topbar = (props) => {
 
@@ -21,14 +20,13 @@ const Topbar = (props) => {
   } = useContext(GeneralStore);
 
   const {
-    reducers: {
+    attributes: {
+      dataLoaded,
+    },
+    actions: {
       saveOptions,
     },
-  } = useContext(SaveData);
-
-  const {
-    dataLoaded,
-  } = useContext(FetchData);
+  } = useContext(FetchContext);
 
   const getElement = () => {
     switch (pageActive) {

@@ -10,7 +10,7 @@ const ProjectsOptions = (props) => {
     attributes: {
       projects,
     },
-    reducers: {
+    actions: {
       handleAddProject,
     },
   } = useContext(StoreContext);

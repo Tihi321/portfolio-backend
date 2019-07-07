@@ -1,23 +1,15 @@
-/* global portfolioDashboard */
-import React, {useState, useReducer, useEffect, useContext} from 'react';
-import {FetchData} from './fetch-data';
+import React, {useState, useReducer} from 'react';
 
 import {mediaReducer, initialState, UPDATE_MEDIA, REMOVE_MEDIA} from '../reducers/media';
 
 const AboutStore = React.createContext([{}, () => {}]);
 
 const AboutStoreProvider = (props) => {
-  const {
-    dataLoaded,
-    data,
-  } = useContext(FetchData);
 
   // about
   const [aboutAnimationFile, setAboutAnimationFile] = useReducer(mediaReducer, initialState);
   const [aboutAccentColor, setAboutAccentColor] = useState('');
   const [aboutDescription, setAboutDescription] = useState('');
-
-
 
   const handleAboutAnimationUpdate = (media) => {
     setAboutAnimationFile({
@@ -32,11 +24,17 @@ const AboutStoreProvider = (props) => {
     });
   };
 
-  useEffect(() => {
+  const initialUpdate = (data) => {
+    const {
+      aboutAccentColor: apiAboutAccentColor,
+      aboutAnimationFile: apiAboutAnimationFile,
+      aboutDescription: apiAboutDescription,
+    } = data;
 
-    console.log('about loaded');
-
-  }, [dataLoaded, data]);
+    setAboutAccentColor(apiAboutAccentColor);
+    handleAboutAnimationUpdate(apiAboutAnimationFile);
+    setAboutDescription(apiAboutDescription);
+  };
 
   return (
     <AboutStore.Provider value={{
@@ -45,7 +43,8 @@ const AboutStoreProvider = (props) => {
         aboutAccentColor,
         aboutDescription,
       },
-      reducers: {
+      actions: {
+        initialUpdate,
         handleAboutAnimationUpdate,
         handleRemoveAboutAnimation,
         setAboutAccentColor,

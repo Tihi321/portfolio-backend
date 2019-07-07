@@ -10,7 +10,7 @@ const VideoProjects = (props) => {
     attributes: {
       videoProjects,
     },
-    reducers: {
+    actions: {
       handleAddVideoProject,
     },
   } = useContext(VideoStore);

@@ -1,6 +1,4 @@
-/* global portfolioDashboard */
-import React, {useState, useReducer, useEffect, useContext} from 'react';
-import {FetchData} from './fetch-data';
+import React, {useState, useReducer} from 'react';
 
 import {mediaReducer, initialState, UPDATE_MEDIA, REMOVE_MEDIA} from '../reducers/media';
 import {projectsReducer, SET_PROJECTS, UPDATE_PROJECT, REMOVE_PROJECT, ADD_NEW_PROJECT, MOVE_PROJECT_UP, MOVE_PROJECT_DOWN} from '../reducers/projects';
@@ -8,10 +6,6 @@ import {projectsReducer, SET_PROJECTS, UPDATE_PROJECT, REMOVE_PROJECT, ADD_NEW_P
 const WebStore = React.createContext([{}, () => {}]);
 
 const WebStoreProvider = (props) => {
-  const {
-    dataLoaded,
-    data,
-  } = useContext(FetchData);
 
   // web
   const [webAnimationFile, setWebAnimationFile] = useReducer(mediaReducer, initialState);
@@ -70,11 +64,24 @@ const WebStoreProvider = (props) => {
     });
   };
 
-  useEffect(() => {
+  const initialUpdate = (data) => {
+    const {
+      webAccentColor: apiWebAccentColor,
+      webAnimationFile: apiWebAnimationFile,
+      webDescription: apiWebDescription,
+      webProjects: apiWebProjects,
+    } = data;
 
-    console.log('Web loaded');
+    setWebAccentColor(apiWebAccentColor);
+    handleWebAnimation(apiWebAnimationFile);
+    setWebDescription(apiWebDescription);
 
-  }, [dataLoaded, data]);
+    dispatchWebProjects({
+      type: SET_PROJECTS,
+      projects: apiWebProjects,
+    });
+  };
+
 
   return (
     <WebStore.Provider value={{
@@ -84,7 +91,8 @@ const WebStoreProvider = (props) => {
         webDescription,
         webProjects,
       },
-      reducers: {
+      actions: {
+        initialUpdate,
         handleWebAnimation,
         handleRemoveWebAnimation,
         setWebAccentColor,

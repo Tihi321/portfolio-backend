@@ -11,7 +11,7 @@ const Web = (props) => {
       webDescription,
       webProjects,
     },
-    reducers: {
+    actions: {
       handleWebAnimation,
       handleRemoveWebAnimation,
       setWebAccentColor,

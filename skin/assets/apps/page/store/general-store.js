@@ -1,6 +1,4 @@
-/* global portfolioDashboard */
-import React, {useState, useReducer, useEffect, useContext} from 'react';
-import {FetchData} from './fetch-data';
+import React, {useState, useReducer} from 'react';
 
 import {mediaReducer, initialState, UPDATE_MEDIA, REMOVE_MEDIA} from '../reducers/media';
 import {itemsReducer, SET_ITEMS, UPDATE_ITEM, REMOVE_ITEM, ADD_NEW_ITEM, MOVE_ITEM_UP, MOVE_ITEM_DOWN} from '../reducers/items';
@@ -8,10 +6,6 @@ import {itemsReducer, SET_ITEMS, UPDATE_ITEM, REMOVE_ITEM, ADD_NEW_ITEM, MOVE_IT
 const GeneralStore = React.createContext([{}, () => {}]);
 
 const GeneralStoreProvider = (props) => {
-  const {
-    dataLoaded,
-    data,
-  } = useContext(FetchData);
 
   const [pageActive, setPageActive] = useState('options');
 
@@ -75,36 +69,28 @@ const GeneralStoreProvider = (props) => {
     });
   };
 
-  useEffect(() => {
-
+  const initialUpdate = (data) => {
     const {
-      generalOptions,
+      apiGithub,
+      apiLinkedin,
+      apiYoutube,
+      apiGooglePlay,
+      apiContactMail,
+      menuItems: items,
+      apiLogo,
     } = data;
 
-    if (generalOptions) {
-      const {
-        apiGithub,
-        apiLinkedin,
-        apiYoutube,
-        apiGooglePlay,
-        apiContactMail,
-        menuItems: items,
-        apiLogo,
-      } = generalOptions;
-
-      handleLogoUpdate(apiLogo);
-      setGithub(apiGithub);
-      setLinkedin(apiLinkedin);
-      setYoutube(apiYoutube);
-      setGooglePlay(apiGooglePlay);
-      setContactMail(apiContactMail);
-      dispatchMenuItems({
-        type: SET_ITEMS,
-        items,
-      });
-    }
-
-  }, [dataLoaded, data]);
+    handleLogoUpdate(apiLogo);
+    setGithub(apiGithub);
+    setLinkedin(apiLinkedin);
+    setYoutube(apiYoutube);
+    setGooglePlay(apiGooglePlay);
+    setContactMail(apiContactMail);
+    dispatchMenuItems({
+      type: SET_ITEMS,
+      items,
+    });
+  };
 
   return (
     <GeneralStore.Provider value={{
@@ -118,7 +104,8 @@ const GeneralStoreProvider = (props) => {
         pageActive,
         menuItems,
       },
-      reducers: {
+      actions: {
+        initialUpdate,
         handleLogoUpdate,
         handleRemoveLogo,
         setGithub,
