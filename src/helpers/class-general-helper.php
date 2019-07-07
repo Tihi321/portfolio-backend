@@ -51,6 +51,68 @@ abstract class General_Helper extends Config {
   }
 
   /**
+   * Sanitizes html from tiny mce field.
+   *
+   * @param string $html   html string.
+   * @return string       Sanitized html string.
+   *
+   * @since 1.0.0
+   */
+  public static function sanitize_html_input( $html ) {
+    return wp_kses(
+      $text,
+      array(
+          'p' => array(
+              'style' => array(),
+          ),
+          'span' => array(
+              'style' => array(),
+          ),
+          'ol' => array(
+              'style' => array(),
+          ),
+          'ul' => array(
+              'style' => array(),
+          ),
+          'li' => array(
+              'style' => array(),
+          ),
+          'a' => array(
+              'href' => array(),
+              'title' => array(),
+          ),
+      )
+    );
+  }
+
+  /**
+   * Sanitizes media array.
+   *
+   * @param array $media   html string.
+   * @return string       Sanitized html string.
+   *
+   * @since 1.0.0
+   */
+  public static function sanitize_media( $media ) {
+    $sanitized_media = [];
+
+    // sanitize all logo object values.
+    foreach ( $media as $key => $item ) {
+      if ( $key !== 'id' && $key !== 'url' && $key !== 'title' ) {
+        continue;
+      }
+      if ( $key === 'url' ) {
+        $sanitized_media[ $key ] = esc_url_raw( $item );
+        continue;
+      }
+
+      $sanitized_media[ $key ] = sanitize_text_field( $item );
+    }
+
+    return wp_json_encode( $sanitized_media );
+  }
+
+  /**
    * Return full path for specific asset from manifest.json
    * This is used for cache busting assets.
    *

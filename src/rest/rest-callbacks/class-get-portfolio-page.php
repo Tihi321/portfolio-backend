@@ -101,8 +101,6 @@ class Get_Portfolio_Page extends Config implements Rest_Callback {
         ],
     ];
 
-    \wp_reset_postdata();
-
     return \rest_ensure_response( $output );
   }
 

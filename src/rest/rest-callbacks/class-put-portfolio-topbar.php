@@ -47,20 +47,7 @@ class Put_Portfolio_Topbar extends Config implements Rest_Callback {
     $sanitized_projects = [];
     $sanitized_logo     = [];
     $projects           = General_Helper::get_array_value( 'projects', $body );
-    $logo               = General_Helper::get_array_value( 'logo', $body );
-
-    // sanitize all logo object values.
-    foreach ( $logo as $key => $item ) {
-      if ( $key !== 'id' && $key !== 'url' && $key !== 'title' ) {
-        continue;
-      }
-      if ( $key === 'url' ) {
-        $sanitized_logo[ $key ] = esc_url_raw( $item );
-        continue;
-      }
-
-      $sanitized_logo[ $key ] = sanitize_text_field( $item );
-    }
+    $logo               = General_Helper::sanitize_media( General_Helper::get_array_value( 'logo', $body ) );
 
     // sanitize all project object values.
     foreach ( $projects as $project ) {
@@ -81,10 +68,9 @@ class Put_Portfolio_Topbar extends Config implements Rest_Callback {
       $sanitized_projects[] = $sanitized_project;
     }
 
-    $sanitized_logo_string     = wp_json_encode( $sanitized_logo );
     $sanitized_projects_string = wp_json_encode( $sanitized_projects );
 
-    $this->save_options( $sanitized_logo_string, self::CUSTOM_LOGO );
+    $this->save_options( $logo, self::CUSTOM_LOGO );
     $this->save_options( $sanitized_projects_string, self::SELECT_PROJECTS );
     $this->save_options( $show_message, self::SHOW_MESSAGE );
     $this->save_options( $message, self::MESSAGE );
