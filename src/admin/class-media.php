@@ -9,7 +9,7 @@
 namespace PortfolioBackend\Admin;
 
 use Eightshift_Libs\Core\Service;
-use PortfolioBackend\Helpers\Object_Helper;
+use PortfolioBackend\Helpers\General_Helper;
 
 
 /**
@@ -86,7 +86,7 @@ class Media implements Service {
           $svg_content = file( $path );
           $svg_content = implode( ' ', $svg_content );
 
-          if ( ! Object_Helper::is_valid_xml( $svg_content ) ) {
+          if ( ! $this->is_valid_xml( $svg_content ) ) {
             new \WP_Error( sprintf( esc_html__( 'Error: File invalid: %s', 'inf_theme' ), $path ) );
             return false;
           }
@@ -132,7 +132,7 @@ class Media implements Service {
       $svg_content = implode( ' ', $svg_content );
 
       if ( file_exists( $path ) ) {
-        if ( ! Object_Helper::is_valid_xml( $svg_content ) ) {
+        if ( ! $this->is_valid_xml( $svg_content ) ) {
           return array(
             'size' => $response,
             'name' => $response['name'],
@@ -141,5 +141,21 @@ class Media implements Service {
       }
     }
     return $response;
+  }
+
+  /**
+   * Check if XML is valid file used for svg.
+   *
+   * @param xml $xml Full xml document.
+   * @return boolean
+   *
+   * @since 1.0.0
+   */
+  public function is_valid_xml( $xml ) {
+    libxml_use_internal_errors( true );
+    $doc = new \DOMDocument( '1.0', 'utf-8' );
+    $doc->loadXML( $xml );
+    $errors = libxml_get_errors();
+    return empty( $errors );
   }
 }

@@ -3,10 +3,10 @@
  * Class that handles REST security checks
  *
  * @since   1.0.0
- * @package PortfolioBackend\Rest_Routes
+ * @package PortfolioBackend\Routes
  */
 
-namespace PortfolioBackend\Rest;
+namespace PortfolioBackend\Routes;
 
 use PortfolioBackend\Helpers\Error_Logger;
 

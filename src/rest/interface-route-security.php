@@ -3,10 +3,10 @@
  * File that holds the Securable Route interface.
  *
  * @since   0.2.0
- * @package A1_Careers_Page\Routes
+ * @package PortfolioBackend\Routes
  */
 
-namespace A1_Careers_Page\Routes;
+namespace PortfolioBackend\Routes;
 
 /**
  * Interface Securable.
@@ -14,15 +14,17 @@ namespace A1_Careers_Page\Routes;
  * An object that can be registered.
  */
 interface Route_Security {
+
   /**
-   * Register the rest route.
+   * Route security callback
    *
-   * A register method holds authentification_check funtion to for route.
+   * @param  \WP_REST_Request $request Data got from enpoint url.
    *
-   * @return void
+   * @return WP_REST_Response|bool If response generated an error, WP_Error, if response
+   *                                is already an instance, WP_HTTP_Response, otherwise
+   *                                returns a new true.
    *
-   * @since 0.8.0 Removing type hinting void for php 7.0.
-   * @since 0.2.0
+   * @since 0.1.0
    */
-  public function authentification_check();
+  public function authentification_check( \WP_REST_Request $request );
 }

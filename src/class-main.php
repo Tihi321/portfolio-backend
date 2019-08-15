@@ -13,7 +13,8 @@ use Eightshift_Libs\Core\Main as LibMain;
 use PortfolioBackend\Admin;
 use PortfolioBackend\Assets;
 use PortfolioBackend\Languages;
-use PortfolioBackend\Rest;
+use PortfolioBackend\Routes;
+use PortfolioBackend\Routes\Route;
 
 /**
  * The main start class.
@@ -41,11 +42,21 @@ class Main extends LibMain {
       Admin\Menu_Page::class,
       Admin\Media::class,
 
-        // Languages.
+      // Languages.
       Languages\Internationalization::class,
 
-        // Rest.
-      Rest\Rest_Register::class,
+      // Routes Security.
+      Routes\Rest_Security::class,
+
+      // Routes.
+      Route\Get_Portfolio_Page::class,
+      Route\Get_Portfolio_Topbar::class,
+      Route\Put_Portfolio_Page_About::class => [ Routes\Rest_Security::class ],
+      Route\Put_Portfolio_Page_Android::class => [ Routes\Rest_Security::class ],
+      Route\Put_Portfolio_Page_Options::class => [ Routes\Rest_Security::class ],
+      Route\Put_Portfolio_Page_Video::class => [ Routes\Rest_Security::class ],
+      Route\Put_Portfolio_Page_Web::class => [ Routes\Rest_Security::class ],
+      Route\Put_Portfolio_Topbar::class => [ Routes\Rest_Security::class ],
 
     ];
   }

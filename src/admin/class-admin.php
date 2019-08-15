@@ -12,7 +12,7 @@ use Eightshift_Libs\Core\Service;
 use Eightshift_Libs\Assets\Manifest_Data;
 
 use PortfolioBackend\Core\Config;
-use PortfolioBackend\Rest\Rest_Routes;
+use PortfolioBackend\Routes\Route;
 use PortfolioBackend\Helpers\General_Helper;
 
 /**
@@ -107,14 +107,14 @@ class Admin implements Service {
         'portfolioDashboard',
         array(
           'root' => esc_url_raw( rest_url() ),
-          'getTopbarOptionsApi' => Rest_Routes::PORTFOLIO_GET_TOPBAR_SLUG,
-          'saveTopbarOptionsApi' => Rest_Routes::PORTFOLIO_SAVE_TOPBAR_SLUG,
-          'getPageOptionsApi' => Rest_Routes::PORTFOLIO_GET_PAGE_SLUG,
-          'savePageOptionsApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_OPTIONS_SLUG,
-          'savePageAboutApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_ABOUT_SLUG,
-          'savePageWebApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_WEB_SLUG,
-          'savePageVideoApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_VIDEO_SLUG,
-          'savePageAndroidApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_ANDROID_SLUG,
+          'getTopbarOptionsApi' => Route\Get_Portfolio_Topbar::OPTIONS_SLUG,
+          'saveTopbarOptionsApi' => Route\Put_Portfolio_Topbar::OPTIONS_SLUG,
+          'getPageOptionsApi' => Route\Get_Portfolio_Page::OPTIONS_SLUG,
+          'savePageOptionsApi' => Route\Put_Portfolio_Page_Options::OPTIONS_SLUG,
+          'savePageAboutApi' => Route\Put_Portfolio_Page_About::OPTIONS_SLUG,
+          'savePageWebApi' => Route\Put_Portfolio_Page_Web::OPTIONS_SLUG,
+          'savePageVideoApi' => Route\Put_Portfolio_Page_Video::OPTIONS_SLUG,
+          'savePageAndroidApi' => Route\Put_Portfolio_Page_Android::OPTIONS_SLUG,
           'portfolioNonce' => wp_create_nonce( 'portfolio_save_options_nonce' ),
           'nonce' => wp_create_nonce( 'wp_rest' ),
         )
@@ -139,9 +139,9 @@ class Admin implements Service {
         wp_deregister_script( 'react' );
         wp_deregister_script( 'react-dom' );
 
-        wp_register_script( 'react', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react.development.js', array(), '16.6.3', false );
+        wp_register_script( 'react', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react.development.js', array(), '16.8.6', false );
 
-        wp_register_script( 'react-dom', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react-dom.development.js', array(), '16.6.3', false );
+        wp_register_script( 'react-dom', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react-dom.development.js', array(), '16.8.6', false );
 
       }
     }
