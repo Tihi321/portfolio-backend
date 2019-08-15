@@ -67,38 +67,38 @@ class Get_Portfolio_Page extends Config implements Rest_Callback {
 
     $output =
     [
-        'generalOptions' => [
-            'logo'           => $logo,
-            'menuItems'      => $menu_items,
-            'github'         => $github,
-            'linkedin'       => $linkedin,
-            'youtube'        => $youtube,
-            'googlePlay'     => $google_play,
-            'contactMail'    => $conntact_mail,
-        ],
-        'aboutOptions' => [
-            'aboutAnimationFile' => $about_animation_file,
-            'aboutAccentColor'   => $about_accent_color,
-            'aboutDescription'   => $about_description,
-        ],
-        'webOptions' => [
-            'webAnimationFile' => $web_animation_file,
-            'webAccentColor'   => $web_accent_color,
-            'webDescription'   => $web_description,
-            'webProjects'      => $web_projects,
-        ],
-        'videoOptions' => [
-            'videoAnimationFile' => $video_animation_file,
-            'videoAccentColor'   => $video_accent_color,
-            'videoDescription'   => $video_description,
-            'videoProjects'      => $video_projects,
-        ],
-        'androidOptions' => [
-            'androidAnimationFile' => $android_animation_file,
-            'androidAccentColor'   => $android_accent_color,
-            'androidDescription'   => $android_description,
-            'androidProjects'      => $android_projects,
-        ],
+      'generalOptions' => [
+        'logo'           => $logo,
+        'menuItems'      => $menu_items,
+        'github'         => $github,
+        'linkedin'       => $linkedin,
+        'youtube'        => $youtube,
+        'googlePlay'     => $google_play,
+        'contactMail'    => $conntact_mail,
+      ],
+      'aboutOptions' => [
+        'aboutAnimationFile' => $about_animation_file,
+        'aboutAccentColor'   => $about_accent_color,
+        'aboutDescription'   => $about_description,
+      ],
+      'webOptions' => [
+        'webAnimationFile' => $web_animation_file,
+        'webAccentColor'   => $web_accent_color,
+        'webDescription'   => $web_description,
+        'webProjects'      => $web_projects,
+      ],
+      'videoOptions' => [
+        'videoAnimationFile' => $video_animation_file,
+        'videoAccentColor'   => $video_accent_color,
+        'videoDescription'   => $video_description,
+        'videoProjects'      => $video_projects,
+      ],
+      'androidOptions' => [
+        'androidAnimationFile' => $android_animation_file,
+        'androidAccentColor'   => $android_accent_color,
+        'androidDescription'   => $android_description,
+        'androidProjects'      => $android_projects,
+      ],
     ];
 
     return \rest_ensure_response( $output );

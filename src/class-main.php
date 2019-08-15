@@ -132,15 +132,15 @@ class Main implements Registrable {
     return [
 
         // Admin.
-        Admin\Admin::class,
-        Admin\Menu_Page::class,
-        Admin\Media::class,
+      Admin\Admin::class,
+      Admin\Menu_Page::class,
+      Admin\Media::class,
 
         // Languages.
-        Languages\Internationalization::class,
+      Languages\Internationalization::class,
 
         // Rest.
-        Rest\Rest_Register::class,
+      Rest\Rest_Register::class,
 
     ];
   }
