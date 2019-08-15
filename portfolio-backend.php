@@ -27,13 +27,6 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Global assets public path
- *
- * @since 1.0.0
- */
-define( 'PB_ASSETS_PUBLIC_PATH', __DIR__ . '/skin/public/' );
-
-/**
  * Include the autoloader so we can dynamically include the rest of the classes.
  *
  * @since 1.0.0

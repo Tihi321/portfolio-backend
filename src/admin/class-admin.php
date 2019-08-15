@@ -8,21 +8,37 @@
 
 namespace PortfolioBackend\Admin;
 
-use PortfolioBackend\Core\Service;
+use Eightshift_Libs\Core\Service;
+use Eightshift_Libs\Assets\Manifest_Data;
+
 use PortfolioBackend\Core\Config;
-use PortfolioBackend\Rest\Rest_Routes;
+use PortfolioBackend\Routes\Route;
 use PortfolioBackend\Helpers\General_Helper;
-use PortfolioBackend\Helpers\Loader;
 
 /**
  * Class Admin
  */
-class Admin extends Config implements Service {
+class Admin implements Service {
 
   /**
-   * Use trait inside class.
+   * Instance variable of manifest data.
+   *
+   * @var object
+   *
+   * @since 1.0.0
    */
-  use Loader;
+  protected $manifest;
+
+  /**
+   * Create a new admin instance that injects manifest data for use in assets registration.
+   *
+   * @param Manifest_Data $manifest Inject manifest which holds data about assets from manifest.json.
+   *
+   * @since 1.0.0
+   */
+  public function __construct( Manifest_Data $manifest ) {
+    $this->manifest = $manifest;
+  }
 
 
   /**
@@ -31,8 +47,8 @@ class Admin extends Config implements Service {
    * @since 1.0.0
    */
   public function register() : void {
-    $this->add_action( 'admin_enqueue_scripts', $this, 'enqueue_admin_styles', 50 );
-    $this->add_action( 'admin_enqueue_scripts', $this, 'enqueue_admin_scripts' );
+    add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_styles' ], 50 );
+    add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
   }
 
   /**
@@ -42,9 +58,9 @@ class Admin extends Config implements Service {
    */
   public function enqueue_admin_styles() {
 
-    $main_admin_style = General_Helper::get_manifest_assets_data( 'adminPortfolio.css' );
-    wp_register_style( static::PLUGIN_NAME . '-admin-style', $main_admin_style, '', static::PLUGIN_VERSION, false );
-    wp_enqueue_style( static::PLUGIN_NAME . '-admin-style' );
+    $main_admin_style = $this->manifest->get_assets_manifest_item( 'adminPortfolio.css' );
+    wp_register_style( Config::PLUGIN_NAME . '-admin-style', $main_admin_style, '', Config::PLUGIN_VERSION, false );
+    wp_enqueue_style( Config::PLUGIN_NAME . '-admin-style' );
 
   }
 
@@ -62,45 +78,45 @@ class Admin extends Config implements Service {
       $this->enqueue_react_developemnt();
       wp_enqueue_media();
 
-      $main_admin_script = General_Helper::get_manifest_assets_data( 'adminPortfolio.js' );
+      $main_admin_script = $this->manifest->get_assets_manifest_item( 'adminPortfolio.js' );
       wp_register_script(
-        static::PLUGIN_NAME . '-admin-scripts',
+        Config::PLUGIN_NAME . '-admin-scripts',
         $main_admin_script,
         array(
-            'wp-plugins',
-            'wp-edit-post',
-            'wp-element',
-            'wp-components',
-            'wp-editor',
+          'wp-plugins',
+          'wp-edit-post',
+          'wp-element',
+          'wp-components',
+          'wp-editor',
         ),
-        static::PLUGIN_VERSION,
+        Config::PLUGIN_VERSION,
         true
       );
 
-      wp_enqueue_script( static::PLUGIN_NAME . '-admin-scripts' );
+      wp_enqueue_script( Config::PLUGIN_NAME . '-admin-scripts' );
 
       // add localization to javascript.
       if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
         $locale  = gutenberg_get_jed_locale_data( 'portfolio-backend' );
         $content = 'wp.i18n.setLocaleData( ' . wp_json_encode( $locale ) . ', "portfolio-backend" );';
-        wp_script_add_data( static::PLUGIN_NAME . '-admin-scripts', 'data', $content );
+        wp_script_add_data( Config::PLUGIN_NAME . '-admin-scripts', 'data', $content );
       }
 
       wp_localize_script(
-        static::PLUGIN_NAME . '-admin-scripts',
+        Config::PLUGIN_NAME . '-admin-scripts',
         'portfolioDashboard',
         array(
-            'root' => esc_url_raw( rest_url() ),
-            'getTopbarOptionsApi' => Rest_Routes::PORTFOLIO_GET_TOPBAR_SLUG,
-            'saveTopbarOptionsApi' => Rest_Routes::PORTFOLIO_SAVE_TOPBAR_SLUG,
-            'getPageOptionsApi' => Rest_Routes::PORTFOLIO_GET_PAGE_SLUG,
-            'savePageOptionsApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_OPTIONS_SLUG,
-            'savePageAboutApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_ABOUT_SLUG,
-            'savePageWebApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_WEB_SLUG,
-            'savePageVideoApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_VIDEO_SLUG,
-            'savePageAndroidApi' => Rest_Routes::PORTFOLIO_SAVE_PAGE_ANDROID_SLUG,
-            'portfolioNonce' => wp_create_nonce( 'portfolio_save_options_nonce' ),
-            'nonce' => wp_create_nonce( 'wp_rest' ),
+          'root' => esc_url_raw( rest_url() ),
+          'getTopbarOptionsApi' => Route\Get_Portfolio_Topbar::OPTIONS_SLUG,
+          'saveTopbarOptionsApi' => Route\Put_Portfolio_Topbar::OPTIONS_SLUG,
+          'getPageOptionsApi' => Route\Get_Portfolio_Page::OPTIONS_SLUG,
+          'savePageOptionsApi' => Route\Put_Portfolio_Page_Options::OPTIONS_SLUG,
+          'savePageAboutApi' => Route\Put_Portfolio_Page_About::OPTIONS_SLUG,
+          'savePageWebApi' => Route\Put_Portfolio_Page_Web::OPTIONS_SLUG,
+          'savePageVideoApi' => Route\Put_Portfolio_Page_Video::OPTIONS_SLUG,
+          'savePageAndroidApi' => Route\Put_Portfolio_Page_Android::OPTIONS_SLUG,
+          'portfolioNonce' => wp_create_nonce( 'portfolio_save_options_nonce' ),
+          'nonce' => wp_create_nonce( 'wp_rest' ),
         )
       );
 
@@ -123,9 +139,9 @@ class Admin extends Config implements Service {
         wp_deregister_script( 'react' );
         wp_deregister_script( 'react-dom' );
 
-        wp_register_script( 'react', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react.development.js', array(), '16.6.3', false );
+        wp_register_script( 'react', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react.development.js', array(), '16.8.6', false );
 
-        wp_register_script( 'react-dom', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react-dom.development.js', array(), '16.6.3', false );
+        wp_register_script( 'react-dom', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react-dom.development.js', array(), '16.8.6', false );
 
       }
     }

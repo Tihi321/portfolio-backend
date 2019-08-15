@@ -8,20 +8,13 @@
 
 namespace PortfolioBackend\Admin;
 
-use PortfolioBackend\Core\Service;
-use PortfolioBackend\Core\Config;
+use Eightshift_Libs\Core\Service;
 use PortfolioBackend\Helpers\General_Helper;
-use PortfolioBackend\Helpers\Loader;
 
 /**
  * Class Menu_Page
  */
-class Menu_Page extends Config implements Service {
-
-  /**
-   * Use trait inside class.
-   */
-  use Loader;
+class Menu_Page implements Service {
 
   /**
    * Parent menu page slug.
@@ -51,8 +44,8 @@ class Menu_Page extends Config implements Service {
    * @since 1.0.0
    */
   public function register() : void {
-    $this->add_action( 'admin_menu', $this, 'register_menu_page' );
-    $this->add_action( 'admin_menu', $this, 'register_submenu_pages' );
+    add_action( 'admin_menu', [ $this, 'register_menu_page' ] );
+    add_action( 'admin_menu', [ $this, 'register_submenu_pages' ] );
   }
 
 
@@ -81,24 +74,24 @@ class Menu_Page extends Config implements Service {
     $submenu_pages = array(
 
         // Topbar.
-        array(
-            'parent_slug' => self::PARENT_MENU_SLUG,
-            'page_title'  => esc_html__( 'Topbar', 'portfolio-backend' ),
-            'menu_title'  => esc_html__( 'Topbar', 'portfolio-backend' ),
-            'capability'  => self::USER_CAPABILITY,
-            'menu_slug'   => self::PARENT_MENU_SLUG,
-            'function'    => [ $this, 'topbar_callback' ],
-        ),
+      array(
+        'parent_slug' => self::PARENT_MENU_SLUG,
+        'page_title'  => esc_html__( 'Topbar', 'portfolio-backend' ),
+        'menu_title'  => esc_html__( 'Topbar', 'portfolio-backend' ),
+        'capability'  => self::USER_CAPABILITY,
+        'menu_slug'   => self::PARENT_MENU_SLUG,
+        'function'    => [ $this, 'topbar_callback' ],
+      ),
 
         // Page.
-        array(
-            'parent_slug' => self::PARENT_MENU_SLUG,
-            'page_title'  => esc_html__( 'Page', 'portfolio-backend' ),
-            'menu_title'  => esc_html__( 'Page', 'portfolio-backend' ),
-            'capability'  => self::USER_CAPABILITY,
-            'menu_slug'   => self::PORTFOLIO_PAGE_SLUG,
-            'function'    => [ $this, 'page_callback' ],
-        ),
+      array(
+        'parent_slug' => self::PARENT_MENU_SLUG,
+        'page_title'  => esc_html__( 'Page', 'portfolio-backend' ),
+        'menu_title'  => esc_html__( 'Page', 'portfolio-backend' ),
+        'capability'  => self::USER_CAPABILITY,
+        'menu_slug'   => self::PORTFOLIO_PAGE_SLUG,
+        'function'    => [ $this, 'page_callback' ],
+      ),
 
     );
 

@@ -1,32 +1,29 @@
 {
+  "name": "portfolio",
+  "description": "This repository contains all the tools for portfolio project",
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "*",
-    "infinum/coding-standards-wp": "*"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+    "infinum/coding-standards-wp": "0.4.1"
+  },
+  "require": {
+    "php": ">=7.0",
+    "infinum/eightshift-libs": "^0.8.0",
+    "infinum/eightshift-blocks": "^1.0.1"
   },
   "autoload": {
     "classmap": [
-      "src",
-      "src/exception",
-      "src/admin",
-      "src/helpers",
-      "src/languages",
-      "src/rest"
+      "src/"
     ]
   },
-  "scripts": {
-		"post-install-cmd": [
-			"\"vendor/bin/phpcs\" --config-set installed_paths vendor/infinum/coding-standards-wp"
-		],
-		"post-update-cmd": [
-			"\"vendor/bin/phpcs\" --config-set installed_paths vendor/infinum/coding-standards-wp"
-		],
-    "phpcs": "@php ./vendor/bin/phpcs ./",
-    "phpcbf": "@php ./vendor/bin/phpcbf ./"
-	},
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
     "sort-packages": true,
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "process-timeout": 2000
+  },
+  "scripts": {
+    "check-cs": "@php ./vendor/bin/phpcs",
+    "fix-cs": "@php ./vendor/bin/phpcbf"
   }
 }

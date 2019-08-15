@@ -3,19 +3,17 @@
  * Class that handles REST security checks
  *
  * @since   1.0.0
- * @package PortfolioBackend\Rest_Routes
+ * @package PortfolioBackend\Routes
  */
 
-namespace PortfolioBackend\Rest;
+namespace PortfolioBackend\Routes;
 
-use PortfolioBackend\Core\Config;
 use PortfolioBackend\Helpers\Error_Logger;
-use PortfolioBackend\Helpers\General_Helper;
 
 /**
  * Class containing registered rest routes
  */
-final class Rest_Security extends Config {
+final class Rest_Security {
   use Error_Logger;
 
   /**
