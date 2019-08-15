@@ -8,10 +8,8 @@
 
 namespace PortfolioBackend\Admin;
 
-use PortfolioBackend\Core\Service;
+use Eightshift_Libs\Core\Service;
 use PortfolioBackend\Helpers\Object_Helper;
-use PortfolioBackend\Helpers\Loader;
-use PortfolioBackend\Helpers\Error_Logger;
 
 
 /**
@@ -20,26 +18,15 @@ use PortfolioBackend\Helpers\Error_Logger;
 class Media implements Service {
 
   /**
-   * Use trait inside class.
-   */
-  use Object_Helper;
-  use Error_Logger;
-
-  /**
-   * Use trait inside class.
-   */
-  use Loader;
-
-  /**
    * Register all the hooks
    *
    * @since 1.0.0
    */
   public function register() : void {
-    $this->add_filter( 'upload_mimes', $this, 'enable_mime_types' );
-    $this->add_filter( 'wp_prepare_attachment_for_js', $this, 'enable_svg_library_preview', 10, 3 );
-    $this->add_filter( 'wp_handle_upload_prefilter', $this, 'check_svg_on_media_upload' );
-    $this->add_filter( 'wp_check_filetype_and_ext', $this, 'disable_mime_check', 10, 4 );
+    add_filter( 'upload_mimes', [ $this, 'enable_mime_types' ] );
+    add_filter( 'wp_prepare_attachment_for_js', [ $this, 'enable_svg_library_preview' ], 10, 3 );
+    add_filter( 'wp_handle_upload_prefilter', [ $this, 'check_svg_on_media_upload' ] );
+    add_filter( 'wp_check_filetype_and_ext', [ $this, 'disable_mime_check' ], 10, 4 );
   }
 
 
@@ -99,7 +86,7 @@ class Media implements Service {
           $svg_content = file( $path );
           $svg_content = implode( ' ', $svg_content );
 
-          if ( ! $this->is_valid_xml( $svg_content ) ) {
+          if ( ! Object_Helper::is_valid_xml( $svg_content ) ) {
             new \WP_Error( sprintf( esc_html__( 'Error: File invalid: %s', 'inf_theme' ), $path ) );
             return false;
           }
@@ -115,10 +102,10 @@ class Media implements Service {
 
           // media single.
           $response['sizes']['full'] = array(
-              'height'      => $height,
-              'width'       => $width,
-              'url'         => $src,
-              'orientation' => $height > $width ? 'portrait' : 'landscape',
+            'height'      => $height,
+            'width'       => $width,
+            'url'         => $src,
+            'orientation' => $height > $width ? 'portrait' : 'landscape',
           );
         }
       } catch ( \Exception $e ) {
@@ -145,10 +132,10 @@ class Media implements Service {
       $svg_content = implode( ' ', $svg_content );
 
       if ( file_exists( $path ) ) {
-        if ( ! $this->is_valid_xml( $svg_content ) ) {
+        if ( ! Object_Helper::is_valid_xml( $svg_content ) ) {
           return array(
-              'size' => $response,
-              'name' => $response['name'],
+            'size' => $response,
+            'name' => $response['name'],
           );
         }
       }

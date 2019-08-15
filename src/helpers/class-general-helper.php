@@ -13,7 +13,7 @@ use PortfolioBackend\Core\Config;
 /**
  * Class General Helper
  */
-abstract class General_Helper extends Config {
+abstract class General_Helper {
 
   /**
    * Check if array has key and return its value if true.
@@ -62,25 +62,25 @@ abstract class General_Helper extends Config {
     return wp_kses(
       $text,
       array(
-          'p' => array(
-              'style' => array(),
-          ),
-          'span' => array(
-              'style' => array(),
-          ),
-          'ol' => array(
-              'style' => array(),
-          ),
-          'ul' => array(
-              'style' => array(),
-          ),
-          'li' => array(
-              'style' => array(),
-          ),
-          'a' => array(
-              'href' => array(),
-              'title' => array(),
-          ),
+        'p' => array(
+          'style' => array(),
+        ),
+        'span' => array(
+          'style' => array(),
+        ),
+        'ol' => array(
+          'style' => array(),
+        ),
+        'ul' => array(
+          'style' => array(),
+        ),
+        'li' => array(
+          'style' => array(),
+        ),
+        'a' => array(
+          'href' => array(),
+          'title' => array(),
+        ),
       )
     );
   }
@@ -113,33 +113,6 @@ abstract class General_Helper extends Config {
   }
 
   /**
-   * Return full path for specific asset from manifest.json
-   * This is used for cache busting assets.
-   *
-   * @param string $key File name key you want to get from manifest.
-   * @return string Full path to asset.
-   *
-   * @since 1.0.0
-   */
-  public static function get_manifest_assets_data( $key = null ) {
-    if ( ! $key ) {
-      return;
-    }
-
-    $data = json_decode( PB_ASSETS_MANIFEST );
-
-    if ( ! $data ) {
-      return;
-    }
-
-    $asset = self::get_array_value( $key, (array) $data );
-
-    if ( ! empty( $asset ) ) {
-      return $asset;
-    }
-  }
-
-  /**
    * Gets this plugin file.
    *
    * @since  1.0.0
@@ -147,7 +120,7 @@ abstract class General_Helper extends Config {
    * @return string
    */
   public static function get_basename() {
-    return plugin_basename( dirname( __FILE__, 2 ) ) . self::PLUGIN_NAME . '.php';
+    return plugin_basename( dirname( __FILE__, 2 ) ) . Config::PLUGIN_NAME . '.php';
   }
 
   /**

@@ -3,10 +3,10 @@
  * The class file that holds abstract class for REST routes registering
  *
  * @since   1.4.0
- * @package A1_Careers_Page\Routes
+ * @package PortfolioBackend\Routes
  */
 
-namespace A1_Careers_Page\Routes;
+namespace PortfolioBackend\Routes;
 
 use Eightshift_Libs\Routes\Route;
 
@@ -16,7 +16,7 @@ use Eightshift_Libs\Routes\Route;
  * @since   1.4.0
  */
 abstract class Base_Route implements Route {
-  const NAMESPACE_NAME = 'a1-careers-page';
+  const NAMESPACE_NAME = 'portfolio-backend';
   const VERSION        = '/v1';
   const ROUTE_NAME     = '';
 

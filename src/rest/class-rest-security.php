@@ -8,14 +8,12 @@
 
 namespace PortfolioBackend\Rest;
 
-use PortfolioBackend\Core\Config;
 use PortfolioBackend\Helpers\Error_Logger;
-use PortfolioBackend\Helpers\General_Helper;
 
 /**
  * Class containing registered rest routes
  */
-final class Rest_Security extends Config {
+final class Rest_Security {
   use Error_Logger;
 
   /**

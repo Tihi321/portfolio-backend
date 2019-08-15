@@ -8,8 +8,7 @@
 
 namespace PortfolioBackend\Rest;
 
-use PortfolioBackend\Core\Service;
-use PortfolioBackend\Helpers\Loader;
+use Eightshift_Libs\Core\Service;
 use PortfolioBackend\Rest\Rest_Callbacks;
 use PortfolioBackend\Helpers\General_Helper;
 
@@ -17,11 +16,6 @@ use PortfolioBackend\Helpers\General_Helper;
  * Class Register
  */
 class Rest_Register extends Rest_Routes implements Service {
-
-  /**
-   * Use trait inside class.
-   */
-  use Loader;
 
   /**
    * Initialize the class
@@ -52,7 +46,7 @@ class Rest_Register extends Rest_Routes implements Service {
   public function register() : void {
 
     // Register Rest routes.
-    $this->add_action( 'rest_api_init', $this, 'register_routes' );
+    add_action( 'rest_api_init', [ $this, 'register_routes' ] );
   }
 
   /**
@@ -69,10 +63,10 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_GET_TOPBAR,
       array(
-          array(
-              'methods'  => 'GET',
-              'callback' => [ $this->get_portfolio_topbar, static::REST_CALLBACK ],
-          ),
+        array(
+          'methods'  => 'GET',
+          'callback' => [ $this->get_portfolio_topbar, static::REST_CALLBACK ],
+        ),
       )
     );
 
@@ -81,9 +75,9 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_SAVE_TOPBAR,
       array(
-          'methods'  => 'PUT',
-          'callback' => [ $this->put_portfolio_topbar, static::REST_CALLBACK ],
-          'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
+        'methods'  => 'PUT',
+        'callback' => [ $this->put_portfolio_topbar, static::REST_CALLBACK ],
+        'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
       )
     );
 
@@ -92,10 +86,10 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_GET_PAGE,
       array(
-          array(
-              'methods'  => 'GET',
-              'callback' => [ $this->get_portfolio_page, static::REST_CALLBACK ],
-          ),
+        array(
+          'methods'  => 'GET',
+          'callback' => [ $this->get_portfolio_page, static::REST_CALLBACK ],
+        ),
       )
     );
 
@@ -104,9 +98,9 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_SAVE_OPTIONS_PAGE,
       array(
-          'methods'  => 'PUT',
-          'callback' => [ $this->put_portfolio_page_options, static::REST_CALLBACK ],
-          'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
+        'methods'  => 'PUT',
+        'callback' => [ $this->put_portfolio_page_options, static::REST_CALLBACK ],
+        'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
       )
     );
 
@@ -115,9 +109,9 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_SAVE_ABOUT_PAGE,
       array(
-          'methods'  => 'PUT',
-          'callback' => [ $this->put_portfolio_page_about, static::REST_CALLBACK ],
-          'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
+        'methods'  => 'PUT',
+        'callback' => [ $this->put_portfolio_page_about, static::REST_CALLBACK ],
+        'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
       )
     );
 
@@ -126,9 +120,9 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_SAVE_WEB_PAGE,
       array(
-          'methods'  => 'PUT',
-          'callback' => [ $this->put_portfolio_page_web, static::REST_CALLBACK ],
-          'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
+        'methods'  => 'PUT',
+        'callback' => [ $this->put_portfolio_page_web, static::REST_CALLBACK ],
+        'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
       )
     );
 
@@ -137,9 +131,9 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_SAVE_VIDEO_PAGE,
       array(
-          'methods'  => 'PUT',
-          'callback' => [ $this->put_portfolio_page_video, static::REST_CALLBACK ],
-          'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
+        'methods'  => 'PUT',
+        'callback' => [ $this->put_portfolio_page_video, static::REST_CALLBACK ],
+        'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
       )
     );
 
@@ -148,9 +142,9 @@ class Rest_Register extends Rest_Routes implements Service {
       static::REST_API_BASE . static::REST_API_VERSION,
       static::PORTFOLIO_SAVE_ANDROID_PAGE,
       array(
-          'methods'  => 'PUT',
-          'callback' => [ $this->put_portfolio_page_android, static::REST_CALLBACK ],
-          'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
+        'methods'  => 'PUT',
+        'callback' => [ $this->put_portfolio_page_android, static::REST_CALLBACK ],
+        'permission_callback' => [ $this->rest_security, self::USER_BASIC_AUTHENTIFICATION ],
       )
     );
 

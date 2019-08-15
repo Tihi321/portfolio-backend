@@ -11,19 +11,13 @@
 
 namespace PortfolioBackend\Languages;
 
-use PortfolioBackend\Core\Service;
+use Eightshift_Libs\Core\Service;
 use PortfolioBackend\Helpers\General_Helper;
-use PortfolioBackend\Helpers\Loader;
 
 /**
  * Class Internationalization
  */
 class Internationalization implements Service {
-
-  /**
-   * Use trait inside class.
-   */
-  use Loader;
 
 
   /**
@@ -32,7 +26,7 @@ class Internationalization implements Service {
    * @since 1.0.0
    */
   public function register() : void {
-    $this->add_action( 'plugins_loaded', $this, 'load_plugin_textdomain' );
+    add_action( 'plugins_loaded', [ $this, 'load_plugin_textdomain' ] );
   }
 
 
