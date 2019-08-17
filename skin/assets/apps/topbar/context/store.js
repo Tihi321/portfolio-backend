@@ -82,7 +82,7 @@ const StoreProvider = (props) => {
         getTopbarOptionsApi,
       } = portfolioDashboard;
 
-      fetch(root + getTopbarOptionsApi)
+      fetch(`${root}${getTopbarOptionsApi}`)
         .then((response) => {
           return response.json();
         })
