@@ -44,7 +44,7 @@ trait Object_Helper {
    */
   public static function sanitize_html_input( $html ) {
     return wp_kses(
-      $text,
+      $html,
       array(
         'p' => array(
           'style' => array(),
