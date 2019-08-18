@@ -16,11 +16,6 @@ const GeneralOptions = (props) => {
 
   const {
     attributes: {
-      logo: {
-        id,
-        title,
-        url,
-      },
       github,
       linkedin,
       youtube,
@@ -28,8 +23,6 @@ const GeneralOptions = (props) => {
       contactMail,
     },
     actions: {
-      handleLogoUpdate,
-      handleRemoveLogo,
       setGithub,
       setLinkedin,
       setYoutube,
@@ -37,31 +30,6 @@ const GeneralOptions = (props) => {
       setContactMail,
     },
   } = useContext(GeneralStore);
-
-  const logoElement = (
-    <InputRow
-      className="options__row"
-    >
-      <InputLabel
-        message={__('Logo', 'portfolio-backend')}
-        helper={__('Logo in the menu', 'portfolio-backend')}
-      />
-      <div
-        className="options__logo-wrap"
-      >
-        <MediaElement
-          className="options__logo-element"
-          mediaTitle={title}
-          toolbarOnTop={false}
-          tagName="div"
-          mediaId={id}
-          mediaUrl={url}
-          onSelectMedia={handleLogoUpdate}
-          onRemoveMedia={handleRemoveLogo}
-        />
-      </div>
-    </InputRow>
-  );
 
   /* eslint-disable */
     const githubElement = (
@@ -203,7 +171,6 @@ const GeneralOptions = (props) => {
 
   const optionsElements = (
     <Fragment>
-      {logoElement}
       {githubElement}
       {youtubeElement}
       {linkedinElement}

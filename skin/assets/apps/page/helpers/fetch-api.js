@@ -3,7 +3,6 @@ export const getDashboardOptions = (data) => {
 
   const {
     generalOptions: {
-      logo,
       github,
       linkedin,
       youtube,
@@ -72,7 +71,6 @@ export const getDashboardOptions = (data) => {
       apiGooglePlay: googlePlay,
       apiContactMail: contactMail,
       menuItems: menuItemsArr,
-      apiLogo: JSON.parse(logo),
     },
     aboutOptions: {
       aboutAccentColor,

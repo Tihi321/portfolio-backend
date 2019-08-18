@@ -1,6 +1,5 @@
 import React, {useState, useReducer} from 'react';
 
-import {mediaReducer, initialState, UPDATE_MEDIA, REMOVE_MEDIA} from '../reducers/media';
 import {itemsReducer, SET_ITEMS, UPDATE_ITEM, REMOVE_ITEM, ADD_NEW_ITEM, MOVE_ITEM_UP, MOVE_ITEM_DOWN} from '../reducers/items';
 
 const GeneralStore = React.createContext([{}, () => {}]);
@@ -10,7 +9,6 @@ const GeneralStoreProvider = (props) => {
   const [pageActive, setPageActive] = useState('options');
 
   // general options
-  const [logo, dispatchLogo] = useReducer(mediaReducer, initialState);
   const [github, setGithub] = useState('');
   const [linkedin, setLinkedin] = useState('');
   const [youtube, setYoutube] = useState('');
@@ -19,19 +17,6 @@ const GeneralStoreProvider = (props) => {
 
   // aditional menu items
   const [menuItems, dispatchMenuItems] = useReducer(itemsReducer, []);
-
-  const handleLogoUpdate = (media) => {
-    dispatchLogo({
-      type: UPDATE_MEDIA,
-      media,
-    });
-  };
-
-  const handleRemoveLogo = () => {
-    dispatchLogo({
-      type: REMOVE_MEDIA,
-    });
-  };
 
   const handleMenuItemOnChange = (itemId, text, updateType) => {
     dispatchMenuItems({
@@ -77,10 +62,8 @@ const GeneralStoreProvider = (props) => {
       apiGooglePlay,
       apiContactMail,
       menuItems: items,
-      apiLogo,
     } = data;
 
-    handleLogoUpdate(apiLogo);
     setGithub(apiGithub);
     setLinkedin(apiLinkedin);
     setYoutube(apiYoutube);
@@ -95,7 +78,6 @@ const GeneralStoreProvider = (props) => {
   return (
     <GeneralStore.Provider value={{
       attributes: {
-        logo,
         github,
         linkedin,
         youtube,
@@ -106,8 +88,6 @@ const GeneralStoreProvider = (props) => {
       },
       actions: {
         initialUpdate,
-        handleLogoUpdate,
-        handleRemoveLogo,
         setGithub,
         setLinkedin,
         setYoutube,

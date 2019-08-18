@@ -57,7 +57,6 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
   public function route_callback( \WP_REST_Request $request ) {
 
     // get all general options.
-    $logo          = get_option( Config::PAGE_LOGO );
     $menu_items    = get_option( Config::ADDITIONAL_MENU_ITEMS );
     $github        = get_option( Config::GITHUB_LINK );
     $linkedin      = get_option( Config::LINKEDIN_LINK );
@@ -91,7 +90,6 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
     $output =
     [
       'generalOptions' => [
-        'logo'           => $logo,
         'menuItems'      => $menu_items,
         'github'         => $github,
         'linkedin'       => $linkedin,

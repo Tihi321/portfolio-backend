@@ -38,7 +38,6 @@ const FetchContextProvider = (props) => {
           youtube,
           googlePlay,
           contactMail,
-          logo,
           menuItems,
         },
       } = generalStore;
@@ -49,7 +48,6 @@ const FetchContextProvider = (props) => {
         youtube,
         googlePlay,
         contactMail,
-        logo,
         menuItems,
       });
 
