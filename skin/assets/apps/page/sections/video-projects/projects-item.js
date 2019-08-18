@@ -42,7 +42,7 @@ const VideoProjectsItem = (props) => {
       className="options__row"
     >
       <InputLabel
-        message={__('Animatiomn file', 'portfolio-backend')}
+        message={__('Animation file', 'portfolio-backend')}
         helper="Short descrption paragraph below title"
       />
       <div className="options__file-wrap">

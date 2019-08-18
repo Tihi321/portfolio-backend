@@ -78,7 +78,12 @@ const addNewVideoProject = (state) => {
 export const videoProjectsReducer = (state, action) => {
   switch (action.type) {
     case SET_VIDEO_PROJECTS:
-      return action.projects;
+      return action.projects.map((project) => {
+        return {
+          ...project,
+          image: JSON.parse(project.image),
+        };
+      });
     case UPDATE_VIDEO_PROJECT:
       return handleUpdateVideoProjects(action.projectId, action.updateType, action.values, state);
     case REMOVE_VIDEO_PROJECT:

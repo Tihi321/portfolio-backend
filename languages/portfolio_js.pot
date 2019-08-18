@@ -112,7 +112,7 @@ msgstr ""
 
 #: skin/assets/apps/page/sections/shared-items.js:36
 #: skin/assets/apps/page/sections/video-projects/projects-item.js:45
-msgid "Animatiomn file"
+msgid "Animation file"
 msgstr ""
 
 #: skin/assets/apps/page/sections/shared-items.js:79
