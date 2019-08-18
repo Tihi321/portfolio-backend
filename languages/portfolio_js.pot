@@ -123,17 +123,16 @@ msgstr ""
 msgid "Projects"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:46
-#: skin/assets/apps/topbar/sections/general-options.js:55
-msgid "Logo"
-msgstr ""
-
 #: skin/assets/apps/topbar/sections/general-options.js:42
 msgid "Show message"
 msgstr ""
 
 #: skin/assets/apps/topbar/sections/general-options.js:45
 msgid "Show message on the topbar"
+msgstr ""
+
+#: skin/assets/apps/topbar/sections/general-options.js:55
+msgid "Logo"
 msgstr ""
 
 #: skin/assets/apps/topbar/sections/general-options.js:56
