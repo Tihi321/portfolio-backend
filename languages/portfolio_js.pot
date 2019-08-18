@@ -24,41 +24,32 @@ msgstr ""
 msgid "Android"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:126
-msgid "Linkedin"
-msgstr ""
-
-#: skin/assets/apps/page/sections/general-options.js:153
+#: skin/assets/apps/page/sections/general-options.js:121
 msgid "Google Play"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:154
+#: skin/assets/apps/page/sections/general-options.js:122
 msgid "Social media url"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:180
+#: skin/assets/apps/page/sections/general-options.js:148
 msgid "Contact"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:181
+#: skin/assets/apps/page/sections/general-options.js:149
 msgid "Contact mail"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:46
-#: skin/assets/apps/topbar/sections/general-options.js:55
-msgid "Logo"
-msgstr ""
-
-#: skin/assets/apps/page/sections/general-options.js:47
-msgid "Logo in the menu"
-msgstr ""
-
-#: skin/assets/apps/page/sections/general-options.js:72
+#: skin/assets/apps/page/sections/general-options.js:40
 msgid "Github"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:99
+#: skin/assets/apps/page/sections/general-options.js:67
 msgid "Youtube"
+msgstr ""
+
+#: skin/assets/apps/page/sections/general-options.js:94
+msgid "Linkedin"
 msgstr ""
 
 #: skin/assets/apps/page/sections/index.js:62
@@ -130,6 +121,11 @@ msgstr ""
 
 #: skin/assets/apps/topbar/sections/Menu.js:28
 msgid "Projects"
+msgstr ""
+
+#: skin/assets/apps/page/sections/general-options.js:46
+#: skin/assets/apps/topbar/sections/general-options.js:55
+msgid "Logo"
 msgstr ""
 
 #: skin/assets/apps/topbar/sections/general-options.js:42

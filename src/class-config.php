@@ -86,16 +86,6 @@ abstract class Config {
   // PAGE OPTIONS
   // -------------------------------------------------------
 
-
-  /**
-   * Page logo
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  const PAGE_LOGO = self::PLUGIN_PREFIX . 'portfolio_page_logo';
-
   /**
    * Social link
    *

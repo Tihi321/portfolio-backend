@@ -94,7 +94,6 @@ class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, R
     $youtube       = esc_url_raw( $body['youtube'] ?? null );
     $google_play   = esc_url_raw( $body['googlePlay'] ?? null );
     $conntact_mail = sanitize_text_field( $body['contactMail'] ?? null );
-    $logo          = $this->sanitize_media( $body['logo'] ?? null );
 
     $sanitized_menu_items = [];
     $menu_items           = $body['menuItems'] ?? null;
@@ -120,7 +119,6 @@ class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, R
 
     $sanitized_menu_items_string = wp_json_encode( $sanitized_menu_items );
 
-    $this->save_options( $logo, Config::PAGE_LOGO );
     $this->save_options( $sanitized_menu_items_string, Config::ADDITIONAL_MENU_ITEMS );
     $this->save_options( $github, Config::GITHUB_LINK );
     $this->save_options( $linkedin, Config::LINKEDIN_LINK );
