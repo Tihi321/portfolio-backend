@@ -68,6 +68,7 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
     $about_animation_file = get_option( Config::ABOUT_ANIMATION_FILE );
     $about_accent_color   = get_option( Config::ABOUT_ACCENT_COLOR );
     $about_description    = get_option( Config::ABOUT_DESCRIPTION );
+    $about_page           = get_option( Config::ABOUT_PAGE );
 
     // get web.
     $web_animation_file = get_option( Config::WEB_ANIMATION_FILE );
@@ -101,6 +102,7 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
         'aboutAnimationFile' => $about_animation_file,
         'aboutAccentColor'   => $about_accent_color,
         'aboutDescription'   => $about_description,
+        'aboutPage'          => $about_page,
       ],
       'webOptions' => [
         'webAnimationFile' => $web_animation_file,

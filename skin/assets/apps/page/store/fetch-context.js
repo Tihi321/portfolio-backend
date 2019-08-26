@@ -64,6 +64,7 @@ const FetchContextProvider = (props) => {
           aboutAnimationFile,
           aboutAccentColor,
           aboutDescription,
+          aboutPage,
         },
       } = aboutStore;
 
@@ -71,6 +72,7 @@ const FetchContextProvider = (props) => {
         aboutAccentColor,
         aboutDescription,
         aboutAnimationFile,
+        aboutPage,
       });
 
       const {

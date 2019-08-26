@@ -10,6 +10,7 @@ const AboutStoreProvider = (props) => {
   const [aboutAnimationFile, setAboutAnimationFile] = useReducer(mediaReducer, initialState);
   const [aboutAccentColor, setAboutAccentColor] = useState('');
   const [aboutDescription, setAboutDescription] = useState('');
+  const [aboutPage, setAboutPage] = useState('');
 
   const handleAboutAnimationUpdate = (media) => {
     setAboutAnimationFile({
@@ -29,11 +30,13 @@ const AboutStoreProvider = (props) => {
       aboutAccentColor: apiAboutAccentColor,
       aboutAnimationFile: apiAboutAnimationFile,
       aboutDescription: apiAboutDescription,
+      aboutPage: apiAboutPage,
     } = data;
 
     setAboutAccentColor(apiAboutAccentColor);
     handleAboutAnimationUpdate(apiAboutAnimationFile);
     setAboutDescription(apiAboutDescription);
+    setAboutPage(apiAboutPage);
   };
 
   return (
@@ -42,6 +45,7 @@ const AboutStoreProvider = (props) => {
         aboutAnimationFile,
         aboutAccentColor,
         aboutDescription,
+        aboutPage,
       },
       actions: {
         initialUpdate,
@@ -49,6 +53,7 @@ const AboutStoreProvider = (props) => {
         handleRemoveAboutAnimation,
         setAboutAccentColor,
         setAboutDescription,
+        setAboutPage,
       },
     }}>
       {props.children}

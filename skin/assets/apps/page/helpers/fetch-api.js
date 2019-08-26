@@ -14,6 +14,7 @@ export const getDashboardOptions = (data) => {
       aboutAccentColor,
       aboutAnimationFile,
       aboutDescription,
+      aboutPage,
     },
     webOptions: {
       webAccentColor,
@@ -76,6 +77,7 @@ export const getDashboardOptions = (data) => {
       aboutAccentColor,
       aboutAnimationFile: JSON.parse(aboutAnimationFile),
       aboutDescription,
+      aboutPage,
     },
     webOptions: {
       webAccentColor,

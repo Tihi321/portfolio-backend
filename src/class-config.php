@@ -172,6 +172,15 @@ abstract class Config {
    */
   const ABOUT_DESCRIPTION = self::PLUGIN_PREFIX . 'portfolio_about_description';
 
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ABOUT_PAGE = self::PLUGIN_PREFIX . 'portfolio_about_page';
+
 
   // -------------------------------------------------------
   // PAGE WEB

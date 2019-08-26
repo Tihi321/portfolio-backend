@@ -99,6 +99,10 @@ msgstr ""
 msgid "Add new Menu item"
 msgstr ""
 
+#: skin/assets/apps/page/sections/pages/about.js:37
+msgid "About Page"
+msgstr ""
+
 #: skin/assets/apps/page/sections/projects/projects-item.js:91
 #: skin/assets/apps/page/sections/shared-items.js:59
 msgid "Description"
