@@ -56,6 +56,13 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
    */
   public function route_callback( \WP_REST_Request $request ) {
 
+    // get logo and favicon if available from theme.
+    $logo    = get_field( 'blog_logo', 'option' );
+    $favicon = get_field( 'blog_favicon', 'option' );
+
+    $logo_url    = $logo['url'] ?? '';
+    $favicon_url = $favicon['url'] ?? '';
+
     // get all general options.
     $menu_items    = get_option( Config::ADDITIONAL_MENU_ITEMS );
     $github        = get_option( Config::GITHUB_LINK );
@@ -91,6 +98,8 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
     $output =
     [
       'generalOptions' => [
+        'logo'           => esc_url( $logo_url ),
+        'favicon'        => esc_url( $favicon_url ),
         'menuItems'      => $menu_items,
         'github'         => $github,
         'linkedin'       => $linkedin,
