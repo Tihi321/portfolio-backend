@@ -129,6 +129,15 @@ abstract class Config {
    *
    * @since 1.0.0
    */
+  const WORDPRESS_LINK = self::PLUGIN_PREFIX . 'portfolio_page_wordpress';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
   const CONTACT_MAIL_LINK = self::PLUGIN_PREFIX . 'portfolio_page_contact_mail';
 
   /**

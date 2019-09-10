@@ -93,6 +93,7 @@ class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, R
     $linkedin      = esc_url_raw( $body['linkedin'] ?? null );
     $youtube       = esc_url_raw( $body['youtube'] ?? null );
     $google_play   = esc_url_raw( $body['googlePlay'] ?? null );
+    $wordpress     = esc_url_raw( $body['wordPress'] ?? null );
     $conntact_mail = sanitize_text_field( $body['contactMail'] ?? null );
 
     $sanitized_menu_items = [];
@@ -124,6 +125,7 @@ class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, R
     $this->save_options( $linkedin, Config::LINKEDIN_LINK );
     $this->save_options( $youtube, Config::YOUTUBE_LINK );
     $this->save_options( $google_play, Config::GOOGLE_PLAY_LINK );
+    $this->save_options( $wordpress, Config::WORDPRESS_LINK );
     $this->save_options( $conntact_mail, Config::CONTACT_MAIL_LINK );
 
     return \rest_ensure_response( __( 'Options page saved', 'portfolio-backend' ) );

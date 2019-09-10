@@ -37,6 +37,7 @@ const FetchContextProvider = (props) => {
           linkedin,
           youtube,
           googlePlay,
+          wordPress,
           contactMail,
           menuItems,
         },
@@ -47,6 +48,7 @@ const FetchContextProvider = (props) => {
         linkedin,
         youtube,
         googlePlay,
+        wordPress,
         contactMail,
         menuItems,
       });

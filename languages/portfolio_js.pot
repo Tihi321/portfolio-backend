@@ -24,31 +24,35 @@ msgstr ""
 msgid "Android"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:121
+#: skin/assets/apps/page/sections/general-options.js:122
 msgid "Google Play"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:122
+#: skin/assets/apps/page/sections/general-options.js:149
+msgid "WordPress"
+msgstr ""
+
+#: skin/assets/apps/page/sections/general-options.js:150
 msgid "Social media url"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:148
+#: skin/assets/apps/page/sections/general-options.js:176
 msgid "Contact"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:149
+#: skin/assets/apps/page/sections/general-options.js:177
 msgid "Contact mail"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:40
+#: skin/assets/apps/page/sections/general-options.js:41
 msgid "Github"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:67
+#: skin/assets/apps/page/sections/general-options.js:68
 msgid "Youtube"
 msgstr ""
 
-#: skin/assets/apps/page/sections/general-options.js:94
+#: skin/assets/apps/page/sections/general-options.js:95
 msgid "Linkedin"
 msgstr ""
 
