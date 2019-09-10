@@ -13,7 +13,6 @@ use Eightshift_Libs\Assets\Manifest_Data;
 
 use PortfolioBackend\Core\Config;
 use PortfolioBackend\Routes\Route;
-use PortfolioBackend\Helpers\General_Helper;
 
 /**
  * Class Admin
@@ -139,9 +138,9 @@ class Admin implements Service {
         wp_deregister_script( 'react' );
         wp_deregister_script( 'react-dom' );
 
-        wp_register_script( 'react', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react.development.js', array(), '16.8.6', false );
+        wp_register_script( 'react', apply_filters( 'pb_get_base_url', 'url' ) . 'skin/public/scripts/vendors/react.development.js', array(), '16.8.6', false );
 
-        wp_register_script( 'react-dom', General_Helper::get_base_url() . 'skin/public/scripts/vendors/react-dom.development.js', array(), '16.8.6', false );
+        wp_register_script( 'react-dom', apply_filters( 'pb_get_base_url', 'url' ) . 'skin/public/scripts/vendors/react-dom.development.js', array(), '16.8.6', false );
 
       }
     }

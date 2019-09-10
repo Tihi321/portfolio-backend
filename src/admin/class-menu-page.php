@@ -9,7 +9,6 @@
 namespace PortfolioBackend\Admin;
 
 use Eightshift_Libs\Core\Service;
-use PortfolioBackend\Helpers\General_Helper;
 
 /**
  * Class Menu_Page
@@ -117,8 +116,7 @@ class Menu_Page implements Service {
    * @since 1.4.0
    */
   public function topbar_callback() {
-
-    $dashboard_template = General_Helper::get_base_path() . 'views/topbar.php';
+    $dashboard_template = apply_filters( 'pb_get_base_url', 'path' ) . 'views/topbar.php';
     if ( ! empty( $dashboard_template ) ) {
       include $dashboard_template;
     }
@@ -132,7 +130,7 @@ class Menu_Page implements Service {
    */
   public function page_callback() {
 
-    $dashboard_template = General_Helper::get_base_path() . 'views/page.php';
+    $dashboard_template = apply_filters( 'pb_get_base_url', 'path' ) . 'views/page.php';
     if ( ! empty( $dashboard_template ) ) {
       include $dashboard_template;
     }

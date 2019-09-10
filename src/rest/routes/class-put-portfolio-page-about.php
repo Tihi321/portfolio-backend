@@ -15,17 +15,11 @@ use PortfolioBackend\Routes\Rest_Security;
 use PortfolioBackend\Routes\Route_Security;
 
 use PortfolioBackend\Core\Config;
-use PortfolioBackend\Helpers\Object_Helper;
 
 /**
  * Class Put_Portfolio_Page_About
  */
 class Put_Portfolio_Page_About extends Base_Route implements Callable_Route, Route_Security {
-
-  /**
-   * Use trait inside class.
-   */
-  use Object_Helper;
 
   const ROUTE_NAME = '/save-portfolio-about-page';
 
@@ -91,14 +85,14 @@ class Put_Portfolio_Page_About extends Base_Route implements Callable_Route, Rou
     $body = \json_decode( $request->get_body(), true );
 
     $about_accent_color   = sanitize_text_field( $body['aboutAccentColor'] ?? null );
-    $about_description    = $this->sanitize_html_input( $body['aboutDescription'] ?? null );
-    $about_page           = $this->sanitize_html_input( $body['aboutPage'] ?? null );
-    $about_animation_file = $this->sanitize_media( $body['aboutAnimationFile'] ?? null );
+    $about_description    = apply_filters( 'pb_sanitize_html_input', $body['aboutDescription'] ?? '' );
+    $about_page           = apply_filters( 'pb_sanitize_html_input', $body['aboutPage'] ?? '' );
+    $about_animation_file = apply_filters( 'pb_sanitize_media', $body['aboutAnimationFile'] ?? '' );
 
-    $this->save_options( $about_animation_file, Config::ABOUT_ANIMATION_FILE );
-    $this->save_options( $about_accent_color, Config::ABOUT_ACCENT_COLOR );
-    $this->save_options( $about_page, Config::ABOUT_PAGE );
-    $this->save_options( $about_description, Config::ABOUT_DESCRIPTION );
+    apply_filters( 'pb_save_options', $about_animation_file, Config::ABOUT_ANIMATION_FILE );
+    apply_filters( 'pb_save_options', $about_accent_color, Config::ABOUT_ACCENT_COLOR );
+    apply_filters( 'pb_save_options', $about_page, Config::ABOUT_PAGE );
+    apply_filters( 'pb_save_options', $about_description, Config::ABOUT_DESCRIPTION );
 
     return \rest_ensure_response( __( 'About page saved', 'portfolio-backend' ) );
   }

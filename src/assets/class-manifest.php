@@ -12,8 +12,6 @@ namespace PortfolioBackend\Assets;
 use Eightshift_Libs\Assets\Manifest as LibManifest;
 use Eightshift_Libs\Core\Service;
 
-use PortfolioBackend\Helpers\General_Helper;
-
 /**
  * Class Mainfest
  *
@@ -41,6 +39,6 @@ class Manifest extends LibManifest {
    * @since 0.1.0
    */
   protected function get_manifest_url() : string {
-    return General_Helper::get_base_path() . '/skin/public/manifest.json';
+    return apply_filters( 'pb_get_base_url', 'path' ) . '/skin/public/manifest.json';
   }
 }

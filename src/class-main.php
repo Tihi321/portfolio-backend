@@ -13,6 +13,7 @@ use Eightshift_Libs\Core\Main as LibMain;
 use PortfolioBackend\Admin;
 use PortfolioBackend\Assets;
 use PortfolioBackend\Languages;
+use PortfolioBackend\Utils;
 use PortfolioBackend\Routes;
 use PortfolioBackend\Routes\Route;
 
@@ -33,6 +34,11 @@ class Main extends LibMain {
    */
   protected function get_service_classes() : array {
     return [
+
+      // Utils.
+      Utils\Error_Logger::class,
+      Utils\Sanitization_Utils::class,
+      Utils\Url_Utils::class,
 
       // Assets.
       Assets\Manifest::class,
