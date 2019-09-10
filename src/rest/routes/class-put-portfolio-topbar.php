@@ -15,17 +15,11 @@ use PortfolioBackend\Routes\Rest_Security;
 use PortfolioBackend\Routes\Route_Security;
 
 use PortfolioBackend\Core\Config;
-use PortfolioBackend\Helpers\Object_Helper;
 
 /**
  * Class Put_Portfolio_Topbar
  */
 class Put_Portfolio_Topbar extends Base_Route implements Callable_Route, Route_Security {
-
-  /**
-   * Use trait inside class.
-   */
-  use Object_Helper;
 
   const ROUTE_NAME = '/save-portfolio-topbar';
 
@@ -94,7 +88,7 @@ class Put_Portfolio_Topbar extends Base_Route implements Callable_Route, Route_S
     $sanitized_projects = [];
     $sanitized_logo     = [];
     $projects           = $body['projects'] ?? null;
-    $logo               = $this->sanitize_media( $body['logo'] ?? null );
+    $logo               = apply_filters( 'pb_sanitize_media', $body['logo'] ?? '' );
 
     // sanitize all project object values.
     foreach ( $projects as $project ) {
@@ -117,10 +111,10 @@ class Put_Portfolio_Topbar extends Base_Route implements Callable_Route, Route_S
 
     $sanitized_projects_string = wp_json_encode( $sanitized_projects );
 
-    $this->save_options( $logo, Config::CUSTOM_LOGO );
-    $this->save_options( $sanitized_projects_string, Config::SELECT_PROJECTS );
-    $this->save_options( $show_message, Config::SHOW_MESSAGE );
-    $this->save_options( $message, Config::MESSAGE );
+    apply_filters( 'pb_save_options', $logo, Config::CUSTOM_LOGO );
+    apply_filters( 'pb_save_options', $sanitized_projects_string, Config::SELECT_PROJECTS );
+    apply_filters( 'pb_save_options', $show_message, Config::SHOW_MESSAGE );
+    apply_filters( 'pb_save_options', $message, Config::MESSAGE );
 
     return \rest_ensure_response( __( 'Options saved with success', 'portfolio-backend' ) );
   }

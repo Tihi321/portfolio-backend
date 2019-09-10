@@ -8,7 +8,6 @@ import {
   InputLabel,
 } from '../components';
 import {
-  MediaElement,
   TextElement,
 } from '../../../elements';
 
@@ -20,6 +19,7 @@ const GeneralOptions = (props) => {
       linkedin,
       youtube,
       googlePlay,
+      wordPress,
       contactMail,
     },
     actions: {
@@ -27,6 +27,7 @@ const GeneralOptions = (props) => {
       setLinkedin,
       setYoutube,
       setGooglePlay,
+      setWordPress,
       setContactMail,
     },
   } = useContext(GeneralStore);
@@ -140,6 +141,33 @@ const GeneralOptions = (props) => {
         </div>
       </InputRow>
     );
+    const wordPressElement = (
+      <InputRow
+        className="options__row"
+        >
+        <InputLabel
+          message={__('WordPress', 'portfolio-backend')}
+          helper={__('Social media url')}
+        />
+        <div className="options__input-wrap">
+          <TextElement
+              styleReset={true}
+              outputType='text'
+              className="pb-input-mce-class"
+              value={wordPress}
+              onChange={setWordPress}
+              maxChars={50}
+              maxRows={1}
+              warning={false}
+              single={true}
+              init={{
+                quickbars_insert_toolbar:false,
+                quickbars_selection_toolbar: false,
+              }}
+            />
+        </div>
+      </InputRow>
+    );
     const contactMailElement = (
       <InputRow
         className="options__row"
@@ -175,6 +203,7 @@ const GeneralOptions = (props) => {
       {youtubeElement}
       {linkedinElement}
       {googlePlayElement}
+      {wordPressElement}
       {contactMailElement}
     </Fragment>
   );

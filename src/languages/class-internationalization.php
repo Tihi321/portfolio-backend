@@ -12,7 +12,6 @@
 namespace PortfolioBackend\Languages;
 
 use Eightshift_Libs\Core\Service;
-use PortfolioBackend\Helpers\General_Helper;
 
 /**
  * Class Internationalization
@@ -39,7 +38,7 @@ class Internationalization implements Service {
     load_plugin_textdomain(
       static::PLUGIN_NAME,
       false,
-      General_Helper::get_base_url() . 'languages/'
+      apply_filters( 'pb_get_base_url', 'url' ) . 'languages/'
     );
   }
 }

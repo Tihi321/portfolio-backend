@@ -1,18 +1,38 @@
 <?php
 /**
- * The object helper specific functionality inside classes.
- * Used in admin or theme side but only inside a class.
+ * Sanitization Utility class.
  *
  * @since   1.0.0
- * @package PortfolioBackend\Helpers
+ * @package PortfolioBackend\Admin
  */
 
-namespace PortfolioBackend\Helpers;
+namespace PortfolioBackend\Utils;
+
+use Eightshift_Libs\Core\Service;
 
 /**
- * Class Object Helper
+ * Class Sanitization_Utils
+ *
+ * This class handles srtings.
+ *
+ * @since 1.0.0
  */
-trait Object_Helper {
+class Sanitization_Utils implements Service {
+
+  /**
+   * Register all the hooks
+   *
+   * @return void
+   *
+   * @since 1.0.0
+   */
+  public function register() {
+    add_filter( 'pb_sanitize_array', [ $this, 'sanitize_array' ], 10, 2 );
+    add_filter( 'pb_sanitize_html_input', [ $this, 'sanitize_html_input' ] );
+    add_filter( 'pb_sanitize_media', [ $this, 'sanitize_media' ], 10, 2 );
+    add_filter( 'pb_save_options', [ $this, 'save_options' ], 10, 2 );
+  }
+
   /**
    * Sanitise all values in array.
    *
@@ -22,7 +42,7 @@ trait Object_Helper {
    *
    * @since 1.0.0
    */
-  public static function sanitize_array( $array, $sanitization_function ) {
+  public function sanitize_array( $array, $sanitization_function ) : array {
     foreach ( $array as $key => $value ) {
       if ( is_array( $value ) ) {
           $value = sanitize_array( $value );
@@ -42,7 +62,7 @@ trait Object_Helper {
    *
    * @since 1.0.0
    */
-  public static function sanitize_html_input( $html ) {
+  public function sanitize_html_input( $html ) : string {
     return wp_kses(
       $html,
       array(
@@ -77,7 +97,7 @@ trait Object_Helper {
    *
    * @since 1.0.0
    */
-  public static function sanitize_media( $media ) {
+  public function sanitize_media( $media ) : string {
     $sanitized_media = [];
 
     // sanitize all logo object values.
@@ -102,7 +122,7 @@ trait Object_Helper {
    * @param string $new_value to be saved to options table.
    * @param string $option_name options table name.
    */
-  public static function save_options( string $new_value, string $option_name ) : void {
+  public function save_options( string $new_value, string $option_name ) : void {
 
     $old_value = get_option( $option_name );
 
@@ -117,5 +137,4 @@ trait Object_Helper {
     }
 
   }
-
 }

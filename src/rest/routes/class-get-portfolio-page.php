@@ -69,6 +69,7 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
     $linkedin      = get_option( Config::LINKEDIN_LINK );
     $youtube       = get_option( Config::YOUTUBE_LINK );
     $google_play   = get_option( Config::GOOGLE_PLAY_LINK );
+    $wordpress     = get_option( Config::WORDPRESS_LINK );
     $conntact_mail = get_option( Config::CONTACT_MAIL_LINK );
 
     // get about.
@@ -105,6 +106,7 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
         'linkedin'       => $linkedin,
         'youtube'        => $youtube,
         'googlePlay'     => $google_play,
+        'wordPress'      => $wordpress,
         'contactMail'    => $conntact_mail,
       ],
       'aboutOptions' => [

@@ -37,6 +37,7 @@ $options-colors: (
   &__file-wrap,
   &__file-element {
     width: 100%;
+    max-width: 400px;
   }
 
   &__file-element {

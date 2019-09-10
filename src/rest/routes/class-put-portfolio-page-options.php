@@ -15,17 +15,11 @@ use PortfolioBackend\Routes\Rest_Security;
 use PortfolioBackend\Routes\Route_Security;
 
 use PortfolioBackend\Core\Config;
-use PortfolioBackend\Helpers\Object_Helper;
 
 /**
  * Class Put_Portfolio_Page_Options
  */
 class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, Route_Security {
-
-  /**
-   * Use trait inside class.
-   */
-  use Object_Helper;
 
   const ROUTE_NAME = '/save-portfolio-options-page';
 
@@ -93,6 +87,7 @@ class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, R
     $linkedin      = esc_url_raw( $body['linkedin'] ?? null );
     $youtube       = esc_url_raw( $body['youtube'] ?? null );
     $google_play   = esc_url_raw( $body['googlePlay'] ?? null );
+    $wordpress     = esc_url_raw( $body['wordPress'] ?? null );
     $conntact_mail = sanitize_text_field( $body['contactMail'] ?? null );
 
     $sanitized_menu_items = [];
@@ -119,12 +114,13 @@ class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, R
 
     $sanitized_menu_items_string = wp_json_encode( $sanitized_menu_items );
 
-    $this->save_options( $sanitized_menu_items_string, Config::ADDITIONAL_MENU_ITEMS );
-    $this->save_options( $github, Config::GITHUB_LINK );
-    $this->save_options( $linkedin, Config::LINKEDIN_LINK );
-    $this->save_options( $youtube, Config::YOUTUBE_LINK );
-    $this->save_options( $google_play, Config::GOOGLE_PLAY_LINK );
-    $this->save_options( $conntact_mail, Config::CONTACT_MAIL_LINK );
+    apply_filters( 'pb_save_options', $sanitized_menu_items_string, Config::ADDITIONAL_MENU_ITEMS );
+    apply_filters( 'pb_save_options', $github, Config::GITHUB_LINK );
+    apply_filters( 'pb_save_options', $linkedin, Config::LINKEDIN_LINK );
+    apply_filters( 'pb_save_options', $youtube, Config::YOUTUBE_LINK );
+    apply_filters( 'pb_save_options', $google_play, Config::GOOGLE_PLAY_LINK );
+    apply_filters( 'pb_save_options', $wordpress, Config::WORDPRESS_LINK );
+    apply_filters( 'pb_save_options', $conntact_mail, Config::CONTACT_MAIL_LINK );
 
     return \rest_ensure_response( __( 'Options page saved', 'portfolio-backend' ) );
   }

@@ -15,17 +15,11 @@ use PortfolioBackend\Routes\Rest_Security;
 use PortfolioBackend\Routes\Route_Security;
 
 use PortfolioBackend\Core\Config;
-use PortfolioBackend\Helpers\Object_Helper;
 
 /**
  * Class Put_Portfolio_Page_Web
  */
 class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route_Security {
-
-  /**
-   * Use trait inside class.
-   */
-  use Object_Helper;
 
   const ROUTE_NAME = '/save-portfolio-web-page';
 
@@ -90,8 +84,8 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
     $body = \json_decode( $request->get_body(), true );
 
     $web_accent_color   = sanitize_text_field( $body['webAccentColor'] ?? null );
-    $web_description    = $this->sanitize_html_input( $body['webDescription'] ?? null );
-    $web_animation_file = $this->sanitize_media( $body['webAnimationFile'] ?? null );
+    $web_description    = apply_filters( 'pb_sanitize_html_input', $body['webDescription'] ?? '' );
+    $web_animation_file = apply_filters( 'pb_sanitize_media', $body['webAnimationFile'] ?? '' );
 
     $sanitized_projects = [];
     $projects           = $body['webProjects'] ?? null;
@@ -110,7 +104,7 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
           continue;
         }
         if ( $key === 'description' ) {
-          $sanitized_project[ $key ] = $this->sanitize_html_input( $item );
+          $sanitized_project[ $key ] = apply_filters( 'pb_sanitize_html_input', $item );
           continue;
         }
 
@@ -121,10 +115,10 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
 
     $sanitized_projects_string = wp_json_encode( $sanitized_projects );
 
-    $this->save_options( $web_animation_file, Config::WEB_ANIMATION_FILE );
-    $this->save_options( $web_accent_color, Config::WEB_ACCENT_COLOR );
-    $this->save_options( $web_description, Config::WEB_DESCRIPTION );
-    $this->save_options( $sanitized_projects_string, Config::WEB_PROJECTS );
+    apply_filters( 'pb_save_options', $web_animation_file, Config::WEB_ANIMATION_FILE );
+    apply_filters( 'pb_save_options', $web_accent_color, Config::WEB_ACCENT_COLOR );
+    apply_filters( 'pb_save_options', $web_description, Config::WEB_DESCRIPTION );
+    apply_filters( 'pb_save_options', $sanitized_projects_string, Config::WEB_PROJECTS );
 
     return \rest_ensure_response( __( 'Web page saved', 'portfolio-backend' ) );
   }

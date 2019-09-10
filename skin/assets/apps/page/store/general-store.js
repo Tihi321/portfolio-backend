@@ -13,6 +13,7 @@ const GeneralStoreProvider = (props) => {
   const [linkedin, setLinkedin] = useState('');
   const [youtube, setYoutube] = useState('');
   const [googlePlay, setGooglePlay] = useState('');
+  const [wordPress, setWordPress] = useState('');
   const [contactMail, setContactMail] = useState('');
 
   // aditional menu items
@@ -60,6 +61,7 @@ const GeneralStoreProvider = (props) => {
       apiLinkedin,
       apiYoutube,
       apiGooglePlay,
+      apiWordpress,
       apiContactMail,
       menuItems: items,
     } = data;
@@ -68,6 +70,7 @@ const GeneralStoreProvider = (props) => {
     setLinkedin(apiLinkedin);
     setYoutube(apiYoutube);
     setGooglePlay(apiGooglePlay);
+    setWordPress(apiWordpress);
     setContactMail(apiContactMail);
     dispatchMenuItems({
       type: SET_ITEMS,
@@ -82,6 +85,7 @@ const GeneralStoreProvider = (props) => {
         linkedin,
         youtube,
         googlePlay,
+        wordPress,
         contactMail,
         pageActive,
         menuItems,
@@ -92,6 +96,7 @@ const GeneralStoreProvider = (props) => {
         setLinkedin,
         setYoutube,
         setGooglePlay,
+        setWordPress,
         setContactMail,
         setPageActive,
         handleAddMenuItem,
