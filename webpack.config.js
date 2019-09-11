@@ -53,7 +53,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const appPath = `${path.resolve(__dirname)}`;
 
 // Dev Server
-const proxyUrl = 'dev.gutenberg-blocks.test/';
+const proxyUrl = 'https://blog.tihomir-selak.from.hr/';
 
 // Plugin
 const pluginName = 'portfolio-backend';
