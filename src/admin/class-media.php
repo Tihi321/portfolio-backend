@@ -86,7 +86,7 @@ class Media implements Service {
           $svg_content = implode( ' ', $svg_content );
 
           if ( ! $this->is_valid_xml( $svg_content ) ) {
-            new \WP_Error( sprintf( esc_html__( 'Error: File invalid: %s', 'inf_theme' ), $path ) );
+            new \WP_Error( sprintf( esc_html__( 'Error: File invalid: %s', 'portfolio-backend' ), $path ) );
             return false;
           }
 
@@ -108,7 +108,7 @@ class Media implements Service {
           );
         }
       } catch ( \Exception $e ) {
-        new \WP_Error( sprintf( esc_html__( 'Error: %s', 'inf_theme' ), $e ) );
+        new \WP_Error( sprintf( esc_html__( 'Error: %s', 'portfolio-backend' ), $e ) );
       }
     }
 
