@@ -52,17 +52,17 @@ class Main extends LibMain {
       Languages\Internationalization::class,
 
       // Routes Security.
-      Routes\Rest_Security::class,
+      Routes\Routes_Security::class,
 
       // Routes.
       Route\Get_Portfolio_Page::class,
       Route\Get_Portfolio_Topbar::class,
-      Route\Put_Portfolio_Page_About::class => [ Routes\Rest_Security::class ],
-      Route\Put_Portfolio_Page_Android::class => [ Routes\Rest_Security::class ],
-      Route\Put_Portfolio_Page_Options::class => [ Routes\Rest_Security::class ],
-      Route\Put_Portfolio_Page_Video::class => [ Routes\Rest_Security::class ],
-      Route\Put_Portfolio_Page_Web::class => [ Routes\Rest_Security::class ],
-      Route\Put_Portfolio_Topbar::class => [ Routes\Rest_Security::class ],
+      Route\Put_Portfolio_Page_About::class => [ Routes\Routes_Security::class ],
+      Route\Put_Portfolio_Page_Android::class => [ Routes\Routes_Security::class ],
+      Route\Put_Portfolio_Page_Options::class => [ Routes\Routes_Security::class ],
+      Route\Put_Portfolio_Page_Video::class => [ Routes\Routes_Security::class ],
+      Route\Put_Portfolio_Page_Web::class => [ Routes\Routes_Security::class ],
+      Route\Put_Portfolio_Topbar::class => [ Routes\Routes_Security::class ],
 
     ];
   }
