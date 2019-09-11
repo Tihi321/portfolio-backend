@@ -11,7 +11,7 @@ namespace PortfolioBackend\Routes;
 /**
  * Class containing registered rest routes
  */
-final class Rest_Security {
+final class Routes_Security {
 
   /**
    * Ensure that user is logged in

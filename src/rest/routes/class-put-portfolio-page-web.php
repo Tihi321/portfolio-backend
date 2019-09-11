@@ -11,7 +11,7 @@ namespace PortfolioBackend\Routes\Route;
 use Eightshift_Libs\Routes\Callable_Route;
 
 use PortfolioBackend\Routes\Base_Route;
-use PortfolioBackend\Routes\Rest_Security;
+use PortfolioBackend\Routes\Routes_Security;
 use PortfolioBackend\Routes\Route_Security;
 
 use PortfolioBackend\Core\Config;
@@ -37,17 +37,17 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
    *
    * @since 1.0.0
    */
-  protected $rest_security;
+  protected $routes_security;
 
   /**
    * Add class that checks if user logged in
    *
-   * @param Rest_Security $rest_security Security callbacs.
+   * @param Routes_Security $routes_security Security callbacs.
    *
    * @since 1.0.0
    */
-  public function __construct( Rest_Security $rest_security ) {
-    $this->rest_security = $rest_security;
+  public function __construct( Routes_Security $routes_security ) {
+    $this->routes_security = $routes_security;
   }
 
   /**
@@ -134,7 +134,7 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
    * @since 1.0.0
    */
   public function authentification_check( \WP_REST_Request $request ) {
-    return $this->rest_security->user_basic_authentication_check( $request );
+    return $this->routes_security->user_basic_authentication_check( $request );
   }
 
 }
