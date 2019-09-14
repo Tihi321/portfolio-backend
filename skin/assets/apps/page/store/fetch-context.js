@@ -51,7 +51,7 @@ const FetchContextProvider = (props) => {
         },
       } = generalStore;
 
-      bodyData = JSON.stringify({
+      bodyData = {
         github,
         linkedin,
         youtube,
@@ -59,7 +59,7 @@ const FetchContextProvider = (props) => {
         wordPress,
         contactMail,
         menuItems,
-      });
+      };
 
       const {
         savePageOptionsApi,
@@ -78,12 +78,12 @@ const FetchContextProvider = (props) => {
         },
       } = aboutStore;
 
-      bodyData = JSON.stringify({
+      bodyData = {
         aboutAccentColor,
         aboutDescription,
         aboutAnimationFile,
         aboutPage,
-      });
+      };
 
       const {
         savePageAboutApi,
@@ -101,12 +101,12 @@ const FetchContextProvider = (props) => {
         },
       } = webStore;
 
-      bodyData = JSON.stringify({
+      bodyData = {
         webAnimationFile,
         webAccentColor,
         webDescription,
         webProjects,
-      });
+      };
 
       const {
         savePageWebApi,
@@ -124,12 +124,12 @@ const FetchContextProvider = (props) => {
         },
       } = videoStore;
 
-      bodyData = JSON.stringify({
+      bodyData = {
         videoAnimationFile,
         videoAccentColor,
         videoDescription,
         videoProjects,
-      });
+      };
 
       const {
         savePageVideoApi,
@@ -160,7 +160,6 @@ const FetchContextProvider = (props) => {
 
       fatchApi = savePageAndroidApi;
     }
-
 
     const {
       messageElement,

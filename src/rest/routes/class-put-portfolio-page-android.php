@@ -83,12 +83,12 @@ class Put_Portfolio_Page_Android extends Base_Route implements Callable_Route, R
 
     $body = \json_decode( $request->get_body(), true );
 
-    $android_accent_color   = sanitize_text_field( $body['androidAccentColor'] ?? null );
+    $android_accent_color   = sanitize_text_field( $body['androidAccentColor'] ?? '' );
     $android_description    = apply_filters( 'pb_sanitize_html_input', $body['androidDescription'] ?? '' );
     $android_animation_file = apply_filters( 'pb_sanitize_media', $body['androidAnimationFile'] ?? '' );
 
     $sanitized_projects = [];
-    $projects           = $body['androidProjects'] ?? null;
+    $projects           = $body['androidProjects'] ?? [];
 
     // sanitize all menu items object values.
     foreach ( $projects as $project ) {

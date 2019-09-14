@@ -83,12 +83,12 @@ class Put_Portfolio_Page_Video extends Base_Route implements Callable_Route, Rou
 
     $body = \json_decode( $request->get_body(), true );
 
-    $video_accent_color   = sanitize_text_field( $body['videoAccentColor'] ?? null );
+    $video_accent_color   = sanitize_text_field( $body['videoAccentColor'] ?? '' );
     $video_description    = apply_filters( 'pb_sanitize_html_input', $body['videoDescription'] ?? '' );
     $video_animation_file = apply_filters( 'pb_sanitize_media', $body['videoAnimationFile'] ?? '' );
 
     $sanitized_projects = [];
-    $projects           = $body['videoProjects'] ?? null;
+    $projects           = $body['videoProjects'] ?? [];
 
     // sanitize all menu items object values.
     foreach ( $projects as $project ) {

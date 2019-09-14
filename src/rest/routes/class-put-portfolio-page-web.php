@@ -83,12 +83,12 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
 
     $body = \json_decode( $request->get_body(), true );
 
-    $web_accent_color   = sanitize_text_field( $body['webAccentColor'] ?? null );
+    $web_accent_color   = sanitize_text_field( $body['webAccentColor'] ?? '' );
     $web_description    = apply_filters( 'pb_sanitize_html_input', $body['webDescription'] ?? '' );
     $web_animation_file = apply_filters( 'pb_sanitize_media', $body['webAnimationFile'] ?? '' );
 
     $sanitized_projects = [];
-    $projects           = $body['webProjects'] ?? null;
+    $projects           = $body['webProjects'] ?? [];
 
     // sanitize all menu items object values.
     foreach ( $projects as $project ) {

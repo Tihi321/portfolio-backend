@@ -83,11 +83,11 @@ class Put_Portfolio_Topbar extends Base_Route implements Callable_Route, Route_S
 
     $body = \json_decode( $request->get_body(), true );
 
-    $show_message       = sanitize_text_field( $body['showMessage'] ?? null );
-    $message            = sanitize_text_field( $body['message'] ?? null );
+    $show_message       = sanitize_text_field( $body['showMessage'] ?? '' );
+    $message            = sanitize_text_field( $body['message'] ?? '' );
     $sanitized_projects = [];
     $sanitized_logo     = [];
-    $projects           = $body['projects'] ?? null;
+    $projects           = $body['projects'] ?? [];
     $logo               = apply_filters( 'pb_sanitize_media', $body['logo'] ?? '' );
 
     // sanitize all project object values.

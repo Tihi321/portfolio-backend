@@ -83,12 +83,12 @@ class Put_Portfolio_Page_Options extends Base_Route implements Callable_Route, R
 
     $body = \json_decode( $request->get_body(), true );
 
-    $github        = esc_url_raw( $body['github'] ?? null );
-    $linkedin      = esc_url_raw( $body['linkedin'] ?? null );
-    $youtube       = esc_url_raw( $body['youtube'] ?? null );
-    $google_play   = esc_url_raw( $body['googlePlay'] ?? null );
-    $wordpress     = esc_url_raw( $body['wordPress'] ?? null );
-    $conntact_mail = sanitize_text_field( $body['contactMail'] ?? null );
+    $github        = esc_url_raw( $body['github'] ?? '' );
+    $linkedin      = esc_url_raw( $body['linkedin'] ?? '' );
+    $youtube       = esc_url_raw( $body['youtube'] ?? '' );
+    $google_play   = esc_url_raw( $body['googlePlay'] ?? '' );
+    $wordpress     = esc_url_raw( $body['wordPress'] ?? '' );
+    $conntact_mail = sanitize_text_field( $body['contactMail'] ?? '' );
 
     $sanitized_menu_items = [];
     $menu_items           = $body['menuItems'] ?? null;
