@@ -1,7 +1,10 @@
 /* global portfolioDashboard */
 import React, {useState, useReducer, useEffect} from 'react';
 import {getDashboardOptions} from '../helpers/fetch-api';
-import {saveTopbarData} from '../../../services/dashboard';
+import {
+  saveTopbarData,
+  getTopbarData,
+} from '../../../services/data';
 import {
   setMessageCallback,
   IS_SUCCESS_CLASS,
@@ -82,15 +85,7 @@ const StoreProvider = (props) => {
     // fetch dashboard data from dashoard endpoint.
     const fetchData = () => {
 
-      const {
-        root,
-        getTopbarOptionsApi,
-      } = portfolioDashboard;
-
-      fetch(`${root}${getTopbarOptionsApi}`)
-        .then((response) => {
-          return response.json();
-        })
+      getTopbarData()
         .then((myJson) => {
           const data = getDashboardOptions(myJson);
 
