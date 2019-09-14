@@ -1,7 +1,12 @@
 /* global portfolioDashboard */
 import React, {useState, useReducer, useEffect} from 'react';
 import {getDashboardOptions} from '../helpers/fetch-api';
-import {saveData} from '../../../helpers/fetch';
+import {saveTopbarData} from '../../../services/dashboard';
+import {
+  setMessageCallback,
+  IS_SUCCESS_CLASS,
+  IS_ERROR_CLASS,
+} from '../../../utils/modifiers';
 
 import {logoReducer, UPDATE_LOGO, REMOVE_LOGO} from '../reducers/media';
 import {projectsReducer, SET_PROJECTS, UPDATE_PROJECT, REMOVE_PROJECT, ADD_NEW_PROJECT, MOVE_PROJECT_UP, MOVE_PROJECT_DOWN} from '../reducers/projects';
@@ -111,23 +116,29 @@ const StoreProvider = (props) => {
   }, []);
 
   const saveOptions = () => {
-    const bodyData = JSON.stringify({
+    const bodyData = {
       showMessage,
       message,
       logo,
       projects,
-    });
+    };
 
     const {
       messageElement,
       messageTextElement,
     } = props;
 
-    const {
-      saveTopbarOptionsApi,
-    } = portfolioDashboard;
 
-    saveData(bodyData, saveTopbarOptionsApi, messageElement, messageTextElement);
+    saveTopbarData(bodyData)
+      .then((response) => {
+
+        setMessageCallback(messageElement, messageTextElement, response, IS_SUCCESS_CLASS);
+
+      })
+      .catch((error) => {
+
+        setMessageCallback(messageElement, messageTextElement, error, IS_ERROR_CLASS);
+      });
   };
 
   return (

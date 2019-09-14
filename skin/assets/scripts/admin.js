@@ -1,9 +1,8 @@
-/* global pluginOptions, wp */
-import generalHelper from '../helpers/general-helper';
+import {domReady} from '../utils/dom';
 import Topbar from '../apps/topbar';
 import Page from '../apps/page';
 
-generalHelper.domReady(function() {
+domReady(function() {
   const topbarElement = document.querySelector('.js-portfolio-topbar');
   const pageElement = document.querySelector('.js-portfolio-page');
 

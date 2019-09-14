@@ -1,4 +1,4 @@
-import generalHelpers from '../../../helpers/general-helper';
+import {swapObjects} from '../../../utils/modifiers';
 
 export const SET_ITEMS = 'SET_ITEMS';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
@@ -40,11 +40,11 @@ const handleRemoveItem = (itemId, state) => {
 };
 
 const moveItemUp = (itemId, state) => {
-  return generalHelpers.swapObjects(state, itemId, itemId - 1);
+  return swapObjects(state, itemId, itemId - 1);
 };
 
 const moveItemDown = (itemId, state) => {
-  return generalHelpers.swapObjects(state, itemId, itemId + 1);
+  return swapObjects(state, itemId, itemId + 1);
 };
 
 const addNewItem = (state) => {

@@ -1,4 +1,4 @@
-import generalHelpers from '../../../helpers/general-helper';
+import {swapObjects} from '../../../utils/modifiers';
 
 export const SET_VIDEO_PROJECTS = 'SET_VIDEO_PROJECTS';
 export const UPDATE_VIDEO_PROJECT = 'UPDATE_VIDEO_PROJECT';
@@ -53,11 +53,11 @@ const handleRemoveVideoProject = (projectId, state) => {
 };
 
 const moveProjectUp = (projectId, state) => {
-  return generalHelpers.swapObjects(state, projectId, projectId - 1);
+  return swapObjects(state, projectId, projectId - 1);
 };
 
 const moveProjectDown = (projectId, state) => {
-  return generalHelpers.swapObjects(state, projectId, projectId + 1);
+  return swapObjects(state, projectId, projectId + 1);
 };
 
 const addNewVideoProject = (state) => {

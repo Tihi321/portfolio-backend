@@ -1,4 +1,4 @@
-import generalHelpers from '../../../helpers/general-helper';
+import {swapObjects} from '../../../utils/modifiers';
 
 export const SET_PROJECTS = 'SET_PROJECTS';
 export const UPDATE_PROJECT = 'UPDATE_PROJECT';
@@ -45,11 +45,11 @@ const handleRemoveProject = (projectId, state) => {
 };
 
 const moveProjectUp = (projectId, state) => {
-  return generalHelpers.swapObjects(state, projectId, projectId - 1);
+  return swapObjects(state, projectId, projectId - 1);
 };
 
 const moveProjectDown = (projectId, state) => {
-  return generalHelpers.swapObjects(state, projectId, projectId + 1);
+  return swapObjects(state, projectId, projectId + 1);
 };
 
 const addNewProject = (state) => {
