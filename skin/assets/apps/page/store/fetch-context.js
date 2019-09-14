@@ -1,7 +1,12 @@
 /* global portfolioDashboard */
 import React, {useContext, useEffect, useState} from 'react';
 import {getDashboardOptions} from '../helpers/fetch-api';
-import {saveData} from '../../../helpers/fetch';
+import {savePageData} from '../../../services/dashboard';
+import {
+  setMessageCallback,
+  IS_SUCCESS_CLASS,
+  IS_ERROR_CLASS,
+} from '../../../utils/modifiers';
 import {GeneralStore} from './general-store';
 import {AboutStore} from './about-store';
 import {AndroidStore} from './android-store';
@@ -139,12 +144,12 @@ const FetchContextProvider = (props) => {
         },
       } = androidStore;
 
-      bodyData = JSON.stringify({
+      bodyData = {
         androidAnimationFile,
         androidAccentColor,
         androidDescription,
         androidProjects,
-      });
+      };
 
       const {
         savePageAndroidApi,
@@ -159,7 +164,16 @@ const FetchContextProvider = (props) => {
       messageTextElement,
     } = props;
 
-    saveData(bodyData, fatchApi, messageElement, messageTextElement);
+    savePageData(fatchApi, bodyData)
+      .then((response) => {
+
+        setMessageCallback(messageElement, messageTextElement, response, IS_SUCCESS_CLASS);
+
+      })
+      .catch((error) => {
+
+        setMessageCallback(messageElement, messageTextElement, error, IS_ERROR_CLASS);
+      });
   };
 
   useEffect(() => {
