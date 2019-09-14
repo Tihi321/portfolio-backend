@@ -58,11 +58,11 @@ export const getDashboardOptions = (data) => {
   const videoProjectsArr = (videoProjects) ? JSON.parse(videoProjects) : [{
     title: '',
     link: '',
-    image: {
+    image: JSON.stringify({
       id: -1,
       url: '',
       title: '',
-    },
+    }),
   }];
 
   return {
