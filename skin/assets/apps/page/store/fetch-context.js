@@ -1,7 +1,10 @@
 /* global portfolioDashboard */
 import React, {useContext, useEffect, useState} from 'react';
 import {getDashboardOptions} from '../helpers/fetch-api';
-import {savePageData} from '../../../services/dashboard';
+import {
+  savePageData,
+  getPageData,
+} from '../../../services/data';
 import {
   setMessageCallback,
   IS_SUCCESS_CLASS,
@@ -211,15 +214,7 @@ const FetchContextProvider = (props) => {
     // fetch dashboard data from dashoard endpoint.
     const fetchData = () => {
 
-      const {
-        root,
-        getPageOptionsApi,
-      } = portfolioDashboard;
-
-      fetch(`${root}${getPageOptionsApi}`)
-        .then((response) => {
-          return response.json();
-        })
+      getPageData()
         .then((myJson) => {
           const apiData = getDashboardOptions(myJson);
 
