@@ -11,6 +11,7 @@ const WebStoreProvider = (props) => {
   const [webAnimationFile, setWebAnimationFile] = useReducer(mediaReducer, initialState);
   const [webAccentColor, setWebAccentColor] = useState('');
   const [webDescription, setWebDescription] = useState('');
+  const [webLottie, setWebLottie] = useState(false);
 
   const [webProjects, dispatchWebProjects] = useReducer(projectsReducer, []);
 
@@ -67,12 +68,14 @@ const WebStoreProvider = (props) => {
   const initialUpdate = (data) => {
     const {
       webAccentColor: apiWebAccentColor,
+      webLootieLoop: apiWebLootieLoop,
       webAnimationFile: apiWebAnimationFile,
       webDescription: apiWebDescription,
       webProjects: apiWebProjects,
     } = data;
 
     setWebAccentColor(apiWebAccentColor);
+    setWebLottie(apiWebLootieLoop);
     handleWebAnimation(apiWebAnimationFile);
     setWebDescription(apiWebDescription);
 
@@ -90,6 +93,7 @@ const WebStoreProvider = (props) => {
         webAccentColor,
         webDescription,
         webProjects,
+        webLottie,
       },
       actions: {
         initialUpdate,
@@ -102,6 +106,7 @@ const WebStoreProvider = (props) => {
         handleWebProjectUp,
         handleWebProjectDown,
         handleAddWebProject,
+        setWebLottie,
       },
     }}>
       {props.children}

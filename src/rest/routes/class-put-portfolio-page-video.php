@@ -83,6 +83,7 @@ class Put_Portfolio_Page_Video extends Base_Route implements Callable_Route, Rou
 
     $body = \json_decode( $request->get_body(), true );
 
+    $video_lottie_loop    = sanitize_text_field( $body['videoLootieLoop'] ?? '' );
     $video_accent_color   = sanitize_text_field( $body['videoAccentColor'] ?? '' );
     $video_description    = apply_filters( 'pb_sanitize_html_input', $body['videoDescription'] ?? '' );
     $video_animation_file = apply_filters( 'pb_sanitize_media', $body['videoAnimationFile'] ?? '' );
@@ -116,6 +117,7 @@ class Put_Portfolio_Page_Video extends Base_Route implements Callable_Route, Rou
     $sanitized_projects_string = wp_json_encode( $sanitized_projects );
 
     apply_filters( 'pb_save_options', $video_animation_file, Config::VIDEO_ANIMATION_FILE );
+    apply_filters( 'pb_save_options', $video_lottie_loop, Config::VIDEO_LOTTIE_LOOP );
     apply_filters( 'pb_save_options', $video_accent_color, Config::VIDEO_ACCENT_COLOR );
     apply_filters( 'pb_save_options', $video_description, Config::VIDEO_DESCRIPTION );
     apply_filters( 'pb_save_options', $sanitized_projects_string, Config::VIDEO_PROJECTS );

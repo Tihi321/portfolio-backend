@@ -84,12 +84,14 @@ class Put_Portfolio_Page_About extends Base_Route implements Callable_Route, Rou
 
     $body = \json_decode( $request->get_body(), true );
 
+    $about_lottie_loop    = sanitize_text_field( $body['aboutLootieLoop'] ?? '' );
     $about_accent_color   = sanitize_text_field( $body['aboutAccentColor'] ?? '' );
     $about_description    = apply_filters( 'pb_sanitize_html_input', $body['aboutDescription'] ?? '' );
     $about_page           = apply_filters( 'pb_sanitize_html_input', $body['aboutPage'] ?? '' );
     $about_animation_file = apply_filters( 'pb_sanitize_media', $body['aboutAnimationFile'] ?? '' );
 
     apply_filters( 'pb_save_options', $about_animation_file, Config::ABOUT_ANIMATION_FILE );
+    apply_filters( 'pb_save_options', $about_lottie_loop, Config::ABOUT_LOTTIE_LOOP );
     apply_filters( 'pb_save_options', $about_accent_color, Config::ABOUT_ACCENT_COLOR );
     apply_filters( 'pb_save_options', $about_page, Config::ABOUT_PAGE );
     apply_filters( 'pb_save_options', $about_description, Config::ABOUT_DESCRIPTION );

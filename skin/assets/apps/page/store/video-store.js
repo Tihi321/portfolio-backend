@@ -12,6 +12,7 @@ const VideoStoreProvider = (props) => {
   const [videoAnimationFile, setVideoAnimationFile] = useReducer(mediaReducer, initialState);
   const [videoAccentColor, setVideoAccentColor] = useState('');
   const [videoDescription, setVideoDescription] = useState('');
+  const [videoLottie, setVideoLottie] = useState(false);
 
   const [videoProjects, dispatchVideoProjects] = useReducer(videoProjectsReducer, []);
 
@@ -68,12 +69,14 @@ const VideoStoreProvider = (props) => {
   const initialUpdate = (data) => {
     const {
       videoAccentColor: apiVideoAccentColor,
+      videoLootieLoop: apiVideoLootieLoop,
       videoAnimationFile: apiVideoAnimationFile,
       videoDescription: apiVideoDescription,
       videoProjects: apiVideoProjects,
     } = data;
 
     setVideoAccentColor(apiVideoAccentColor);
+    setVideoLottie(apiVideoLootieLoop);
     handleVideoAnimationUpdate(apiVideoAnimationFile);
     setVideoDescription(apiVideoDescription);
 
@@ -91,6 +94,7 @@ const VideoStoreProvider = (props) => {
         videoAccentColor,
         videoDescription,
         videoProjects,
+        videoLottie,
       },
       actions: {
         initialUpdate,
@@ -103,6 +107,7 @@ const VideoStoreProvider = (props) => {
         handleVideoProjectUp,
         handleVideoProjectDown,
         handleAddVideoProject,
+        setVideoLottie,
       },
     }}>
       {props.children}

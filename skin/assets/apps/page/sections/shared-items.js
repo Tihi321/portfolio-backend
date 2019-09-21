@@ -5,6 +5,7 @@ import {__} from '@wordpress/i18n';
 import {
   InputRow,
   InputLabel,
+  ToggleSwitch,
 } from '../components';
 import {
   TextElement,
@@ -20,6 +21,8 @@ const SharedItems = (props) => {
       title,
       url,
     },
+    loopLottie,
+    setLoopLottie,
     accentColor,
     description,
     handleAnimationFileUpdate,
@@ -102,11 +105,27 @@ const SharedItems = (props) => {
     </InputRow>
   );
 
+  const loopLottieElement = (
+    <InputRow
+      className="options__row options__row--toggle"
+    >
+      <ToggleSwitch
+        labelClass="options__label"
+        idName="remove-admin-bar"
+        label={__('Loop lottie', 'portfolio-backend')}
+        checked={loopLottie}
+        onChange={setLoopLottie}
+        helperMessage={__('Loop lottie if lottie loaded', 'portfolio-backend')}
+      />
+    </InputRow>
+  );
+
   return (
     <div
       className="shared"
     >
       {animtaionFileElement}
+      {loopLottieElement}
       {colorPickerElement}
       {descriptionElement}
     </div>

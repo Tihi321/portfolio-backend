@@ -83,6 +83,7 @@ class Put_Portfolio_Page_Android extends Base_Route implements Callable_Route, R
 
     $body = \json_decode( $request->get_body(), true );
 
+    $android_lottie_loop    = sanitize_text_field( $body['androidLootieLoop'] ?? '' );
     $android_accent_color   = sanitize_text_field( $body['androidAccentColor'] ?? '' );
     $android_description    = apply_filters( 'pb_sanitize_html_input', $body['androidDescription'] ?? '' );
     $android_animation_file = apply_filters( 'pb_sanitize_media', $body['androidAnimationFile'] ?? '' );
@@ -116,6 +117,7 @@ class Put_Portfolio_Page_Android extends Base_Route implements Callable_Route, R
     $sanitized_projects_string = wp_json_encode( $sanitized_projects );
 
     apply_filters( 'pb_save_options', $android_animation_file, Config::ANDROID_ANIMATION_FILE );
+    apply_filters( 'pb_save_options', $android_lottie_loop, Config::ANDROID_LOTTIE_LOOP );
     apply_filters( 'pb_save_options', $android_accent_color, Config::ANDROID_ACCENT_COLOR );
     apply_filters( 'pb_save_options', $android_description, Config::ANDROID_DESCRIPTION );
     apply_filters( 'pb_save_options', $sanitized_projects_string, Config::ANDROID_PROJECTS );

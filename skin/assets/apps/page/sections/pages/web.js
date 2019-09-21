@@ -10,6 +10,7 @@ const Web = (props) => {
       webAccentColor,
       webDescription,
       webProjects,
+      webLottie,
     },
     actions: {
       handleWebAnimation,
@@ -21,6 +22,7 @@ const Web = (props) => {
       handleWebProjectUp,
       handleWebProjectDown,
       handleAddWebProject,
+      setWebLottie,
     },
   } = useContext(WebStore);
 
@@ -34,6 +36,8 @@ const Web = (props) => {
         handleRemoveAnimationFile={handleRemoveWebAnimation}
         setAccentColor={setWebAccentColor}
         setDescription={setWebDescription}
+        loopLottie={webLottie}
+        setLoopLottie={setWebLottie}
       />
       <Projects
         projects={webProjects}

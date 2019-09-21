@@ -74,24 +74,28 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
 
     // get about.
     $about_animation_file = get_option( Config::ABOUT_ANIMATION_FILE );
+    $about_lottie_loop    = get_option( Config::ABOUT_LOTTIE_LOOP );
     $about_accent_color   = get_option( Config::ABOUT_ACCENT_COLOR );
     $about_description    = get_option( Config::ABOUT_DESCRIPTION );
     $about_page           = get_option( Config::ABOUT_PAGE );
 
     // get web.
     $web_animation_file = get_option( Config::WEB_ANIMATION_FILE );
+    $web_lottie_loop    = get_option( Config::WEB_LOTTIE_LOOP );
     $web_accent_color   = get_option( Config::WEB_ACCENT_COLOR );
     $web_description    = get_option( Config::WEB_DESCRIPTION );
     $web_projects       = get_option( Config::WEB_PROJECTS );
 
     // get video.
     $video_animation_file = get_option( Config::VIDEO_ANIMATION_FILE );
+    $video_lottie_loop    = get_option( Config::VIDEO_LOTTIE_LOOP );
     $video_accent_color   = get_option( Config::VIDEO_ACCENT_COLOR );
     $video_description    = get_option( Config::VIDEO_DESCRIPTION );
     $video_projects       = get_option( Config::VIDEO_PROJECTS );
 
     // get android.
     $android_animation_file = get_option( Config::ANDROID_ANIMATION_FILE );
+    $android_lottie_loop    = get_option( Config::ANDROID_LOTTIE_LOOP );
     $android_accent_color   = get_option( Config::ANDROID_ACCENT_COLOR );
     $android_description    = get_option( Config::ANDROID_DESCRIPTION );
     $android_projects       = get_option( Config::ANDROID_PROJECTS );
@@ -111,24 +115,28 @@ class Get_Portfolio_Page extends Base_Route implements Callable_Route {
       ],
       'aboutOptions' => [
         'aboutAnimationFile' => $about_animation_file,
+        'aboutLootieLoop'    => $about_lottie_loop ?: '0',
         'aboutAccentColor'   => $about_accent_color,
         'aboutDescription'   => $about_description,
         'aboutPage'          => $about_page,
       ],
       'webOptions' => [
         'webAnimationFile' => $web_animation_file,
+        'webLootieLoop'    => $web_lottie_loop ?: '0',
         'webAccentColor'   => $web_accent_color,
         'webDescription'   => $web_description,
         'webProjects'      => $web_projects,
       ],
       'videoOptions' => [
         'videoAnimationFile' => $video_animation_file,
+        'videoLootieLoop'    => $video_lottie_loop ?: '0',
         'videoAccentColor'   => $video_accent_color,
         'videoDescription'   => $video_description,
         'videoProjects'      => $video_projects,
       ],
       'androidOptions' => [
         'androidAnimationFile' => $android_animation_file,
+        'androidLootieLoop'    => $android_lottie_loop ?: '0',
         'androidAccentColor'   => $android_accent_color,
         'androidDescription'   => $android_description,
         'androidProjects'      => $android_projects,

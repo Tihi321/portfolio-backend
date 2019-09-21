@@ -73,6 +73,7 @@ const FetchContextProvider = (props) => {
         attributes: {
           aboutAnimationFile,
           aboutAccentColor,
+          aboutLottie,
           aboutDescription,
           aboutPage,
         },
@@ -80,6 +81,7 @@ const FetchContextProvider = (props) => {
 
       bodyData = {
         aboutAccentColor,
+        aboutLootieLoop: aboutLottie,
         aboutDescription,
         aboutAnimationFile,
         aboutPage,
@@ -95,6 +97,7 @@ const FetchContextProvider = (props) => {
       const {
         attributes: {
           webAnimationFile,
+          webLottie,
           webAccentColor,
           webDescription,
           webProjects,
@@ -103,6 +106,7 @@ const FetchContextProvider = (props) => {
 
       bodyData = {
         webAnimationFile,
+        webLootieLoop: webLottie,
         webAccentColor,
         webDescription,
         webProjects,
@@ -118,6 +122,7 @@ const FetchContextProvider = (props) => {
       const {
         attributes: {
           videoAnimationFile,
+          videoLottie,
           videoAccentColor,
           videoDescription,
           videoProjects,
@@ -126,6 +131,7 @@ const FetchContextProvider = (props) => {
 
       bodyData = {
         videoAnimationFile,
+        videoLootieLoop: videoLottie,
         videoAccentColor,
         videoDescription,
         videoProjects,
@@ -141,6 +147,7 @@ const FetchContextProvider = (props) => {
       const {
         attributes: {
           androidAnimationFile,
+          androidLottie,
           androidAccentColor,
           androidDescription,
           androidProjects,
@@ -149,6 +156,7 @@ const FetchContextProvider = (props) => {
 
       bodyData = {
         androidAnimationFile,
+        androidLootieLoop: androidLottie,
         androidAccentColor,
         androidDescription,
         androidProjects,

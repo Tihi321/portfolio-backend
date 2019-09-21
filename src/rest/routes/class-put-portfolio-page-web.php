@@ -83,6 +83,7 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
 
     $body = \json_decode( $request->get_body(), true );
 
+    $web_lottie_loop    = sanitize_text_field( $body['webLootieLoop'] ?? '' );
     $web_accent_color   = sanitize_text_field( $body['webAccentColor'] ?? '' );
     $web_description    = apply_filters( 'pb_sanitize_html_input', $body['webDescription'] ?? '' );
     $web_animation_file = apply_filters( 'pb_sanitize_media', $body['webAnimationFile'] ?? '' );
@@ -116,6 +117,7 @@ class Put_Portfolio_Page_Web extends Base_Route implements Callable_Route, Route
     $sanitized_projects_string = wp_json_encode( $sanitized_projects );
 
     apply_filters( 'pb_save_options', $web_animation_file, Config::WEB_ANIMATION_FILE );
+    apply_filters( 'pb_save_options', $web_lottie_loop, Config::WEB_LOTTIE_LOOP );
     apply_filters( 'pb_save_options', $web_accent_color, Config::WEB_ACCENT_COLOR );
     apply_filters( 'pb_save_options', $web_description, Config::WEB_DESCRIPTION );
     apply_filters( 'pb_save_options', $sanitized_projects_string, Config::WEB_PROJECTS );

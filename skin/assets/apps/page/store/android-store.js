@@ -12,6 +12,7 @@ const AndroidStoreProvider = (props) => {
   const [androidAnimationFile, setAndroidAnimationFile] = useReducer(mediaReducer, initialState);
   const [androidAccentColor, setAndroidAccentColor] = useState('');
   const [androidDescription, setAndroidDescription] = useState('');
+  const [androidLottie, setAndroidLottie] = useState(false);
 
   const [androidProjects, dispatchAndroidProjects] = useReducer(projectsReducer, []);
 
@@ -68,12 +69,14 @@ const AndroidStoreProvider = (props) => {
   const initialUpdate = (data) => {
     const {
       androidAccentColor: apiAndroidAccentColor,
+      androidLootieLoop: apiAndroidLootieLoop,
       androidAnimationFile: apiAndroidAnimationFile,
       androidDescription: apiAndroidDescription,
       androidProjects: apiAndroidProjects,
     } = data;
 
     setAndroidAccentColor(apiAndroidAccentColor);
+    setAndroidLottie(apiAndroidLootieLoop);
     handleAndroidAnimationUpdate(apiAndroidAnimationFile);
     setAndroidDescription(apiAndroidDescription);
 
@@ -90,6 +93,7 @@ const AndroidStoreProvider = (props) => {
         androidAccentColor,
         androidDescription,
         androidProjects,
+        androidLottie,
       },
       actions: {
         initialUpdate,
@@ -102,6 +106,7 @@ const AndroidStoreProvider = (props) => {
         handleAndroidProjectUp,
         handleAndroidProjectDown,
         handleAddAndroidProject,
+        setAndroidLottie,
       },
     }}>
       {props.children}

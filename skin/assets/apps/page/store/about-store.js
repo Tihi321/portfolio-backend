@@ -11,6 +11,7 @@ const AboutStoreProvider = (props) => {
   const [aboutAccentColor, setAboutAccentColor] = useState('');
   const [aboutDescription, setAboutDescription] = useState('');
   const [aboutPage, setAboutPage] = useState('');
+  const [aboutLottie, setAboutLottie] = useState(false);
 
   const handleAboutAnimationUpdate = (media) => {
     setAboutAnimationFile({
@@ -28,12 +29,14 @@ const AboutStoreProvider = (props) => {
   const initialUpdate = (data) => {
     const {
       aboutAccentColor: apiAboutAccentColor,
+      aboutLootieLoop: apiAboutLootieLoop,
       aboutAnimationFile: apiAboutAnimationFile,
       aboutDescription: apiAboutDescription,
       aboutPage: apiAboutPage,
     } = data;
 
     setAboutAccentColor(apiAboutAccentColor);
+    setAboutLottie(apiAboutLootieLoop);
     handleAboutAnimationUpdate(apiAboutAnimationFile);
     setAboutDescription(apiAboutDescription);
     setAboutPage(apiAboutPage);
@@ -46,6 +49,7 @@ const AboutStoreProvider = (props) => {
         aboutAccentColor,
         aboutDescription,
         aboutPage,
+        aboutLottie,
       },
       actions: {
         initialUpdate,
@@ -54,6 +58,7 @@ const AboutStoreProvider = (props) => {
         setAboutAccentColor,
         setAboutDescription,
         setAboutPage,
+        setAboutLottie,
       },
     }}>
       {props.children}

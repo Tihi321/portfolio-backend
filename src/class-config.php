@@ -170,6 +170,15 @@ abstract class Config {
    *
    * @since 1.0.0
    */
+  const ABOUT_LOTTIE_LOOP = self::PLUGIN_PREFIX . 'portfolio_about_lottie';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
   const ABOUT_ACCENT_COLOR = self::PLUGIN_PREFIX . 'portfolio_about_color';
 
   /**
@@ -204,6 +213,15 @@ abstract class Config {
    * @since 1.0.0
    */
   const WEB_ANIMATION_FILE = self::PLUGIN_PREFIX . 'portfolio_web_animation';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const WEB_LOTTIE_LOOP = self::PLUGIN_PREFIX . 'portfolio_web_lottie';
 
   /**
    * Social link
@@ -252,6 +270,15 @@ abstract class Config {
    *
    * @since 1.0.0
    */
+  const VIDEO_LOTTIE_LOOP = self::PLUGIN_PREFIX . 'portfolio_video_lottie';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
   const VIDEO_ACCENT_COLOR = self::PLUGIN_PREFIX . 'portfolio_video_color';
 
   /**
@@ -284,6 +311,15 @@ abstract class Config {
    * @since 1.0.0
    */
   const ANDROID_ANIMATION_FILE = self::PLUGIN_PREFIX . 'portfolio_android_animation';
+
+  /**
+   * Social link
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  const ANDROID_LOTTIE_LOOP = self::PLUGIN_PREFIX . 'portfolio_android_lottie';
 
   /**
    * Social link

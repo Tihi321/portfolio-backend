@@ -10,6 +10,7 @@ const Android = (props) => {
       androidAccentColor,
       androidDescription,
       androidProjects,
+      androidLottie,
     },
     actions: {
       handleAndroidAnimationUpdate,
@@ -21,6 +22,7 @@ const Android = (props) => {
       handleAndroidProjectUp,
       handleAndroidProjectDown,
       handleAddAndroidProject,
+      setAndroidLottie,
     },
   } = useContext(AndroidStore);
 
@@ -34,6 +36,8 @@ const Android = (props) => {
         handleRemoveAnimationFile={handleRemoveAndroidAnimation}
         setAccentColor={setAndroidAccentColor}
         setDescription={setAndroidDescription}
+        loopLottie={androidLottie}
+        setLoopLottie={setAndroidLottie}
       />
       <Projects
         projects={androidProjects}

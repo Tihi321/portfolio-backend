@@ -19,6 +19,7 @@ const About = (props) => {
       aboutAccentColor,
       aboutDescription,
       aboutPage,
+      aboutLottie,
     },
     actions: {
       handleAboutAnimationUpdate,
@@ -26,6 +27,7 @@ const About = (props) => {
       setAboutAccentColor,
       setAboutDescription,
       setAboutPage,
+      setAboutLottie,
     },
   } = useContext(AboutStore);
 
@@ -59,6 +61,8 @@ const About = (props) => {
         handleRemoveAnimationFile={handleRemoveAboutAnimation}
         setAccentColor={setAboutAccentColor}
         setDescription={setAboutDescription}
+        loopLottie={aboutLottie}
+        setLoopLottie={setAboutLottie}
       />
       {aboutPageElement}
     </Fragment>

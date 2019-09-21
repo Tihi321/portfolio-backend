@@ -9,12 +9,14 @@ const Video = (props) => {
       videoAnimationFile,
       videoAccentColor,
       videoDescription,
+      videoLottie,
     },
     actions: {
       handleVideoAnimationUpdate,
       handleRemoveVideoAnimation,
       setVideoAccentColor,
       setVideoDescription,
+      setVideoLottie,
     },
   } = useContext(VideoStore);
 
@@ -28,6 +30,8 @@ const Video = (props) => {
         handleRemoveAnimationFile={handleRemoveVideoAnimation}
         setAccentColor={setVideoAccentColor}
         setDescription={setVideoDescription}
+        loopLottie={videoLottie}
+        setLoopLottie={setVideoLottie}
       />
       <VideoProjects />
     </Fragment>
